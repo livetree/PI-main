@@ -119,19 +119,18 @@ export default function Home() {
                 viewport={{ once: true, margin: "-50px" }} 
                 transition={{ type: "spring", damping: 15, stiffness: 70, delay: i * 0.15 }} 
                 className="magic-card"
-                style={{ boxShadow: '0 20px 40px rgba(0,0,0,0.3)' }}
               >
-                {/* UNMASKED OVERLAY LAYER: Generates the 2.5x oversized blurred dot explicitly WITHOUT a tail */}
-                <div style={{ position: 'absolute', inset: 0, overflow: 'visible', zIndex: 0 }}>
-                    <div className="hover-glow-spinner spinner-dot" />
-                </div>
-                
-                {/* MASKED TRACK LAYER: Strictly governs the flawless 2px sharp dark blue trailing comet sequence */}
-                <div className="magic-mask">
+                {/* STRICT 2px TAIL TRACK: Hollow CSS masking inherently slices the 2000px geometric background natively */}
+                <div className="magic-mask-tail">
                   <div className="hover-glow-spinner spinner-tail" />
                 </div>
                 
-                {/* INTERNAL CARD: Mathematically isolates the 2000px geometric sphere base layer seamlessly */}
+                {/* ACTUAL DOT TRACK: Independent identically synced 5px hollow track organically scaling exactly the glowing pure dot isolation */}
+                <div className="magic-mask-dot">
+                    <div className="hover-glow-spinner spinner-dot" />
+                </div>
+                
+                {/* INTERNAL COMPONENT LAYER securely shielded above animation physics tracks seamlessly */}
                 <div className="magic-inner" style={{ padding: '2.5rem', display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
                   <div style={{ background: 'rgba(212,175,55,0.1)', padding: '1rem', borderRadius: '50%', flexShrink: 0 }}>
                     <TrendingUp color="var(--brand-primary)" size={28} style={{ transform: 'rotate(180deg)' }} />

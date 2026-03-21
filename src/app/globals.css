@@ -225,7 +225,7 @@ main {
   letter-spacing: 0.1em;
 }
 
-/* High-End Dual-Layer Magic Border Physics */
+/* High-End XOR Hollow Magic Border Physics */
 @keyframes circular-track {
   from { transform: translate(-50%, -50%) rotate(0deg); }
   to { transform: translate(-50%, -50%) rotate(360deg); }
@@ -233,43 +233,27 @@ main {
 
 .magic-card {
   position: relative;
-  overflow: visible;
+  background: rgba(255, 255, 255, 0.05); /* Idle 1px border */
   border-radius: 20px;
-  padding: 2px; /* Radically smaller, significantly sharper */
-  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255,255,255,0.05);
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
 }
 
 .magic-card:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  border-color: transparent; /* Smoothly yield to the glowing XOR tracks underneath */
   z-index: 50;
 }
 
-/* Sharp tracking boundary mask */
-.magic-mask {
-  position: absolute;
-  inset: 0;
-  border-radius: 20px;
-  overflow: hidden;
-  z-index: 1;
-}
-
-/* Internal card interface wrapper natively concealing the 2000px rotation base */
-.magic-inner {
-  position: relative;
-  background: var(--surface);
-  border-radius: 18px; /* 20px - 2px padding differential */
-  height: 100%;
-  z-index: 2;
-}
-
+/* Core spinner payload natively synchronized */
 .hover-glow-spinner {
   position: absolute;
   top: 50%;
   left: 50%;
   width: 2000px;
   height: 2000px;
+  margin: -1000px 0 0 -1000px; /* Lock infinite geometric origin perfectly unconditionally */
   animation: circular-track 2.5s linear infinite;
   opacity: 0;
   transition: opacity 0.4s ease;
@@ -277,15 +261,45 @@ main {
 }
 .magic-card:hover .hover-glow-spinner { opacity: 1; }
 
+/* Mask 1: The Tail Track - Scaled dynamically to exactly 2px sharp tracing edge */
+.magic-mask-tail {
+  position: absolute;
+  inset: -1px;
+  border-radius: 21px;
+  padding: 2px; /* Razor tight 2px parameter constraint limiting laser beam traces strictly */
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 1;
+}
+
 .spinner-tail {
-  /* Razor-sharp strictly tracked dark blue comet tail */
-  background: conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(30, 58, 138, 0.4) 85%, #1e3a8a 99.5%, #ffffff 100%);
-  z-index: 0; 
+  /* Ultra-sharp smoothly fading dark blue tail logic sequentially tracking the 2px bound */
+  background: conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(30, 58, 138, 0.4) 85%, #1e3a8a 99.8%, #ffffff 100%);
+}
+
+/* Mask 2: The Head Dot Track - Scaled dynamically to exactly 5px tracking bounds (2.5x larger) */
+.magic-mask-dot {
+  position: absolute;
+  inset: -2.5px;
+  border-radius: 22.5px;
+  padding: 5px; /* Overflows identically 2.5x over the tail bounds isolating solely the dot block natively */
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 2; /* Forces glowing dot to layer flawlessly on top of ambient tail track */
 }
 
 .spinner-dot {
-  /* Perfectly synced identical orbital ring mapping solely the pure white volumetric core dot */
+  /* Solely identical volumetric tracking frame mapped exactly synchronizing the pure white dot constraint structure */
   background: conic-gradient(from 0deg, transparent 0%, transparent 99.7%, #ffffff 100%);
-  filter: blur(4px); /* Expands the 2px geometric slice exponentially across the unmasked border threshold natively mimicking a massive soft glowing particle */
-  z-index: 1;
+  filter: drop-shadow(0 0 6px #ffffff) drop-shadow(0 0 12px #60a5fa); /* Injects intense geometric roundness into XOR mask intersection organically simulating absolute dot shape geometry */
+}
+
+.magic-inner {
+  position: relative;
+  background: var(--surface);
+  border-radius: 19px;
+  height: 100%;
+  z-index: 3;
 }
