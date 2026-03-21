@@ -102,12 +102,12 @@ export default function Home() {
             initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ type: "spring", damping: 20, stiffness: 80 }}
             style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', textTransform: 'uppercase', lineHeight: 1.1, marginBottom: '5rem', fontWeight: 900, letterSpacing: '-0.02em', color: '#0f172a' }}
           >
-            THE LEADERSHIP GAP
+            THE REAL GAP
           </motion.h2>
 
           <motion.div 
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-            style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'flex-start', gap: '2.5rem', marginBottom: '6rem', borderLeft: '4px solid #dc2626', paddingLeft: '3rem', textAlign: 'left' }}
+            style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'flex-start', gap: '4rem', marginBottom: '6rem', borderLeft: '4px solid #dc2626', paddingLeft: '3rem', textAlign: 'left' }}
           >
             <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 400, lineHeight: 1.5, letterSpacing: '0.02em', color: '#334155' }}>
               Too few leaders <span style={{ color: '#0f172a', fontWeight: 700 }}>carry too much</span>
