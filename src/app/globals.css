@@ -227,8 +227,17 @@ main {
 
 /* High-End Absolute Dual-Track Magic Border Physics */
 @keyframes circular-track {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spinner-anim {
+  animation: circular-track 2.5s linear infinite;
+  animation-play-state: paused; /* Instantly freezes geometric rotation exactly on mouseleave */
+}
+
+.magic-card:hover .spinner-anim {
+  animation-play-state: running; /* Seamlessly resumes trace identically from frozen state */
 }
 
 .magic-card {

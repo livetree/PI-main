@@ -134,6 +134,7 @@ export default function Home() {
                 {/* LAYER 0: The DOT Outwards Overhang Track */}
                 <div style={{ position: 'absolute', top: '-4px', left: '-4px', right: '-4px', bottom: '-4px', borderRadius: '24px', overflow: 'hidden', zIndex: 0 }}>
                     <motion.div 
+                      className="spinner-anim"
                       style={{
                         position: 'absolute', top: '50%', left: '50%', width: 2000, height: 2000, margin: '-1000px 0 0 -1000px', pointerEvents: 'none',
                         background: 'conic-gradient(from 0deg, transparent 0%, transparent 95%, #ffffff 100%)',
@@ -144,14 +145,13 @@ export default function Home() {
                         visible: { opacity: 0 },
                         hover: { opacity: 1, transition: { duration: 0.4 } }
                       }}
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 2.5, repeat: Infinity, ease: 'linear' }}
                     />
                 </div>
                 
                 {/* LAYER 1: The TAIL Sharp Tracking Track */}
                 <div style={{ position: 'absolute', top: '0', left: '0', right: '0', bottom: '0', borderRadius: '20px', overflow: 'hidden', zIndex: 1 }}>
                   <motion.div 
+                    className="spinner-anim"
                     style={{
                         position: 'absolute', top: '50%', left: '50%', width: 2000, height: 2000, margin: '-1000px 0 0 -1000px', pointerEvents: 'none',
                         background: 'conic-gradient(from 0deg, transparent 0%, transparent 40%, rgba(30, 58, 138, 0.4) 75%, #1e3a8a 98%, #ffffff 100%)'
@@ -161,8 +161,6 @@ export default function Home() {
                         visible: { opacity: 0 },
                         hover: { opacity: 1, transition: { duration: 0.4 } }
                     }}
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 2.5, repeat: Infinity, ease: 'linear' }}
                   />
                 </div>
                 
