@@ -100,21 +100,14 @@ export default function Home() {
           
           <div className="layout-split">
             
-            {/* LEFT COLUMN: TITLE AND CONCLUSION */}
+            {/* LEFT COLUMN: TITLE */}
             <motion.div 
               className="layout-left"
               initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ type: "spring", damping: 20, stiffness: 80 }}
             >
-              <h2 style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', color: 'var(--bg)', textTransform: 'uppercase', lineHeight: 0.9, marginBottom: '3rem', fontWeight: 900 }}>
+              <h2 style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', color: 'var(--bg)', textTransform: 'uppercase', lineHeight: 0.9, fontWeight: 900 }}>
                 The <br/>Leadership<br/>Gap
               </h2>
-              
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '1rem', background: 'rgba(0,0,0,0.1)', padding: '1rem 2rem', borderRadius: '99px' }}>
-                <span style={{ width: '12px', height: '12px', background: '#dc2626', borderRadius: '50%', boxShadow: '0 0 15px #dc2626' }} />
-                <p style={{ fontSize: 'clamp(1rem, 2vw, 1.25rem)', color: 'var(--bg)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                  And vision slows.
-                </p>
-              </div>
             </motion.div>
             
             {/* RIGHT COLUMN: MAGIC BOXES */}
@@ -140,6 +133,20 @@ export default function Home() {
             </div>
             
           </div>
+
+          {/* TERMINAL FOOTER: The final impression */}
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.6, type: 'spring', stiffness: 80 }}
+            style={{ textAlign: 'center', marginTop: '6rem' }}
+          >
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '1rem', background: 'rgba(0,0,0,0.1)', padding: '1.5rem 3rem', borderRadius: '99px' }}>
+                <span style={{ width: '12px', height: '12px', background: '#dc2626', borderRadius: '50%', boxShadow: '0 0 15px #dc2626' }} />
+                <p style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', color: 'var(--bg)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                  ...and vision slows...or dies...
+                </p>
+            </div>
+          </motion.div>
+
         </div>
       </section>
 
