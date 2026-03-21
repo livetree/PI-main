@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, TrendingUp, Zap, ChevronRight, Crown, Target, Zap as ZapIcon } from 'lucide-react';
 
@@ -29,6 +30,21 @@ export default function Home() {
     hidden: { opacity: 0, x: 100, y: 100 },
     visible: { opacity: 1, x: 0, y: 0, transition: { type: "spring", damping: 20, stiffness: 80 } }
   };
+
+  // JESUS FIRST: Direct Scroll-Linked Parallax Refs
+  const jesusFirstRef = useRef(null);
+  const { scrollYProgress: jfScroll } = useScroll({
+    target: jesusFirstRef,
+    offset: ["0% 100%", "50% 50%"] // Starts when top of section hits bottom of screen, locks when section hits center
+  });
+
+  const pt1X = useTransform(jfScroll, [0, 0.6], ['100vw', '0vw']);
+  const pt2X = useTransform(jfScroll, [0.1, 0.8], ['120vw', '0vw']);
+  const pt3X = useTransform(jfScroll, [0.2, 1.0], ['140vw', '0vw']);
+  
+  const ptOpacity = useTransform(jfScroll, [0, 0.4], [0, 1]);
+
+  const pointTransforms = [pt1X, pt2X, pt3X];
 
   return (
     <div style={{ position: 'relative', backgroundColor: 'var(--bg)', overflowX: 'hidden', color: '#fff' }}>
@@ -114,8 +130,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. JESUS FIRST (Immersive Full-Screen Layout) */}
-      <section style={{ position: 'relative', zIndex: 15, minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '10rem 1.5rem', background: 'var(--surface)', overflow: 'hidden' }}>
+      {/* 3. JESUS FIRST (Immersive Full-Screen Scroll Sweep) */}
+      <section ref={jesusFirstRef} style={{ position: 'relative', zIndex: 15, minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '10rem 1.5rem', background: 'var(--surface)', overflow: 'hidden' }}>
         
         {/* Massive Background Typography */}
         <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: 'clamp(10rem, 30vw, 40rem)', fontWeight: 900, color: 'rgba(255,255,255,0.02)', pointerEvents: 'none', lineHeight: 0.8, whiteSpace: 'nowrap', zIndex: 0 }}>
@@ -140,8 +156,8 @@ export default function Home() {
               </p>
             </motion.div>
 
-            {/* Right Column: Massive Typography replacing the boxes */}
-            <motion.div variants={flyInRight} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+            {/* Right Column: Scroll-Linked Parallax Sweeping Text */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
               
               <div>
                 <h3 style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '2rem' }}>Leaders Must:</h3>
@@ -151,7 +167,16 @@ export default function Home() {
                     "Hear and follow His voice",
                     "Lead from relationship, not just responsibility"
                   ].map((item, i) => (
-                    <motion.div key={i} initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ type: 'spring', delay: i * 0.15 }} style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem' }}>
+                    <motion.div 
+                      key={i} 
+                      style={{ 
+                        display: 'flex', 
+                        alignItems: 'flex-start', 
+                        gap: '1.5rem',
+                        x: pointTransforms[i],
+                        opacity: ptOpacity 
+                      }}
+                    >
                       <ChevronRight color="var(--brand-primary)" size={32} style={{ flexShrink: 0, marginTop: '0.25rem' }} />
                       <span style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', color: '#fff', fontWeight: 700, lineHeight: 1.2, textTransform: 'uppercase' }}>{item}</span>
                     </motion.div>
@@ -159,14 +184,14 @@ export default function Home() {
                 </div>
               </div>
 
-              <div style={{ padding: '3rem', background: 'rgba(212, 175, 55, 0.05)', borderLeft: '4px solid var(--brand-primary)', position: 'relative' }}>
+              <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} style={{ padding: '3rem', background: 'rgba(212, 175, 55, 0.05)', borderLeft: '4px solid var(--brand-primary)', position: 'relative' }}>
                 <div style={{ position: 'absolute', top: '-12px', left: '2rem', background: 'var(--surface)', padding: '0 1rem', fontSize: '0.875rem', color: 'var(--brand-primary)', textTransform: 'uppercase', letterSpacing: '0.2em', fontWeight: 800 }}>KEY INSIGHT</div>
                 <h4 style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: 'var(--brand-primary)', fontWeight: 400, textTransform: 'uppercase', letterSpacing: '0.05em', lineHeight: 1.4 }}>
                   Lasting multiplication begins with Him.
                 </h4>
-              </div>
+              </motion.div>
 
-            </motion.div>
+            </div>
 
           </div>
         </div>
