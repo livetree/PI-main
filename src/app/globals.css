@@ -225,7 +225,7 @@ main {
   letter-spacing: 0.1em;
 }
 
-/* High-End XOR Hollow Magic Border Physics */
+/* High-End Absolute Dual-Track Magic Border Physics */
 @keyframes circular-track {
   from { transform: translate(-50%, -50%) rotate(0deg); }
   to { transform: translate(-50%, -50%) rotate(360deg); }
@@ -242,11 +242,11 @@ main {
 .magic-card:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-  border-color: transparent; /* Smoothly yield to the glowing XOR tracks underneath */
+  border-color: transparent; /* Smoothly yields structural visibility to the glowing nested tracks natively */
   z-index: 50;
 }
 
-/* Core spinner payload natively synchronized */
+/* Core spinner payload synchronized purely universally */
 .hover-glow-spinner {
   position: absolute;
   top: 50%;
@@ -261,45 +261,13 @@ main {
 }
 .magic-card:hover .hover-glow-spinner { opacity: 1; }
 
-/* Mask 1: The Tail Track - Scaled dynamically to exactly 2px sharp tracing edge */
-.magic-mask-tail {
-  position: absolute;
-  inset: -1px;
-  border-radius: 21px;
-  padding: 2px; /* Razor tight 2px parameter constraint limiting laser beam traces strictly */
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  z-index: 1;
-}
-
 .spinner-tail {
-  /* Ultra-sharp smoothly fading dark blue tail logic sequentially tracking the 2px bound */
+  /* Razor-sharp flawlessly tracked dark blue comet tail trajectory */
   background: conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(30, 58, 138, 0.4) 85%, #1e3a8a 99.8%, #ffffff 100%);
-}
-
-/* Mask 2: The Head Dot Track - Scaled dynamically to exactly 5px tracking bounds (2.5x larger) */
-.magic-mask-dot {
-  position: absolute;
-  inset: -2.5px;
-  border-radius: 22.5px;
-  padding: 5px; /* Overflows identically 2.5x over the tail bounds isolating solely the dot block natively */
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  z-index: 2; /* Forces glowing dot to layer flawlessly on top of ambient tail track */
 }
 
 .spinner-dot {
   /* Solely identical volumetric tracking frame mapped exactly synchronizing the pure white dot constraint structure */
   background: conic-gradient(from 0deg, transparent 0%, transparent 99.7%, #ffffff 100%);
-  filter: drop-shadow(0 0 6px #ffffff) drop-shadow(0 0 12px #60a5fa); /* Injects intense geometric roundness into XOR mask intersection organically simulating absolute dot shape geometry */
-}
-
-.magic-inner {
-  position: relative;
-  background: var(--surface);
-  border-radius: 19px;
-  height: 100%;
-  z-index: 3;
+  filter: drop-shadow(0 0 6px #ffffff) drop-shadow(0 0 12px #3b82f6); /* Generates a deeply rich synthetic sphere geometric halo organically within the boundary mask intersections */
 }

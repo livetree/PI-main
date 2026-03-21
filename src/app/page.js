@@ -93,7 +93,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. THE CHALLENGE (Inverted Yellow with High-End Multi-Layer Magic Orbs) */}
+      {/* 2. THE CHALLENGE (Inverted Yellow with High-End Indestructible DOM Masking Orbs) */}
       <section style={{ padding: '10rem 1.5rem', position: 'relative', zIndex: 10, background: 'var(--brand-primary)' }}>
         <div className="container" style={{ maxWidth: '1000px' }}>
           
@@ -120,18 +120,24 @@ export default function Home() {
                 transition={{ type: "spring", damping: 15, stiffness: 70, delay: i * 0.15 }} 
                 className="magic-card"
               >
-                {/* STRICT 2px TAIL TRACK: Hollow CSS masking inherently slices the 2000px geometric background natively */}
-                <div className="magic-mask-tail">
-                  <div className="hover-glow-spinner spinner-tail" />
-                </div>
-                
-                {/* ACTUAL DOT TRACK: Independent identically synced 5px hollow track organically scaling exactly the glowing pure dot isolation */}
-                <div className="magic-mask-dot">
+                {/* LAYER 0: The DOT Outwards Overhang Track */}
+                {/* Overflows by exactly 4px radially, effectively generating a solid 6px tall pristine tracking dot constrained structurally natively without experimental CSS masking vulnerabilities */}
+                <div style={{ position: 'absolute', inset: '-4px', borderRadius: '24px', overflow: 'hidden', zIndex: 0 }}>
                     <div className="hover-glow-spinner spinner-dot" />
                 </div>
                 
-                {/* INTERNAL COMPONENT LAYER securely shielded above animation physics tracks seamlessly */}
-                <div className="magic-inner" style={{ padding: '2.5rem', display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+                {/* LAYER 1: The TAIL Sharp Tracking Track */}
+                {/* Geometrically locked exactly flush to the 0px card border, rendering the ultra-premium 2px tracking boundary natively unconditionally */}
+                <div style={{ position: 'absolute', inset: '0', borderRadius: '20px', overflow: 'hidden', zIndex: 1 }}>
+                  <div className="hover-glow-spinner spinner-tail" />
+                </div>
+                
+                {/* LAYER 2: The INTERNAL Navy Core Mask Block */}
+                {/* Positioned 2px inside the card bounds, inherently forming the inside solid occlusion boundary for BOTH geometric sequences simultaneously! */}
+                <div style={{ position: 'absolute', inset: '2px', borderRadius: '18px', background: 'var(--surface)', zIndex: 2 }} />
+                
+                {/* CONTENT LAYER purely unperturbed by underlying overlapping physics layer boundaries */}
+                <div style={{ position: 'relative', zIndex: 10, padding: '2.5rem', display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
                   <div style={{ background: 'rgba(212,175,55,0.1)', padding: '1rem', borderRadius: '50%', flexShrink: 0 }}>
                     <TrendingUp color="var(--brand-primary)" size={28} style={{ transform: 'rotate(180deg)' }} />
                   </div>
