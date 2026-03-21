@@ -102,16 +102,16 @@ export default function Home() {
             visibleVariant={{ opacity: 1, y: 0, scale: 1 }}
             delay={0.2}
             highlightColor="var(--brand-primary)"
-            innerStyle={{ padding: '5rem 3rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'rgba(10, 17, 40, 0.4)' }}
+            innerStyle={{ padding: '5rem 4rem', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', background: 'rgba(10, 17, 40, 0.4)' }}
           >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginBottom: '4rem' }}>
-              <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'var(--text-secondary)', fontWeight: 300, lineHeight: 1.4, letterSpacing: '0.05em' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginBottom: '4rem', borderLeft: '4px solid #dc2626', paddingLeft: '3rem' }}>
+              <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'var(--text-secondary)', fontWeight: 300, lineHeight: 1.5, letterSpacing: '0.05em' }}>
                 Too few leaders <span style={{ color: '#fff', fontWeight: 700 }}>carry too much</span>
               </h3>
-              <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'var(--text-secondary)', fontWeight: 300, lineHeight: 1.4, letterSpacing: '0.05em' }}>
+              <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'var(--text-secondary)', fontWeight: 300, lineHeight: 1.5, letterSpacing: '0.05em' }}>
                 People attend, but <span style={{ color: '#fff', fontWeight: 700 }}>don’t grow</span>
               </h3>
-              <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'var(--text-secondary)', fontWeight: 300, lineHeight: 1.4, letterSpacing: '0.05em' }}>
+              <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'var(--text-secondary)', fontWeight: 300, lineHeight: 1.5, letterSpacing: '0.05em' }}>
                 New leaders <span style={{ color: '#fff', fontWeight: 700 }}>aren’t developing</span>
               </h3>
             </div>
