@@ -93,7 +93,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. THE CHALLENGE (Inverted Yellow with High-End CSS offset-path Kinetic Orbs) */}
+      {/* 2. THE CHALLENGE (Inverted Yellow with High-End Multi-Layer Magic Orbs) */}
       <section style={{ padding: '10rem 1.5rem', position: 'relative', zIndex: 10, background: 'var(--brand-primary)' }}>
         <div className="container" style={{ maxWidth: '1000px' }}>
           
@@ -118,21 +118,19 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0, rotate: 0 }} 
                 viewport={{ once: true, margin: "-50px" }} 
                 transition={{ type: "spring", damping: 15, stiffness: 70, delay: i * 0.15 }} 
-                className="kinetic-card"
-                style={{ 
-                  backgroundColor: 'var(--surface)',
-                  padding: '2.5rem',
-                  borderRadius: '24px',
-                  border: '1px solid rgba(255,255,255,0.05)',
-                }}
+                className="magic-card"
+                style={{ boxShadow: '0 20px 40px rgba(0,0,0,0.3)' }}
               >
-                {/* 
-                  The massive roaming glowing orb flawlessly locked to the margin boundary! 
-                  No masks, no radar clipping. Absolute pure mathematical perimeter tracking.
-                */}
-                <div className="kinetic-orb" />
+                {/* BLURRED BLEED LAYER: Generates the "dot bigger than the border" ambient spill! */}
+                <div className="hover-glow-spinner" style={{ filter: 'blur(16px)', opacity: 0.85 }} />
                 
-                <div style={{ position: 'relative', zIndex: 10, display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+                {/* SHARP TRACK LAYER: Generates the ultra-premium 4px strict line layout mask */}
+                <div className="magic-mask">
+                  <div className="hover-glow-spinner" />
+                </div>
+                
+                {/* INTERNAL CARD: Blocks the center geometry of the 2000px spinning mathematically sound square core */}
+                <div className="magic-inner" style={{ padding: '2.5rem', display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
                   <div style={{ background: 'rgba(212,175,55,0.1)', padding: '1rem', borderRadius: '50%', flexShrink: 0 }}>
                     <TrendingUp color="var(--brand-primary)" size={28} style={{ transform: 'rotate(180deg)' }} />
                   </div>
