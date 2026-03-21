@@ -2,13 +2,13 @@
 
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, TrendingUp, Users, ShieldCheck, Zap, ArrowUpRight, Crown } from 'lucide-react';
+import { ArrowRight, TrendingUp, Zap, ChevronRight, Crown, Target, Zap as ZapIcon } from 'lucide-react';
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
   const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
 
-  // Aggressive Darknode Fly-In Physics (Safe for mobile, restricted to Y axis)
+  // Aggressive Darknode Fly-In Physics
   const flyInUp = {
     hidden: { opacity: 0, y: 150, scale: 0.85, rotateX: 10 },
     visible: { 
@@ -73,9 +73,6 @@ export default function Home() {
             <Link href="/connect" className="btn btn-primary" style={{ padding: '1.25rem 3rem', fontSize: '1.25rem', textTransform: 'uppercase', letterSpacing: '0.1em', clipPath: 'polygon(10% 0, 100% 0, 90% 100%, 0 100%)', borderRadius: 0 }}>
               Start a Conversation
             </Link>
-            <Link href="/training" className="btn btn-outline" style={{ padding: '1.25rem 3rem', fontSize: '1.25rem', textTransform: 'uppercase', letterSpacing: '0.1em', borderRadius: 0, border: '1px solid rgba(212,175,55,0.4)', color: 'var(--brand-primary)' }}>
-              Explore the Training Pathway
-            </Link>
           </motion.div>
         </div>
       </section>
@@ -117,146 +114,115 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. THE 5 BOXES (Deep Navy backgrounds) */}
-      <section style={{ position: 'relative', zIndex: 15, padding: '10rem 1rem 6rem', overflowX: 'hidden', background: 'var(--surface)' }}>
-        {/* Connection Line */}
-        <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '2px', height: '100%', background: 'linear-gradient(to bottom, rgba(212,175,55,0.5), rgba(212,175,55,0.5))', zIndex: 0 }} />
+      {/* 3. JESUS FIRST (Replaces the old 5-Boxes network) */}
+      <section style={{ position: 'relative', zIndex: 15, padding: '10rem 1.5rem', background: 'var(--surface)' }}>
+        <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '2px', height: '100px', background: 'linear-gradient(to bottom, var(--brand-primary), rgba(212,175,55,0))', zIndex: 0 }} />
 
-        <div className="container" style={{ position: 'relative', maxWidth: '1200px', zIndex: 10 }}>
+        <div className="container" style={{ maxWidth: '1000px', position: 'relative', zIndex: 10 }}>
           
-          {/* Base Anchor: Jesus's Kingdom */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8rem', alignItems: 'center' }}>
-            <motion.div 
-              variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
-              style={{ width: '100%', maxWidth: '800px', background: 'var(--bg)', padding: '5rem 2rem', border: '1px solid var(--brand-primary)', boxShadow: '0 0 100px rgba(212,175,55,0.1)', textAlign: 'center', position: 'relative', backdropFilter: 'blur(20px)' }}
-            >
-              <div style={{ position: 'absolute', top: '-40px', left: '50%', transform: 'translateX(-50%)', background: 'var(--surface)', border: '2px solid var(--brand-primary)', width: '80px', height: '80px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--brand-primary)', boxShadow: '0 0 50px rgba(212,175,55,0.4)', zIndex: 20 }}>
-                <Crown size={40} />
-              </div>
-              <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', color: '#fff', textTransform: 'uppercase', letterSpacing: '0.1em', lineHeight: 1, marginTop: '2rem' }}>Jesus's Kingdom</h2>
-            </motion.div>
-
-            <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', maxWidth: '1000px' }}>
-              <motion.div variants={flyInLeft} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} style={{ width: '100%', maxWidth: '450px', background: 'var(--bg)', padding: '3rem', borderLeft: '4px solid var(--brand-primary)', position: 'relative', boxShadow: '0 10px 40px rgba(0,0,0,0.5)' }}>
-                <div style={{ position: 'absolute', top: '50%', right: '-40px', width: '40px', height: '2px', background: 'var(--brand-primary)', zIndex: -1 }} className="hide-on-mobile" />
-                <div style={{ fontSize: '1.25rem', color: 'var(--brand-primary)', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.1em' }}>01 .</div>
-                <h3 style={{ fontSize: '2rem', color: '#fff', marginBottom: '0', textTransform: 'uppercase' }}>Leaders Equipped</h3>
-              </motion.div>
+          <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} style={{ textAlign: 'center', marginBottom: '5rem' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: '#000', border: '2px solid var(--brand-primary)', width: '80px', height: '80px', borderRadius: '50%', color: 'var(--brand-primary)', boxShadow: '0 0 50px rgba(212,175,55,0.4)', marginBottom: '2rem' }}>
+              <Crown size={40} />
             </div>
-
-            <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%', maxWidth: '1000px' }}>
-              <motion.div variants={flyInRight} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} style={{ width: '100%', maxWidth: '450px', background: 'var(--bg)', padding: '3rem', borderRight: '4px solid var(--brand-primary)', position: 'relative', boxShadow: '0 10px 40px rgba(0,0,0,0.5)' }}>
-                <div style={{ position: 'absolute', top: '50%', left: '-40px', width: '40px', height: '2px', background: 'var(--brand-primary)', zIndex: -1 }} className="hide-on-mobile" />
-                <div style={{ fontSize: '1.25rem', color: 'var(--brand-primary)', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.1em' }}>02 .</div>
-                <h3 style={{ fontSize: '2rem', color: '#fff', marginBottom: '0', textTransform: 'uppercase' }}>Leaders Raising Leaders</h3>
-              </motion.div>
-            </div>
-
-            <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', maxWidth: '1000px' }}>
-              <motion.div variants={flyInLeft} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} style={{ width: '100%', maxWidth: '450px', background: 'var(--bg)', padding: '3rem', borderLeft: '4px solid var(--brand-primary)', position: 'relative', boxShadow: '0 10px 40px rgba(0,0,0,0.5)' }}>
-                <div style={{ position: 'absolute', top: '50%', right: '-40px', width: '40px', height: '2px', background: 'var(--brand-primary)', zIndex: -1 }} className="hide-on-mobile" />
-                <div style={{ fontSize: '1.25rem', color: 'var(--brand-primary)', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.1em' }}>03 .</div>
-                <h3 style={{ fontSize: '2rem', color: '#fff', marginBottom: '0', textTransform: 'uppercase' }}>Limitations Minimized</h3>
-              </motion.div>
-            </div>
-
-            <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%', maxWidth: '1000px' }}>
-              <motion.div variants={flyInRight} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} style={{ width: '100%', maxWidth: '450px', background: 'var(--bg)', padding: '3rem', borderRight: '4px solid var(--brand-primary)', borderBottom: '1px solid rgba(212,175,55,0.4)', position: 'relative', boxShadow: '0 0 50px rgba(212,175,55,0.1)' }}>
-                <div style={{ position: 'absolute', top: '50%', left: '-40px', width: '40px', height: '2px', background: 'var(--brand-primary)', zIndex: -1 }} className="hide-on-mobile" />
-                <div style={{ fontSize: '1.25rem', color: 'var(--brand-primary)', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.1em' }}>04 .</div>
-                <h3 style={{ fontSize: '2rem', color: '#fff', marginBottom: '0', textTransform: 'uppercase' }}>The Kingdom Advanced</h3>
-              </motion.div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 4. THE PATHWAY (Immersive 100vh Slides with Deep Navy) */}
-      <section style={{ position: 'relative', zIndex: 10, background: 'var(--bg)' }}>
-        
-        {/* Pathway Header */}
-        <div style={{ padding: '10rem 1.5rem', textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-          <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <h2 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', color: '#fff', textTransform: 'uppercase', marginBottom: '2rem', lineHeight: 0.9 }}>
-              A CLEAR LEADERSHIP<br/><span style={{ color: 'var(--brand-primary)' }}>PATHWAY.</span>
+            <div style={{ fontSize: '1.5rem', color: 'var(--brand-primary)', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.3em' }}>JESUS FIRST</div>
+            <h2 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', color: '#fff', textTransform: 'uppercase', lineHeight: 0.9, letterSpacing: '-0.03em', marginBottom: '2rem' }}>
+              True Leadership <br/> Starts With Jesus
             </h2>
-            <p style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', maxWidth: '700px', margin: '0 auto', letterSpacing: '0.05em' }}>
-              We help you build leaders who multiply through a reproducible framework.
+            <p style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', color: 'var(--text-secondary)', maxWidth: '700px', margin: '0 auto' }}>
+              Before strategy, systems, or structure—there is Jesus.
             </p>
           </motion.div>
-        </div>
 
-        {/* Phase 1: 100vh */}
-        <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '6rem 1.5rem', position: 'relative', overflow: 'hidden', background: 'var(--surface)' }}>
-          <div style={{ position: 'absolute', top: '10%', right: '-10%', fontSize: '40vw', fontWeight: 900, color: 'rgba(255,255,255,0.02)', pointerEvents: 'none', lineHeight: 0.8 }}>01</div>
-          <div className="container" style={{ maxWidth: '1000px', position: 'relative', zIndex: 1 }}>
-            <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
-              <div style={{ fontSize: '1.5rem', color: 'var(--brand-primary)', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.3em' }}>PHASE 1</div>
-              <h3 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', color: '#fff', textTransform: 'uppercase', marginBottom: '2rem', lineHeight: 0.9, letterSpacing: '-0.03em' }}>Foundations</h3>
-              <p style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'rgba(255,255,255,0.7)', lineHeight: 1.5, fontWeight: 300, borderLeft: '4px solid var(--brand-primary)', paddingLeft: '2rem' }}>
-                Root leaders in Jesus and their absolute Kingdom identity. Lead from relationship, not just responsibility.
-              </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', maxWidth: '800px', margin: '0 auto' }}>
+            <h3 style={{ fontSize: '1.5rem', color: '#fff', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1rem' }}>Leaders Must:</h3>
+            
+            {[
+              "Know Him personally",
+              "Hear and follow His voice",
+              "Lead from relationship, not just responsibility"
+            ].map((item, i) => (
+              <motion.div key={i} variants={flyInLeft} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.15 }} style={{ background: 'var(--surface-elevated)', padding: '2rem 3rem', borderRadius: '16px', display: 'flex', alignItems: 'center', gap: '1.5rem', borderLeft: '4px solid var(--brand-primary)' }}>
+                <ChevronRight color="var(--brand-primary)" size={28} style={{ flexShrink: 0 }} />
+                <span style={{ fontSize: '1.5rem', color: '#fff', fontWeight: 500 }}>{item}</span>
+              </motion.div>
+            ))}
+
+            <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} style={{ marginTop: '4rem', padding: '3rem', background: 'rgba(212, 175, 55, 0.05)', border: '1px solid rgba(212, 175, 55, 0.2)', borderRadius: '24px', textAlign: 'center' }}>
+              <div style={{ fontSize: '1rem', color: 'var(--brand-primary)', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '1rem' }}>KEY INSIGHT</div>
+              <h4 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: '#fff', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', lineHeight: 1.2 }}>
+                Lasting multiplication <br/> begins with Him.
+              </h4>
             </motion.div>
           </div>
+
         </div>
-
-        {/* Phase 2: 100vh */}
-        <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '6rem 1.5rem', position: 'relative', overflow: 'hidden', background: 'radial-gradient(circle at 100% 50%, rgba(212,175,55,0.05) 0%, var(--bg) 60%)' }}>
-          <div style={{ position: 'absolute', top: '10%', left: '-10%', fontSize: '40vw', fontWeight: 900, color: 'rgba(255,255,255,0.02)', pointerEvents: 'none', lineHeight: 0.8 }}>02</div>
-          <div className="container" style={{ maxWidth: '1000px', position: 'relative', zIndex: 1 }}>
-            <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
-              <div style={{ fontSize: '1.5rem', color: 'var(--brand-secondary)', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.3em' }}>PHASE 2</div>
-              <h3 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', color: '#fff', textTransform: 'uppercase', marginBottom: '2rem', lineHeight: 0.9, letterSpacing: '-0.03em' }}>Activation</h3>
-              <p style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'rgba(255,255,255,0.7)', lineHeight: 1.5, fontWeight: 300, borderLeft: '4px solid var(--brand-secondary)', paddingLeft: '2rem' }}>
-                Move leaders out of the classroom and into real-life application and obedience. We emphasize practical disciple-making.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Phase 3: 100vh */}
-        <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '6rem 1.5rem', position: 'relative', overflow: 'hidden', background: 'var(--surface-elevated)' }}>
-          <div style={{ position: 'absolute', top: '10%', right: '-10%', fontSize: '40vw', fontWeight: 900, color: 'rgba(255,255,255,0.02)', pointerEvents: 'none', lineHeight: 0.8 }}>03</div>
-          <div className="container" style={{ maxWidth: '1000px', position: 'relative', zIndex: 1 }}>
-            <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
-              <div style={{ fontSize: '1.5rem', color: '#fff', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.3em' }}>PHASE 3</div>
-              <h3 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', color: 'var(--brand-primary)', textTransform: 'uppercase', marginBottom: '2rem', lineHeight: 0.9, letterSpacing: '-0.03em', textShadow: '0 0 50px rgba(212,175,55,0.3)' }}>Multiplication</h3>
-              <p style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'rgba(255,255,255,0.7)', lineHeight: 1.5, fontWeight: 300, borderLeft: '4px solid #fff', paddingLeft: '2rem' }}>
-                Equip leaders to rigorously disciple and reproduce others. Movements that multiply across generations.
-              </p>
-
-              <div style={{ marginTop: '5rem' }}>
-                <Link href="/training" className="btn btn-outline" style={{ padding: '1.25rem 4rem', fontSize: '1.25rem', textTransform: 'uppercase', letterSpacing: '0.1em', borderRadius: 0, border: '1px solid rgba(212,175,55,0.4)', color: 'var(--brand-primary)' }}>
-                  Explore Training Pathway <ArrowRight size={20} style={{ marginLeft: '1rem' }} />
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-
       </section>
 
-      {/* 5. FINAL CTA */}
-      <section style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '8rem 1.5rem', background: 'var(--bg)' }}>
-        <motion.div 
-          variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          style={{ width: '100%', maxWidth: '1000px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
-        >
-          <div style={{ width: '100%', height: '1px', background: 'linear-gradient(90deg, transparent, var(--brand-primary), transparent)', marginBottom: '4rem' }} />
+      {/* 4. KINGDOM MULTIPLICATION */}
+      <section style={{ padding: '10rem 1.5rem', background: 'var(--bg)', position: 'relative' }}>
+        <div className="container" style={{ maxWidth: '1000px', position: 'relative', zIndex: 10 }}>
           
-          <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', marginBottom: '2rem', color: '#fff', lineHeight: 0.9, letterSpacing: '-0.04em', textTransform: 'uppercase' }}>
-            THE NEED FOR MULTIPLYING LEADERS HAS NEVER BEEN GREATER.
-          </h2>
+          <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} style={{ textAlign: 'center', marginBottom: '5rem' }}>
+            <div style={{ fontSize: '1.5rem', color: 'var(--brand-secondary)', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.3em' }}>KINGDOM MULTIPLICATION</div>
+            <h2 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', color: '#fff', textTransform: 'uppercase', lineHeight: 0.9, letterSpacing: '-0.03em', marginBottom: '2rem' }}>
+              The Goal Is Not Growth—<br/><span style={{ color: 'var(--brand-primary)', textShadow: '0 0 40px rgba(212,175,55,0.3)' }}>It's Multiplication</span>
+            </h2>
+          </motion.div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', marginBottom: '5rem' }}>
+            {[
+              "Disciples who make disciples",
+              "Leaders who raise leaders",
+              "Movements that multiply"
+            ].map((item, i) => (
+              <motion.div key={i} variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.1 }} style={{ background: 'var(--surface-elevated)', padding: '4rem 2rem', borderRadius: '24px', textAlign: 'center', borderTop: '4px solid var(--brand-secondary)' }}>
+                <Target color="var(--brand-secondary)" size={40} style={{ margin: '0 auto 1.5rem' }} />
+                <h3 style={{ fontSize: '1.75rem', color: '#fff', fontWeight: 600, lineHeight: 1.3 }}>{item}</h3>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.p variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'var(--text-secondary)', textAlign: 'center', maxWidth: '800px', margin: '0 auto', fontStyle: 'italic' }}>
+            "This is the model Jesus established—and it still works today."
+          </motion.p>
           
-          <p style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', marginBottom: '5rem', lineHeight: 1.5, maxWidth: '800px' }}>
-            You already have vision and people. Now it's time to multiply leadership.
-          </p>
+        </div>
+      </section>
+
+      {/* 5. THE SOLUTION / FINAL CTA */}
+      <section style={{ padding: '10rem 1.5rem', background: 'radial-gradient(ellipse at bottom, rgba(212,175,55,0.1) 0%, var(--surface) 60%)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+        <div className="container" style={{ maxWidth: '1000px' }}>
           
-          <Link href="/connect" className="btn btn-primary" style={{ padding: '1.5rem 5rem', fontSize: '1.5rem', textTransform: 'uppercase', letterSpacing: '0.2em', clipPath: 'polygon(5% 0, 100% 0, 95% 100%, 0 100%)', borderRadius: 0, boxShadow: '0 0 40px rgba(212,175,55,0.2)' }}>
-            Connect With Us Today
-          </Link>
-        </motion.div>
+          <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} style={{ textAlign: 'center', marginBottom: '5rem' }}>
+            <div style={{ fontSize: '1.5rem', color: '#fff', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.3em' }}>THE SOLUTION</div>
+            <h2 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', color: '#fff', textTransform: 'uppercase', lineHeight: 0.9, letterSpacing: '-0.03em', marginBottom: '2rem' }}>
+              We Help You Build <br/>Leaders Who Multiply
+            </h2>
+            <p style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', color: 'var(--text-secondary)', maxWidth: '700px', margin: '0 auto' }}>
+              Prepare International partners with leaders like you to:
+            </p>
+          </motion.div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', maxWidth: '800px', margin: '0 auto 6rem' }}>
+            {[
+              "Develop strong Kingdom foundations",
+              "Activate leaders into real-life obedience",
+              "Equip leaders to disciple and multiply others"
+            ].map((item, i) => (
+              <motion.div key={i} variants={flyInRight} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.15 }} style={{ padding: '2rem', display: 'flex', alignItems: 'center', gap: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+                <ZapIcon color="var(--brand-primary)" size={24} style={{ flexShrink: 0 }} />
+                <span style={{ fontSize: '1.5rem', color: '#fff' }}>{item}</span>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} style={{ textAlign: 'center' }}>
+            <Link href="/connect" className="btn btn-primary" style={{ padding: '1.5rem 5rem', fontSize: '1.5rem', textTransform: 'uppercase', letterSpacing: '0.1em', clipPath: 'polygon(5% 0, 100% 0, 95% 100%, 0 100%)', borderRadius: 0, boxShadow: '0 0 60px rgba(212,175,55,0.2)' }}>
+              Start Developing Your Leaders
+            </Link>
+          </motion.div>
+          
+        </div>
       </section>
 
       <style jsx>{`
