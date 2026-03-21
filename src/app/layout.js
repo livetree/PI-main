@@ -4,7 +4,12 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Prepare International | Equipping for Global Impact',
   description: 'Introducing Prepare International to the world. We build, equip, and empower leaders across the globe to bring lasting change.',
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 function MobileHeader() {

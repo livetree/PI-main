@@ -3,7 +3,8 @@ import ReactMarkdown from 'react-markdown';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const post = getPostBySlug(params.slug, ['title', 'excerpt']);
   if (!post) return { title: 'Post Not Found' };
 
@@ -20,7 +21,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function BlogPost({ params }) {
+export default async function BlogPost(props) {
+  const params = await props.params;
   const post = getPostBySlug(params.slug, ['title', 'date', 'author', 'content']);
 
   if (!post) {
@@ -43,7 +45,7 @@ export default function BlogPost({ params }) {
       </header>
 
       <div className="markdown-content" style={{ lineHeight: 1.8, fontSize: '1.125rem', color: 'var(--text-primary)' }}>
-        <ReactMarkdown>{post.content}</ReactMarkdown>
+        <ReactMarkdown>{post.content || ''}</ReactMarkdown>
       </div>
 
       <style>{`
