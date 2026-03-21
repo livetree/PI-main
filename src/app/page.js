@@ -93,7 +93,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. THE CHALLENGE (Inverted Yellow with Navy Floating Cards + Glow Hovers) */}
+      {/* 2. THE CHALLENGE (Inverted Yellow with BOLD ELECTRIC GRADIENT Hovers) */}
       <section style={{ padding: '10rem 1.5rem', position: 'relative', zIndex: 10, background: 'var(--brand-primary)' }}>
         <div className="container" style={{ maxWidth: '1000px' }}>
           
@@ -119,9 +119,18 @@ export default function Home() {
                 viewport={{ once: true, margin: "-50px" }} 
                 transition={{ type: "spring", damping: 15, stiffness: 70, delay: i * 0.15 }} 
                 className="hover-glow-wrap"
-                style={{ borderLeft: '6px solid var(--bg)', '--comet-body': 'rgba(11, 17, 33, 0.8)', '--comet-head': '#000000', '--glow-shadow': 'rgba(11,17,33,0.3)' }}
+                style={{ 
+                  '--glow-padding': '4px',
+                  '--glow-shadow': 'rgba(11, 17, 33, 0.4)'
+                }}
               >
-                <div className="hover-glow-spinner" />
+                {/* 
+                  Electric Multi-Color Gradient exclusively on the Leadership Gap border elements
+                */}
+                <div className="hover-glow-spinner" style={{ 
+                  background: 'conic-gradient(from 0deg, var(--bg) 0%, #3b82f6 15%, var(--bg) 30%, transparent 45%, transparent 55%, var(--bg) 70%, #3b82f6 85%, var(--bg) 100%)' 
+                }} />
+                
                 <div className="hover-glow-inner" style={{ padding: '2.5rem', display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
                   <div style={{ background: 'rgba(212,175,55,0.1)', padding: '1rem', borderRadius: '50%', flexShrink: 0 }}>
                     <TrendingUp color="var(--brand-primary)" size={28} style={{ transform: 'rotate(180deg)' }} />
@@ -188,14 +197,16 @@ export default function Home() {
                 </div>
               </div>
 
-              <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="hover-glow-wrap" style={{ borderLeft: '4px solid var(--brand-primary)' }}>
-                <div className="hover-glow-spinner" />
-                <div className="hover-glow-inner" style={{ padding: '3rem', background: 'rgba(212, 175, 55, 0.05)', position: 'relative' }}>
+              {/* Standard physics override for this one element instead of globals */}
+              <motion.div 
+                variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} 
+                whileHover={{ x: 10, borderColor: 'var(--brand-primary)' }}
+                style={{ padding: '3rem', background: 'rgba(212, 175, 55, 0.05)', position: 'relative', borderLeft: '4px solid rgba(212, 175, 55, 0.5)' }}
+              >
                   <div style={{ position: 'absolute', top: '-12px', left: '2rem', background: 'var(--surface)', padding: '0 1rem', fontSize: '0.875rem', color: 'var(--brand-primary)', textTransform: 'uppercase', letterSpacing: '0.2em', fontWeight: 800 }}>KEY INSIGHT</div>
                   <h4 style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: 'var(--brand-primary)', fontWeight: 400, textTransform: 'uppercase', letterSpacing: '0.05em', lineHeight: 1.4 }}>
                     Lasting multiplication begins with Him.
                   </h4>
-                </div>
               </motion.div>
 
             </div>
@@ -204,7 +215,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. KINGDOM MULTIPLICATION (Glow Cards) */}
+      {/* 4. KINGDOM MULTIPLICATION (Restored standard 3D Hover physics) */}
       <section style={{ padding: '10rem 1.5rem', background: 'var(--bg)', position: 'relative' }}>
         <div className="container" style={{ maxWidth: '1000px', position: 'relative', zIndex: 10 }}>
           
@@ -221,12 +232,13 @@ export default function Home() {
               "Leaders who raise leaders",
               "Movements that multiply"
             ].map((item, i) => (
-              <motion.div key={i} variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.1 }} className="hover-glow-wrap" style={{ borderTop: '4px solid var(--brand-secondary)', '--comet-body': 'rgba(252, 211, 77, 0.8)', '--comet-head': '#ffffff', '--glow-shadow': 'rgba(252,211,77,0.2)' }}>
-                <div className="hover-glow-spinner" />
-                <div className="hover-glow-inner" style={{ background: 'var(--surface-elevated)', padding: '4rem 2rem', textAlign: 'center' }}>
+              <motion.div 
+                key={i} variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.1 }} 
+                whileHover={{ y: -8, scale: 1.02, boxShadow: '0 20px 40px rgba(0,0,0,0.5)', borderColor: 'rgba(212, 175, 55, 0.4)' }}
+                style={{ background: 'var(--surface-elevated)', padding: '4rem 2rem', textAlign: 'center', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.05)', borderTop: '4px solid var(--brand-secondary)' }}
+              >
                   <Target color="var(--brand-secondary)" size={40} style={{ margin: '0 auto 1.5rem' }} />
                   <h3 style={{ fontSize: '1.75rem', color: '#fff', fontWeight: 600, lineHeight: 1.3 }}>{item}</h3>
-                </div>
               </motion.div>
             ))}
           </div>
@@ -238,7 +250,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. THE SOLUTION / FINAL CTA (Glow List) */}
+      {/* 5. THE SOLUTION / FINAL CTA (Restored lateral list hover glides) */}
       <section style={{ padding: '10rem 1.5rem', background: 'radial-gradient(ellipse at bottom, rgba(212,175,55,0.1) 0%, var(--surface) 60%)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
         <div className="container" style={{ maxWidth: '1000px' }}>
           
@@ -258,12 +270,13 @@ export default function Home() {
               "Activate leaders into real-life obedience",
               "Equip leaders to disciple and multiply others"
             ].map((item, i) => (
-              <motion.div key={i} variants={flyInRight} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.15 }} className="hover-glow-wrap" style={{ borderRadius: '16px' }}>
-                <div className="hover-glow-spinner" />
-                <div className="hover-glow-inner" style={{ background: 'rgba(212,175,55,0.02)', padding: '2rem', display: 'flex', alignItems: 'center', gap: '1.5rem', borderRadius: '14px' }}>
+              <motion.div 
+                key={i} variants={flyInRight} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.15 }}
+                whileHover={{ x: 15, background: 'rgba(212, 175, 55, 0.08)', borderColor: 'rgba(212, 175, 55, 0.3)' }}
+                style={{ background: 'rgba(212, 175, 55, 0.02)', padding: '2rem', display: 'flex', alignItems: 'center', gap: '1.5rem', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.05)' }} 
+              >
                   <ZapIcon color="var(--brand-primary)" size={24} style={{ flexShrink: 0 }} />
                   <span style={{ fontSize: '1.5rem', color: '#fff' }}>{item}</span>
-                </div>
               </motion.div>
             ))}
           </div>
