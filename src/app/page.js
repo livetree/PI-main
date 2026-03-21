@@ -121,14 +121,14 @@ export default function Home() {
                 className="hover-glow-wrap"
                 style={{ 
                   '--glow-padding': '4px',
-                  '--glow-shadow': 'rgba(11, 17, 33, 0.4)'
+                  '--glow-shadow': 'rgba(30, 58, 138, 0.4)'
                 }}
               >
                 {/* 
-                  Electric Multi-Color Gradient exclusively on the Leadership Gap border elements
+                  Deep Royal Blue Single-Sided Tracking Light exclusively on the Leadership Gap border elements
                 */}
                 <div className="hover-glow-spinner" style={{ 
-                  background: 'conic-gradient(from 0deg, var(--bg) 0%, #3b82f6 15%, var(--bg) 30%, transparent 45%, transparent 55%, var(--bg) 70%, #3b82f6 85%, var(--bg) 100%)' 
+                  background: 'conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(30, 58, 138, 0.4) 85%, #1e3a8a 100%)' 
                 }} />
                 
                 <div className="hover-glow-inner" style={{ padding: '2.5rem', display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
