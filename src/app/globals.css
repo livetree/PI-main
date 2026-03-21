@@ -226,9 +226,10 @@ main {
 }
 
 /* Running Highlights for Hover Cards */
-@keyframes glow-spin {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
+@keyframes border-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .hover-glow-wrap {
@@ -237,40 +238,17 @@ main {
   border-radius: 24px;
   padding: 2px;
   background: rgba(255, 255, 255, 0.05);
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, background 0.3s ease;
   transform-style: preserve-3d;
 }
 
 .hover-glow-wrap:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 50px var(--glow-shadow, rgba(212,175,55,0.15));
+  background: linear-gradient(90deg, transparent 0%, var(--comet-body, var(--brand-primary)) 50%, var(--comet-head, #fff) 80%, transparent 100%);
+  background-size: 200% 200%;
+  animation: border-flow 1.5s linear infinite;
   z-index: 50;
-}
-
-.hover-glow-spinner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 250%;
-  height: 250%;
-  --comet-body: var(--brand-primary);
-  --comet-head: #ffffff;
-  background: conic-gradient(
-    from 0deg, 
-    transparent 0%, 
-    transparent 65%, 
-    var(--comet-body) 95%, 
-    var(--comet-head) 100%
-  );
-  animation: glow-spin 1.25s linear infinite;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.hover-glow-wrap:hover .hover-glow-spinner {
-  opacity: 1;
 }
 
 .hover-glow-inner {
