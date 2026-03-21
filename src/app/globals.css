@@ -185,3 +185,42 @@ main {
   display: flex;
   flex-direction: column;
 }
+
+/* Pinterest Vibe Glassmorphism */
+.glass-card {
+  background: rgba(30, 37, 54, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 24px;
+  padding: 2.5rem;
+  transition: all var(--transition-smooth);
+}
+
+.glass-card:hover {
+  border-color: rgba(212, 175, 55, 0.35);
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+}
+
+.glass-card-highlight {
+  background: rgba(30, 37, 54, 0.95);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
+  transform: scale(1.02);
+  z-index: 10;
+}
+
+.pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
