@@ -51,7 +51,7 @@ export default function Home() {
             style={{ fontSize: 'clamp(3rem, 10vw, 8rem)', fontWeight: 800, lineHeight: 0.9, letterSpacing: '-0.05em', margin: '0 0 2rem 0', textTransform: 'uppercase' }}
           >
             AS VISION EXPANDS,<br />
-            <span style={{ color: 'transparent', WebkitTextStroke: '2px var(--brand-primary)', textShadow: '0 0 40px rgba(212,175,55,0.4)' }}>LEADERS MUST MULTIPLY.</span>
+            <span style={{ color: 'var(--brand-primary)', textShadow: '0 0 40px rgba(212,175,55,0.4)' }}>LEADERS MUST MULTIPLY.</span>
           </motion.h1>
           
           <motion.p 
@@ -86,8 +86,8 @@ export default function Home() {
         <div className="container" style={{ maxWidth: '1000px' }}>
           
           <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <h2 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', WebkitTextStroke: '2px rgba(255,255,255,0.05)', color: 'transparent', textTransform: 'uppercase', lineHeight: 0.9, marginBottom: '4rem', textAlign: 'center' }}>
-              LEADERSHIP GAPS<br/><span style={{ color: '#ef4444', WebkitTextStroke: 'none', textShadow: '0 0 30px rgba(239, 68, 68, 0.3)' }}>LIMIT KINGDOM IMPACT</span>
+            <h2 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', color: '#fff', textTransform: 'uppercase', lineHeight: 0.9, marginBottom: '4rem', textAlign: 'center' }}>
+              LEADERSHIP GAPS<br/><span style={{ color: '#ef4444', textShadow: '0 0 30px rgba(239, 68, 68, 0.3)' }}>LIMIT KINGDOM IMPACT</span>
             </h2>
           </motion.div>
           
@@ -168,8 +168,8 @@ export default function Home() {
         {/* Pathway Header */}
         <div style={{ padding: '10rem 1.5rem', textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
           <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <h2 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', WebkitTextStroke: '2px rgba(255,255,255,0.1)', color: 'transparent', textTransform: 'uppercase', marginBottom: '2rem', lineHeight: 0.9 }}>
-              A CLEAR LEADERSHIP<br/><span style={{ color: '#fff', WebkitTextStroke: 'none' }}>PATHWAY.</span>
+            <h2 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', color: '#fff', textTransform: 'uppercase', marginBottom: '2rem', lineHeight: 0.9 }}>
+              A CLEAR LEADERSHIP<br/><span style={{ color: 'var(--brand-primary)' }}>PATHWAY.</span>
             </h2>
             <p style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', maxWidth: '700px', margin: '0 auto', letterSpacing: '0.05em' }}>
               We help you build leaders who multiply through a reproducible framework.
