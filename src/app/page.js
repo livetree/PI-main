@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, TrendingUp, Zap, ChevronRight, Crown, Target, Zap as ZapIcon } from 'lucide-react';
+import MagicCard from '../components/MagicCard';
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -112,69 +113,18 @@ export default function Home() {
               "Potential leaders remain undeveloped",
               "Vision stalls instead of multiplying"
             ].map((challenge, i) => (
-              <motion.div 
+              <MagicCard 
                 key={i} 
-                initial="idle"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
-                whileHover="hover"
-                variants={{
-                  idle: { opacity: 0, x: -150, rotate: -5 },
-                  visible: { opacity: 1, x: 0, rotate: 0, y: 0, scale: 1, boxShadow: '0 0px 0px rgba(0,0,0,0)', borderColor: 'rgba(255,255,255,0.05)', transition: { type: "spring", damping: 15, stiffness: 70, delay: i * 0.15 } },
-                  hover: { y: -8, scale: 1.02, boxShadow: '0 30px 60px rgba(0,0,0,0.5)', borderColor: 'transparent', zIndex: 50, transition: { duration: 0.3 } }
-                }}
-                className="magic-card"
-                style={{
-                  position: 'relative',
-                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                  borderRadius: '20px',
-                  border: '1px solid rgba(255,255,255,0.05)'
-                }}
+                delay={i * 0.15}
+                initialVariant={{ opacity: 0, x: -150, rotate: -5 }}
+                visibleVariant={{ opacity: 1, x: 0, rotate: 0 }}
+                innerStyle={{ padding: '2.5rem', display: 'flex', gap: '1.5rem', alignItems: 'center' }}
               >
-                {/* LAYER 0: The DOT Outwards Overhang Track */}
-                <div style={{ position: 'absolute', top: '-4px', left: '-4px', right: '-4px', bottom: '-4px', borderRadius: '24px', overflow: 'hidden', zIndex: 0 }}>
-                    <motion.div 
-                      className="spinner-anim"
-                      style={{
-                        position: 'absolute', top: '50%', left: '50%', width: 2000, height: 2000, margin: '-1000px 0 0 -1000px', pointerEvents: 'none',
-                        background: 'conic-gradient(from 0deg, transparent 0%, transparent 95%, #ffffff 100%)',
-                        filter: 'drop-shadow(0 0 6px #ffffff) drop-shadow(0 0 12px #3b82f6)'
-                      }}
-                      variants={{
-                        idle: { opacity: 0 },
-                        visible: { opacity: 0 },
-                        hover: { opacity: 1, transition: { duration: 0.4 } }
-                      }}
-                    />
+                <div style={{ background: 'rgba(212,175,55,0.1)', padding: '1rem', borderRadius: '50%', flexShrink: 0 }}>
+                  <TrendingUp color="var(--brand-primary)" size={28} style={{ transform: 'rotate(180deg)' }} />
                 </div>
-                
-                {/* LAYER 1: The TAIL Sharp Tracking Track */}
-                <div style={{ position: 'absolute', top: '0', left: '0', right: '0', bottom: '0', borderRadius: '20px', overflow: 'hidden', zIndex: 1 }}>
-                  <motion.div 
-                    className="spinner-anim"
-                    style={{
-                        position: 'absolute', top: '50%', left: '50%', width: 2000, height: 2000, margin: '-1000px 0 0 -1000px', pointerEvents: 'none',
-                        background: 'conic-gradient(from 0deg, transparent 0%, transparent 40%, rgba(30, 58, 138, 0.4) 75%, #1e3a8a 98%, #ffffff 100%)'
-                    }}
-                    variants={{
-                        idle: { opacity: 0 },
-                        visible: { opacity: 0 },
-                        hover: { opacity: 1, transition: { duration: 0.4 } }
-                    }}
-                  />
-                </div>
-                
-                {/* LAYER 2: The INTERNAL Navy Core Mask Block */}
-                <div style={{ position: 'absolute', top: '2px', left: '2px', right: '2px', bottom: '2px', borderRadius: '18px', background: 'var(--surface)', zIndex: 2 }} />
-                
-                {/* CONTENT LAYER */}
-                <div style={{ position: 'relative', zIndex: 10, padding: '2.5rem', display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-                  <div style={{ background: 'rgba(212,175,55,0.1)', padding: '1rem', borderRadius: '50%', flexShrink: 0 }}>
-                    <TrendingUp color="var(--brand-primary)" size={28} style={{ transform: 'rotate(180deg)' }} />
-                  </div>
-                  <p style={{ fontSize: '1.25rem', color: '#fff', fontWeight: 600, lineHeight: 1.5 }}>{challenge}</p>
-                </div>
-              </motion.div>
+                <p style={{ fontSize: '1.25rem', color: '#fff', fontWeight: 600, lineHeight: 1.5 }}>{challenge}</p>
+              </MagicCard>
             ))}
           </div>
         </div>
@@ -269,14 +219,17 @@ export default function Home() {
               "Leaders who raise leaders",
               "Movements that multiply"
             ].map((item, i) => (
-              <motion.div 
-                key={i} variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.1 }} 
-                whileHover={{ y: -8, scale: 1.02, boxShadow: '0 20px 40px rgba(0,0,0,0.5)', borderColor: 'rgba(212, 175, 55, 0.4)' }}
-                style={{ background: 'var(--surface-elevated)', padding: '4rem 2rem', textAlign: 'center', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.05)', borderTop: '4px solid var(--brand-secondary)' }}
+              <MagicCard 
+                key={i} 
+                delay={i * 0.1}
+                initialVariant={{ opacity: 0, y: 150, scale: 0.85, rotateX: 10 }}
+                visibleVariant={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+                highlightColor="var(--brand-secondary)"
+                innerStyle={{ padding: '4rem 2rem', textAlign: 'center', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
               >
                   <Target color="var(--brand-secondary)" size={40} style={{ margin: '0 auto 1.5rem' }} />
                   <h3 style={{ fontSize: '1.75rem', color: '#fff', fontWeight: 600, lineHeight: 1.3 }}>{item}</h3>
-              </motion.div>
+              </MagicCard>
             ))}
           </div>
 
@@ -307,14 +260,16 @@ export default function Home() {
               "Activate leaders into real-life obedience",
               "Equip leaders to disciple and multiply others"
             ].map((item, i) => (
-              <motion.div 
-                key={i} variants={flyInRight} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.15 }}
-                whileHover={{ x: 15, background: 'rgba(212, 175, 55, 0.08)', borderColor: 'rgba(212, 175, 55, 0.3)' }}
-                style={{ background: 'rgba(212, 175, 55, 0.02)', padding: '2rem', display: 'flex', alignItems: 'center', gap: '1.5rem', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.05)' }} 
+              <MagicCard 
+                key={i} 
+                delay={i * 0.15}
+                initialVariant={{ opacity: 0, x: 100, y: 100 }}
+                visibleVariant={{ opacity: 1, x: 0, y: 0 }}
+                innerStyle={{ padding: '2rem', display: 'flex', alignItems: 'center', gap: '1.5rem' }}
               >
                   <ZapIcon color="var(--brand-primary)" size={24} style={{ flexShrink: 0 }} />
-                  <span style={{ fontSize: '1.5rem', color: '#fff' }}>{item}</span>
-              </motion.div>
+                  <span style={{ fontSize: '1.5rem', color: '#fff', fontWeight: 500 }}>{item}</span>
+              </MagicCard>
             ))}
           </div>
 
