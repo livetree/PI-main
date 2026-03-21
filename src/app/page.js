@@ -94,59 +94,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. THE CHALLENGE (Inverted Yellow with Framer React Tracks) */}
-      <section style={{ padding: '10rem 1.5rem', position: 'relative', zIndex: 10, background: 'var(--brand-primary)' }}>
-        <div className="container" style={{ maxWidth: '1200px' }}>
-          
-          <div className="layout-split">
-            
-            {/* LEFT COLUMN: TITLE */}
-            <motion.div 
-              className="layout-left"
-              initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ type: "spring", damping: 20, stiffness: 80 }}
-            >
-              <h2 style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', color: 'var(--bg)', textTransform: 'uppercase', lineHeight: 0.9, fontWeight: 900 }}>
-                The <br/>Leadership<br/>Gap
-              </h2>
-            </motion.div>
-            
-            {/* RIGHT COLUMN: MAGIC BOXES */}
-            <div className="layout-right" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              {[
-                "Too few leaders carry too much",
-                "People attend, but don’t grow",
-                "New leaders aren’t being developed"
-              ].map((challenge, i) => (
-                <MagicCard 
-                  key={i} 
-                  delay={i * 0.15}
-                  initialVariant={{ opacity: 0, x: 100 }}
-                  visibleVariant={{ opacity: 1, x: 0 }}
-                  innerStyle={{ padding: '2.5rem', display: 'flex', gap: '1.5rem', alignItems: 'center' }}
-                >
-                  <div style={{ background: 'rgba(212,175,55,0.1)', padding: '1rem', borderRadius: '50%', flexShrink: 0 }}>
-                    <TrendingUp color="var(--brand-primary)" size={28} style={{ transform: 'rotate(180deg)' }} />
-                  </div>
-                  <p style={{ fontSize: '1.5rem', color: '#fff', fontWeight: 600, lineHeight: 1.4 }}>{challenge}</p>
-                </MagicCard>
-              ))}
-            </div>
-            
-          </div>
-
-          {/* TERMINAL FOOTER: The final impression */}
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.6, type: 'spring', stiffness: 80 }}
-            style={{ textAlign: 'center', marginTop: '6rem' }}
+      {/* 2. WOW CALL-OUT: THE LEADERSHIP GAP */}
+      <section style={{ position: 'relative', zIndex: 10, padding: '2rem 1.5rem 10rem' }}>
+        <div className="container" style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <MagicCard 
+            initialVariant={{ opacity: 0, y: 50, scale: 0.95 }}
+            visibleVariant={{ opacity: 1, y: 0, scale: 1 }}
+            delay={0.2}
+            highlightColor="var(--brand-primary)"
+            innerStyle={{ padding: '5rem 3rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'rgba(10, 17, 40, 0.4)' }}
           >
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '1rem', background: 'rgba(0,0,0,0.1)', padding: '1.5rem 3rem', borderRadius: '99px' }}>
-                <span style={{ width: '12px', height: '12px', background: '#dc2626', borderRadius: '50%', boxShadow: '0 0 15px #dc2626' }} />
-                <p style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', color: 'var(--bg)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                  ...and vision slows...or dies...
-                </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginBottom: '4rem' }}>
+              <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'var(--text-secondary)', fontWeight: 300, lineHeight: 1.4, letterSpacing: '0.05em' }}>
+                Too few leaders <span style={{ color: '#fff', fontWeight: 700 }}>carry too much</span>
+              </h3>
+              <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'var(--text-secondary)', fontWeight: 300, lineHeight: 1.4, letterSpacing: '0.05em' }}>
+                People attend, but <span style={{ color: '#fff', fontWeight: 700 }}>don’t grow</span>
+              </h3>
+              <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'var(--text-secondary)', fontWeight: 300, lineHeight: 1.4, letterSpacing: '0.05em' }}>
+                New leaders <span style={{ color: '#fff', fontWeight: 700 }}>aren’t developing</span>
+              </h3>
             </div>
-          </motion.div>
-
+            
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '1rem', background: 'rgba(220, 38, 38, 0.1)', padding: '1.25rem 3rem', borderRadius: '99px', border: '1px solid rgba(220, 38, 38, 0.3)', boxShadow: '0 0 40px rgba(220, 38, 38, 0.2)' }}>
+              <ArrowRight color="#dc2626" size={32} />
+              <p style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', color: '#fff', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em' }}>
+                And vision slows.
+              </p>
+            </div>
+          </MagicCard>
         </div>
       </section>
 
