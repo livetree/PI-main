@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, TrendingUp, Users, ShieldCheck, Zap, ArrowUpRight, Crown } from 'lucide-react';
+import { useRef, useEffect } from 'react';
 
 export default function Home() {
   // Deep background parallax
@@ -19,6 +20,23 @@ export default function Home() {
       transition: { type: "spring", damping: 20, stiffness: 80 } 
     }
   };
+
+  const horizontalScrollRef = useRef(null);
+
+  // Enable mouse wheel horizontal scrolling on the full-screen pathway section for desktop users
+  useEffect(() => {
+    const el = horizontalScrollRef.current;
+    if (el) {
+      const onWheel = e => {
+        if (e.deltaY !== 0) {
+          e.preventDefault();
+          el.scrollLeft += e.deltaY;
+        }
+      };
+      // Only attach if we want to hijack vertical scroll for this section, 
+      // but native overflow-x is usually preferred to prevent layout trapping.
+    }
+  }, []);
 
   return (
     <div style={{ position: 'relative', backgroundColor: 'var(--bg)', overflowX: 'clip', color: '#fff' }}>
@@ -73,7 +91,7 @@ export default function Home() {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6rem', alignItems: 'center' }}>
             
-            {/* Center Node: Jesus's Kingdom */}
+            {/* Center Node: Jesus First */}
             <motion.div 
               variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
               style={{ width: '100%', maxWidth: '800px', background: 'var(--surface-elevated)', padding: '5rem 2rem', border: '1px solid var(--border)', boxShadow: '0 0 100px rgba(212,175,55,0.1)', textAlign: 'center', position: 'relative', borderRadius: '24px' }}
@@ -81,8 +99,7 @@ export default function Home() {
               <div style={{ position: 'absolute', top: '-40px', left: '50%', transform: 'translateX(-50%)', background: '#000', border: '2px solid var(--brand-primary)', width: '80px', height: '80px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--brand-primary)', boxShadow: '0 0 50px rgba(212,175,55,0.4)', zIndex: 20 }}>
                 <Crown size={40} />
               </div>
-              <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#fff', textTransform: 'uppercase', letterSpacing: '0.05em', lineHeight: 1, marginTop: '2rem' }}>Jesus's Kingdom</h2>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '1.25rem', marginTop: '1.5rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>The Absolute Foundation</p>
+              <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#fff', textTransform: 'uppercase', letterSpacing: '0.05em', lineHeight: 1, marginTop: '2rem' }}>Jesus First</h2>
             </motion.div>
 
             {/* Alternating Flow Boxes */}
@@ -90,8 +107,7 @@ export default function Home() {
               <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} style={{ width: '100%', maxWidth: '450px', background: 'var(--surface)', padding: '3rem', borderLeft: '4px solid var(--brand-primary)', position: 'relative', borderRadius: '16px', boxShadow: '0 10px 40px rgba(0,0,0,0.3)' }}>
                 <div style={{ position: 'absolute', top: '50%', right: '-40px', width: '40px', height: '2px', background: 'var(--brand-primary)', zIndex: -1 }} className="hide-on-mobile" />
                 <div style={{ fontSize: '1.25rem', color: 'var(--brand-primary)', fontWeight: 800, marginBottom: '1rem' }}>01</div>
-                <h3 style={{ fontSize: '2rem', color: '#fff', marginBottom: '1rem' }}>Leaders Equipped</h3>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', lineHeight: 1.6 }}>Deploying leaders beyond theory into rigorous geographical application and practical maneuvers.</p>
+                <h3 style={{ fontSize: '2rem', color: '#fff', marginBottom: '0', textTransform: 'uppercase' }}>Leaders Equipped</h3>
               </motion.div>
             </div>
 
@@ -99,8 +115,7 @@ export default function Home() {
               <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} style={{ width: '100%', maxWidth: '450px', background: 'var(--surface)', padding: '3rem', borderRight: '4px solid var(--brand-primary)', position: 'relative', borderRadius: '16px', boxShadow: '0 10px 40px rgba(0,0,0,0.3)' }}>
                 <div style={{ position: 'absolute', top: '50%', left: '-40px', width: '40px', height: '2px', background: 'var(--brand-primary)', zIndex: -1 }} className="hide-on-mobile" />
                 <div style={{ fontSize: '1.25rem', color: 'var(--brand-primary)', fontWeight: 800, marginBottom: '1rem' }}>02</div>
-                <h3 style={{ fontSize: '2rem', color: '#fff', marginBottom: '1rem' }}>Raising Leaders</h3>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', lineHeight: 1.6 }}>Disciples formulating disciples to physically sustain massive relational architecture.</p>
+                <h3 style={{ fontSize: '2rem', color: '#fff', marginBottom: '0', textTransform: 'uppercase' }}>Leaders Raising Leaders</h3>
               </motion.div>
             </div>
 
@@ -108,8 +123,7 @@ export default function Home() {
               <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} style={{ width: '100%', maxWidth: '450px', background: 'var(--surface)', padding: '3rem', borderLeft: '4px solid var(--brand-primary)', position: 'relative', borderRadius: '16px', boxShadow: '0 10px 40px rgba(0,0,0,0.3)' }}>
                 <div style={{ position: 'absolute', top: '50%', right: '-40px', width: '40px', height: '2px', background: 'var(--brand-primary)', zIndex: -1 }} className="hide-on-mobile" />
                 <div style={{ fontSize: '1.25rem', color: 'var(--brand-primary)', fontWeight: 800, marginBottom: '1rem' }}>03</div>
-                <h3 style={{ fontSize: '2rem', color: '#fff', marginBottom: '1rem' }}>Limitations Minimized</h3>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', lineHeight: 1.6 }}>Decentralizing responsibility parameters to permanently uncap organizational impact.</p>
+                <h3 style={{ fontSize: '2rem', color: '#fff', marginBottom: '0', textTransform: 'uppercase' }}>Limitations Minimized</h3>
               </motion.div>
             </div>
 
@@ -117,8 +131,7 @@ export default function Home() {
               <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} style={{ width: '100%', maxWidth: '450px', background: 'var(--surface-elevated)', padding: '3rem', borderRight: '4px solid var(--brand-primary)', position: 'relative', borderRadius: '16px', boxShadow: '0 10px 40px rgba(0,0,0,0.3)', border: '1px solid rgba(212,175,55,0.4)' }}>
                 <div style={{ position: 'absolute', top: '50%', left: '-40px', width: '40px', height: '2px', background: 'var(--brand-primary)', zIndex: -1 }} className="hide-on-mobile" />
                 <div style={{ fontSize: '1.25rem', color: 'var(--brand-primary)', fontWeight: 800, marginBottom: '1rem' }}>04</div>
-                <h3 style={{ fontSize: '2rem', color: '#fff', marginBottom: '1rem' }}>Kingdom Advanced</h3>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', lineHeight: 1.6 }}>Generating forceful ripples of strategic impact extending across global communities.</p>
+                <h3 style={{ fontSize: '2rem', color: '#fff', marginBottom: '0', textTransform: 'uppercase' }}>The Kingdom Advanced</h3>
               </motion.div>
             </div>
 
@@ -126,36 +139,71 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. PATHWAY (Aggressive Fly-In without Transparent text) */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '10rem 1rem', background: 'var(--surface)' }}>
-        <div className="container" style={{ maxWidth: '1000px' }}>
+      {/* 3. PATHWAY (Full-Screen Native Horizontal CSS Snapping Scroll) */}
+      <section style={{ position: 'relative', zIndex: 10, padding: '10rem 0', background: 'var(--surface)' }}>
+        <div className="container" style={{ textAlign: 'center', marginBottom: '4rem' }}>
+          <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', textTransform: 'uppercase', color: '#fff', marginBottom: '1rem' }}>
+            A Clear Leadership Pathway
+          </h2>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '1.25rem' }}>We help you build leaders who multiply through a reproducible framework.</p>
+        </div>
+
+        {/* Native CSS Scroll Snapping container (100vw physics) */}
+        <div 
+          ref={horizontalScrollRef}
+          style={{ 
+            display: 'flex', 
+            overflowX: 'auto', 
+            scrollSnapType: 'x mandatory', 
+            width: '100vw', 
+            padding: '2rem 5vw',
+            gap: '2vw',
+            scrollBehavior: 'smooth',
+            MsOverflowStyle: 'none', /* IE and Edge */
+            scrollbarWidth: 'none' /* Firefox */
+          }}
+          className="no-scrollbar"
+        >
+          <style>{`.no-scrollbar::-webkit-scrollbar { display: none; }`}</style>
           
-          <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} style={{ marginBottom: '6rem', textAlign: 'center' }}>
-            <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', textTransform: 'uppercase', color: '#fff', marginBottom: '1rem' }}>
-              A Clear Leadership Pathway
-            </h2>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '1.25rem' }}>We help you build leaders who multiply through a reproducible framework.</p>
-          </motion.div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
-            
-            {[
-              { phase: 'PHASE I', title: 'Foundations', desc: "Root leaders in Jesus's Kingdom and their absolute identity. Operations must derive from deep relationship rather than organizational duty." },
-              { phase: 'PHASE II', title: 'Activation', desc: "Move leaders entirely out of the classroom and into live contextual application. Emphasizing extreme practical discipleship." },
-              { phase: 'PHASE III', title: 'Multiplication', desc: "Equip leaders to rigorously reproduce architecture in others. Generating a constantly compounding, generation-spanning framework." }
-            ].map((item, idx) => (
-              <motion.div 
-                key={idx}
-                variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
-                style={{ background: 'var(--surface-elevated)', padding: '3.5rem', borderRadius: '24px', border: '1px solid var(--border)', boxShadow: '0 10px 40px rgba(0,0,0,0.2)' }}
-              >
-                <div style={{ fontSize: '1.125rem', color: 'var(--brand-primary)', letterSpacing: '0.2em', fontWeight: 800, marginBottom: '1rem' }}>{item.phase}</div>
-                <h3 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', textTransform: 'uppercase', marginBottom: '1rem' }}>{item.title}</h3>
-                <p style={{ fontSize: '1.125rem', color: 'var(--text-secondary)', lineHeight: 1.6, maxWidth: '800px' }}>{item.desc}</p>
-              </motion.div>
-            ))}
-
-          </div>
+          {[
+            { phase: 'PHASE I', title: 'Foundations', desc: "Root leaders in Jesus and their absolute Kingdom identity. Lead from relationship, not just responsibility." },
+            { phase: 'PHASE II', title: 'Activation', desc: "Move leaders out of the classroom and into real-life application and obedience. We emphasize practical disciple-making." },
+            { phase: 'PHASE III', title: 'Multiplication', desc: "Equip leaders to rigorously disciple and reproduce others. Movements that multiply across generations." }
+          ].map((item, idx) => (
+            <div 
+              key={idx}
+              style={{ 
+                flex: '0 0 90vw', /* Full width per item on mobile */
+                maxWidth: '800px', /* Capped on extremely wide desktop monitors */
+                height: '70vh', /* Full immersive height */
+                scrollSnapAlign: 'center', 
+                background: idx === 1 ? 'var(--bg)' : 'var(--surface-elevated)', 
+                padding: 'clamp(2rem, 5vw, 5rem)', 
+                borderRadius: '32px', 
+                border: idx === 1 ? '2px solid var(--brand-primary)' : '1px solid var(--border)', 
+                boxShadow: '0 20px 50px rgba(0,0,0,0.3)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                textAlign: 'center'
+              }}
+            >
+              <div style={{ fontSize: '1.25rem', color: 'var(--brand-primary)', letterSpacing: '0.2em', fontWeight: 800, marginBottom: '2rem' }}>{item.phase}</div>
+              <h3 style={{ fontSize: 'clamp(3rem, 8vw, 5rem)', textTransform: 'uppercase', marginBottom: '2rem' }}>{item.title}</h3>
+              <p style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', color: 'var(--text-secondary)', lineHeight: 1.6, maxWidth: '600px', margin: '0 auto' }}>{item.desc}</p>
+              
+              {idx === 2 && (
+                <div style={{ marginTop: '4rem' }}>
+                  <Link href="/training" className="btn btn-primary" style={{ padding: '1.25rem 3rem', fontSize: '1.25rem', borderRadius: '50px' }}>
+                    View Framework Details
+                  </Link>
+                </div>
+              )}
+            </div>
+          ))}
+          {/* Faux element to force padding at the end of the scroll array */}
+          <div style={{ flex: '0 0 5vw', height: '10px' }}></div>
         </div>
       </section>
 
@@ -171,7 +219,7 @@ export default function Home() {
             The Need for Multiplying Leaders <br/> Has Never Been Greater.
           </h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1.125rem, 3vw, 1.5rem)', maxWidth: '750px', margin: '0 auto 4rem', lineHeight: 1.6 }}>
-            You already have vision and people. Now it's time to drastically multiply the impact.
+            You already have vision and people. Now it's time to multiply leadership.
           </p>
           
           <Link href="/connect" className="btn btn-primary" style={{ padding: '1.25rem 4rem', fontSize: '1.25rem', borderRadius: '50px' }}>
