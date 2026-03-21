@@ -245,10 +245,43 @@ main {
 .hover-glow-wrap:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 50px var(--glow-shadow, rgba(212,175,55,0.15));
-  background: linear-gradient(90deg, transparent 0%, var(--comet-body, var(--brand-primary)) 50%, var(--comet-head, #fff) 80%, transparent 100%);
-  background-size: 200% 200%;
-  animation: border-flow 1.5s linear infinite;
   z-index: 50;
+}
+
+@keyframes glow-spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.hover-glow-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250%;
+  height: 250%;
+  --comet-body: var(--brand-primary);
+  --comet-head: #ffffff;
+  /* Double-sided, smooth flowing glow without any sharp radar sweep lines */
+  background: conic-gradient(
+    from 0deg,
+    var(--comet-body) 0%,
+    var(--comet-head) 15%,
+    var(--comet-body) 30%,
+    transparent 45%,
+    transparent 55%,
+    var(--comet-body) 70%,
+    var(--comet-head) 85%,
+    var(--comet-body) 100%
+  );
+  animation: glow-spin 2s linear infinite;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hover-glow-wrap:hover .hover-glow-spinner {
+  opacity: 1;
 }
 
 .hover-glow-inner {

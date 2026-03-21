@@ -121,6 +121,7 @@ export default function Home() {
                 className="hover-glow-wrap"
                 style={{ borderLeft: '6px solid var(--bg)', '--comet-body': 'rgba(11, 17, 33, 0.8)', '--comet-head': '#000000', '--glow-shadow': 'rgba(11,17,33,0.3)' }}
               >
+                <div className="hover-glow-spinner" />
                 <div className="hover-glow-inner" style={{ padding: '2.5rem', display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
                   <div style={{ background: 'rgba(212,175,55,0.1)', padding: '1rem', borderRadius: '50%', flexShrink: 0 }}>
                     <TrendingUp color="var(--brand-primary)" size={28} style={{ transform: 'rotate(180deg)' }} />
@@ -188,6 +189,7 @@ export default function Home() {
               </div>
 
               <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="hover-glow-wrap" style={{ borderLeft: '4px solid var(--brand-primary)' }}>
+                <div className="hover-glow-spinner" />
                 <div className="hover-glow-inner" style={{ padding: '3rem', background: 'rgba(212, 175, 55, 0.05)', position: 'relative' }}>
                   <div style={{ position: 'absolute', top: '-12px', left: '2rem', background: 'var(--surface)', padding: '0 1rem', fontSize: '0.875rem', color: 'var(--brand-primary)', textTransform: 'uppercase', letterSpacing: '0.2em', fontWeight: 800 }}>KEY INSIGHT</div>
                   <h4 style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: 'var(--brand-primary)', fontWeight: 400, textTransform: 'uppercase', letterSpacing: '0.05em', lineHeight: 1.4 }}>
@@ -220,6 +222,7 @@ export default function Home() {
               "Movements that multiply"
             ].map((item, i) => (
               <motion.div key={i} variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.1 }} className="hover-glow-wrap" style={{ borderTop: '4px solid var(--brand-secondary)', '--comet-body': 'rgba(252, 211, 77, 0.8)', '--comet-head': '#ffffff', '--glow-shadow': 'rgba(252,211,77,0.2)' }}>
+                <div className="hover-glow-spinner" />
                 <div className="hover-glow-inner" style={{ background: 'var(--surface-elevated)', padding: '4rem 2rem', textAlign: 'center' }}>
                   <Target color="var(--brand-secondary)" size={40} style={{ margin: '0 auto 1.5rem' }} />
                   <h3 style={{ fontSize: '1.75rem', color: '#fff', fontWeight: 600, lineHeight: 1.3 }}>{item}</h3>
@@ -256,6 +259,7 @@ export default function Home() {
               "Equip leaders to disciple and multiply others"
             ].map((item, i) => (
               <motion.div key={i} variants={flyInRight} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.15 }} className="hover-glow-wrap" style={{ borderRadius: '16px' }}>
+                <div className="hover-glow-spinner" />
                 <div className="hover-glow-inner" style={{ background: 'rgba(212,175,55,0.02)', padding: '2rem', display: 'flex', alignItems: 'center', gap: '1.5rem', borderRadius: '14px' }}>
                   <ZapIcon color="var(--brand-primary)" size={24} style={{ flexShrink: 0 }} />
                   <span style={{ fontSize: '1.5rem', color: '#fff' }}>{item}</span>
