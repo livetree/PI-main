@@ -1,48 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 :root {
-  /* Minimal, Premium Color Palette */
-  --bg: #ffffff;
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
+  /* Elegant Navy & Gold Color Palette */
+  --bg: #151b29;
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
   
-  /* Prepare International Brand Colors (Dynamic) */
-  --brand-primary: #2563eb;
-  --brand-secondary: #0ea5e9;
-  --brand-gradient: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+  /* Glowing Gold Accents */
+  --brand-primary: #d4af37;
+  --brand-secondary: #fcd34d;
+  --brand-gradient: linear-gradient(135deg, #d4af37, #fcd34d);
   
-  --surface: #f8fafc;
-  --surface-elevated: #ffffff;
-  --border: #e2e8f0;
+  /* Surfaces */
+  --surface: #1e2536;
+  --surface-elevated: #283144;
+  --border: rgba(212, 175, 55, 0.3); /* Subtle gold borders */
   
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 24px;
   
-  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.15);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.25), 0 2px 4px -1px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
   
   --transition-fast: 0.15s ease;
   --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0f172a;
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    
-    --brand-primary: #3b82f6;
-    --brand-secondary: #38bdf8;
-    
-    --surface: #1e293b;
-    --surface-elevated: #334155;
-    --border: #334155;
-    
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-    --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.3);
-  }
+  /* We maintain the elegant dark theme universally */
 }
 
 * {
@@ -110,7 +97,7 @@ a:hover {
 
 .btn-primary {
   background: var(--brand-gradient);
-  color: white;
+  color: #000; /* Dark text for the gold button */
   box-shadow: var(--shadow-md);
 }
 
@@ -138,17 +125,11 @@ a:hover {
   left: 0;
   width: 100%;
   z-index: 100;
-  background: rgba(var(--bg-rgb, 255, 255, 255), 0.8);
+  background: rgba(21, 27, 41, 0.8); /* Dark navy glass */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15); /* Faint gold border */
   transition: all var(--transition-smooth);
-}
-
-@media (prefers-color-scheme: dark) {
-  .header-glass {
-    background: rgba(15, 23, 42, 0.8);
-  }
 }
 
 /* Cards & Surfaces */

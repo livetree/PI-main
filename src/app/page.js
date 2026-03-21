@@ -13,7 +13,7 @@ export default function Home() {
         alignItems: 'center',
         justifyContent: 'center',
         overflow: 'hidden',
-        background: 'linear-gradient(180deg, rgba(37,99,235,0.05) 0%, var(--bg) 100%)'
+        background: 'radial-gradient(ellipse at top, rgba(212,175,55,0.08), var(--bg))'
       }}>
         {/* Subtle Background Elements */}
         <div className="animate-pulse-slow" style={{ position: 'absolute', top: '-10%', right: '-5%', width: '400px', height: '400px', background: 'var(--brand-primary)', opacity: 0.1, filter: 'blur(100px)', borderRadius: '50%' }} />
