@@ -257,23 +257,10 @@ main {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 250%;
-  height: 250%;
-  --comet-body: var(--brand-primary);
-  --comet-head: #ffffff;
-  /* Double-sided, smooth flowing glow without any sharp radar sweep lines */
-  background: conic-gradient(
-    from 0deg,
-    var(--comet-body) 0%,
-    var(--comet-head) 15%,
-    var(--comet-body) 30%,
-    transparent 45%,
-    transparent 55%,
-    var(--comet-body) 70%,
-    var(--comet-head) 85%,
-    var(--comet-body) 100%
-  );
-  animation: glow-spin 2s linear infinite;
+  width: 2000px;
+  height: 2000px;
+  background: var(--comet-gradient, conic-gradient(from 0deg, transparent 0%, transparent 50%, rgba(30, 58, 138, 0.2) 70%, rgba(30, 58, 138, 0.9) 95%, #1e3a8a 100%));
+  animation: glow-spin 2.5s linear infinite;
   opacity: 0;
   transition: opacity 0.4s ease;
   z-index: 0;

@@ -125,10 +125,11 @@ export default function Home() {
                 }}
               >
                 {/* 
-                  Deep Royal Blue Single-Sided Tracking Light exclusively on the Leadership Gap border elements
+                  Dense multi-stop conic slice to produce an incredibly aggressive, 
+                  perfectly shaped tracking white/cyan orb natively on rotation.
                 */}
                 <div className="hover-glow-spinner" style={{ 
-                  background: 'conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(30, 58, 138, 0.4) 85%, #1e3a8a 100%)' 
+                  '--comet-gradient': 'conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(30,58,138,0.2) 75%, rgba(30,58,138,0.95) 95%, #3b82f6 98.5%, #93c5fd 99.5%, #ffffff 100%)' 
                 }} />
                 
                 <div className="hover-glow-inner" style={{ padding: '2.5rem', display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
