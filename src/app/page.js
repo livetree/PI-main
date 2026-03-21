@@ -114,47 +114,61 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. JESUS FIRST (Replaces the old 5-Boxes network) */}
-      <section style={{ position: 'relative', zIndex: 15, padding: '10rem 1.5rem', background: 'var(--surface)' }}>
-        <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '2px', height: '100px', background: 'linear-gradient(to bottom, var(--brand-primary), rgba(212,175,55,0))', zIndex: 0 }} />
+      {/* 3. JESUS FIRST (Immersive Full-Screen Layout) */}
+      <section style={{ position: 'relative', zIndex: 15, minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '10rem 1.5rem', background: 'var(--surface)', overflow: 'hidden' }}>
+        
+        {/* Massive Background Typography */}
+        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: 'clamp(10rem, 30vw, 40rem)', fontWeight: 900, color: 'rgba(255,255,255,0.02)', pointerEvents: 'none', lineHeight: 0.8, whiteSpace: 'nowrap', zIndex: 0 }}>
+          JESUS
+        </div>
 
-        <div className="container" style={{ maxWidth: '1000px', position: 'relative', zIndex: 10 }}>
+        <div className="container" style={{ maxWidth: '1200px', position: 'relative', zIndex: 10 }}>
           
-          <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} style={{ textAlign: 'center', marginBottom: '5rem' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: '#000', border: '2px solid var(--brand-primary)', width: '80px', height: '80px', borderRadius: '50%', color: 'var(--brand-primary)', boxShadow: '0 0 50px rgba(212,175,55,0.4)', marginBottom: '2rem' }}>
-              <Crown size={40} />
-            </div>
-            <div style={{ fontSize: '1.5rem', color: 'var(--brand-primary)', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.3em' }}>JESUS FIRST</div>
-            <h2 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', color: '#fff', textTransform: 'uppercase', lineHeight: 0.9, letterSpacing: '-0.03em', marginBottom: '2rem' }}>
-              True Leadership <br/> Starts With Jesus
-            </h2>
-            <p style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', color: 'var(--text-secondary)', maxWidth: '700px', margin: '0 auto' }}>
-              Before strategy, systems, or structure—there is Jesus.
-            </p>
-          </motion.div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', maxWidth: '800px', margin: '0 auto' }}>
-            <h3 style={{ fontSize: '1.5rem', color: '#fff', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1rem' }}>Leaders Must:</h3>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '6rem', alignItems: 'center' }}>
             
-            {[
-              "Know Him personally",
-              "Hear and follow His voice",
-              "Lead from relationship, not just responsibility"
-            ].map((item, i) => (
-              <motion.div key={i} variants={flyInLeft} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.15 }} style={{ background: 'var(--surface-elevated)', padding: '2rem 3rem', borderRadius: '16px', display: 'flex', alignItems: 'center', gap: '1.5rem', borderLeft: '4px solid var(--brand-primary)' }}>
-                <ChevronRight color="var(--brand-primary)" size={28} style={{ flexShrink: 0 }} />
-                <span style={{ fontSize: '1.5rem', color: '#fff', fontWeight: 500 }}>{item}</span>
-              </motion.div>
-            ))}
-
-            <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} style={{ marginTop: '4rem', padding: '3rem', background: 'rgba(212, 175, 55, 0.05)', border: '1px solid rgba(212, 175, 55, 0.2)', borderRadius: '24px', textAlign: 'center' }}>
-              <div style={{ fontSize: '1rem', color: 'var(--brand-primary)', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '1rem' }}>KEY INSIGHT</div>
-              <h4 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: '#fff', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', lineHeight: 1.2 }}>
-                Lasting multiplication <br/> begins with Him.
-              </h4>
+            {/* Left Column: Core Message */}
+            <motion.div variants={flyInLeft} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: '#000', border: '2px solid var(--brand-primary)', width: '80px', height: '80px', borderRadius: '50%', color: 'var(--brand-primary)', boxShadow: '0 0 50px rgba(212,175,55,0.4)', marginBottom: '2rem' }}>
+                <Crown size={40} />
+              </div>
+              <div style={{ fontSize: '1.5rem', color: 'var(--brand-primary)', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.3em' }}>JESUS FIRST</div>
+              <h2 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', color: '#fff', textTransform: 'uppercase', lineHeight: 0.9, letterSpacing: '-0.03em', marginBottom: '2rem' }}>
+                True Leadership Starts With Jesus
+              </h2>
+              <p style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', color: 'var(--text-secondary)', lineHeight: 1.5, borderLeft: '4px solid var(--brand-primary)', paddingLeft: '2rem' }}>
+                Before strategy, systems, or structure—there is Jesus.
+              </p>
             </motion.div>
-          </div>
 
+            {/* Right Column: Massive Typography replacing the boxes */}
+            <motion.div variants={flyInRight} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+              
+              <div>
+                <h3 style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '2rem' }}>Leaders Must:</h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                  {[
+                    "Know Him personally",
+                    "Hear and follow His voice",
+                    "Lead from relationship, not just responsibility"
+                  ].map((item, i) => (
+                    <motion.div key={i} initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ type: 'spring', delay: i * 0.15 }} style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem' }}>
+                      <ChevronRight color="var(--brand-primary)" size={32} style={{ flexShrink: 0, marginTop: '0.25rem' }} />
+                      <span style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', color: '#fff', fontWeight: 700, lineHeight: 1.2, textTransform: 'uppercase' }}>{item}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              <div style={{ padding: '3rem', background: 'rgba(212, 175, 55, 0.05)', borderLeft: '4px solid var(--brand-primary)', position: 'relative' }}>
+                <div style={{ position: 'absolute', top: '-12px', left: '2rem', background: 'var(--surface)', padding: '0 1rem', fontSize: '0.875rem', color: 'var(--brand-primary)', textTransform: 'uppercase', letterSpacing: '0.2em', fontWeight: 800 }}>KEY INSIGHT</div>
+                <h4 style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: 'var(--brand-primary)', fontWeight: 400, textTransform: 'uppercase', letterSpacing: '0.05em', lineHeight: 1.4 }}>
+                  Lasting multiplication begins with Him.
+                </h4>
+              </div>
+
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
