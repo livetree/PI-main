@@ -94,35 +94,40 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. WOW CALL-OUT: THE LEADERSHIP GAP */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '2rem 1.5rem 10rem' }}>
-        <div className="container" style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <MagicCard 
-            initialVariant={{ opacity: 0, y: 50, scale: 0.95 }}
-            visibleVariant={{ opacity: 1, y: 0, scale: 1 }}
-            delay={0.2}
-            highlightColor="var(--brand-primary)"
-            innerStyle={{ padding: '5rem 4rem', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', background: 'rgba(10, 17, 40, 0.4)' }}
+      {/* 2. WOW CALL-OUT: THE LEADERSHIP GAP (Light Section) */}
+      <section style={{ position: 'relative', zIndex: 10, padding: '10rem 1.5rem', background: '#f8fafc' }}>
+        <div className="container" style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
+          
+          <motion.h2 
+            initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ type: "spring", damping: 20, stiffness: 80 }}
+            style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', textTransform: 'uppercase', lineHeight: 1.1, marginBottom: '5rem', fontWeight: 900, letterSpacing: '-0.02em', color: '#0f172a' }}
           >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginBottom: '4rem', borderLeft: '4px solid #dc2626', paddingLeft: '3rem' }}>
-              <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'var(--text-secondary)', fontWeight: 300, lineHeight: 1.5, letterSpacing: '0.05em' }}>
-                Too few leaders <span style={{ color: '#fff', fontWeight: 700 }}>carry too much</span>
-              </h3>
-              <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'var(--text-secondary)', fontWeight: 300, lineHeight: 1.5, letterSpacing: '0.05em' }}>
-                People attend, but <span style={{ color: '#fff', fontWeight: 700 }}>don’t grow</span>
-              </h3>
-              <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'var(--text-secondary)', fontWeight: 300, lineHeight: 1.5, letterSpacing: '0.05em' }}>
-                New leaders <span style={{ color: '#fff', fontWeight: 700 }}>aren’t developing</span>
-              </h3>
-            </div>
-            
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '1rem', background: 'rgba(220, 38, 38, 0.1)', padding: '1.25rem 3rem', borderRadius: '99px', border: '1px solid rgba(220, 38, 38, 0.3)', boxShadow: '0 0 40px rgba(220, 38, 38, 0.2)' }}>
-              <ArrowRight color="#dc2626" size={32} />
-              <p style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', color: '#fff', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em' }}>
-                And vision slows.
-              </p>
-            </div>
-          </MagicCard>
+            THE LEADERSHIP GAP
+          </motion.h2>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
+            style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'flex-start', gap: '2.5rem', marginBottom: '6rem', borderLeft: '4px solid #dc2626', paddingLeft: '3rem', textAlign: 'left' }}
+          >
+            <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 400, lineHeight: 1.5, letterSpacing: '0.02em', color: '#334155' }}>
+              Too few leaders <span style={{ color: '#0f172a', fontWeight: 700 }}>carry too much</span>
+            </h3>
+            <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 400, lineHeight: 1.5, letterSpacing: '0.02em', color: '#334155' }}>
+              People attend, but <span style={{ color: '#0f172a', fontWeight: 700 }}>don’t grow</span>
+            </h3>
+            <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 400, lineHeight: 1.5, letterSpacing: '0.02em', color: '#334155' }}>
+              New leaders <span style={{ color: '#0f172a', fontWeight: 700 }}>aren’t emerging</span>
+            </h3>
+          </motion.div>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4, type: 'spring', stiffness: 80 }}
+          >
+            <p style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#dc2626' }}>
+              AND VISION SLOWS.
+            </p>
+          </motion.div>
+
         </div>
       </section>
 
