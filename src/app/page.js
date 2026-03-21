@@ -80,13 +80,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. THE CHALLENGE (Softened to Navy and Gold from Red) */}
-      <section style={{ padding: '10rem 1.5rem', position: 'relative', zIndex: 10, background: 'linear-gradient(to bottom, transparent, var(--surface) 20%)' }}>
+      {/* 2. THE CHALLENGE (Inverted Yellow Stand-Out Section) */}
+      <section style={{ padding: '10rem 1.5rem', position: 'relative', zIndex: 10, background: 'var(--brand-primary)', color: 'var(--bg)' }}>
         <div className="container" style={{ maxWidth: '1000px' }}>
           
           <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <h2 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', color: '#fff', textTransform: 'uppercase', lineHeight: 0.9, marginBottom: '4rem', textAlign: 'center' }}>
-              LEADERSHIP GAPS<br/><span style={{ color: 'var(--brand-primary)', textShadow: '0 0 30px rgba(212, 175, 55, 0.3)' }}>LIMIT KINGDOM IMPACT</span>
+            <h2 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', color: 'var(--bg)', textTransform: 'uppercase', lineHeight: 0.9, marginBottom: '4rem', textAlign: 'center' }}>
+              LEADERSHIP GAPS<br/><span style={{ color: 'var(--bg)', opacity: 0.8 }}>LIMIT KINGDOM IMPACT</span>
             </h2>
           </motion.div>
           
@@ -97,9 +97,9 @@ export default function Home() {
               "Potential leaders remain undeveloped",
               "Vision stalls instead of multiplying"
             ].map((challenge, i) => (
-              <motion.div key={i} variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="glass-card" style={{ padding: '2.5rem', background: 'var(--surface-elevated)', border: '1px solid rgba(212, 175, 55, 0.2)', borderLeft: '4px solid var(--brand-primary)', display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                <TrendingUp color="var(--brand-primary)" size={32} style={{ transform: 'rotate(180deg)', flexShrink: 0 }} />
-                <p style={{ fontSize: '1.25rem', color: '#fff', fontWeight: 500, lineHeight: 1.5 }}>{challenge}</p>
+              <motion.div key={i} variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="glass-card" style={{ padding: '2.5rem', background: 'rgba(11, 17, 33, 0.05)', border: '1px solid rgba(11, 17, 33, 0.1)', borderLeft: '4px solid var(--bg)', display: 'flex', gap: '1rem', alignItems: 'center', boxShadow: 'none' }}>
+                <TrendingUp color="var(--bg)" size={32} style={{ transform: 'rotate(180deg)', flexShrink: 0 }} />
+                <p style={{ fontSize: '1.25rem', color: 'var(--bg)', fontWeight: 800, lineHeight: 1.5 }}>{challenge}</p>
               </motion.div>
             ))}
           </div>
