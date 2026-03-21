@@ -225,7 +225,7 @@ main {
   letter-spacing: 0.1em;
 }
 
-/* High-End Magic Border Physics */
+/* High-End Dual-Layer Magic Border Physics */
 @keyframes circular-track {
   from { transform: translate(-50%, -50%) rotate(0deg); }
   to { transform: translate(-50%, -50%) rotate(360deg); }
@@ -233,12 +233,11 @@ main {
 
 .magic-card {
   position: relative;
-  overflow: visible; /* Inherently enables the blurred ambient bleed sequence from the orbital trace */
-  border-radius: 24px;
-  padding: 4px; /* The explicit line depth geometric parameter */
-  background: rgba(255, 255, 255, 0.05); /* Passive idle state layout */
+  overflow: visible;
+  border-radius: 20px;
+  padding: 2px; /* Radically smaller, significantly sharper */
+  background: rgba(255, 255, 255, 0.05);
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
-  transform-style: preserve-3d;
 }
 
 .magic-card:hover {
@@ -247,39 +246,46 @@ main {
   z-index: 50;
 }
 
+/* Sharp tracking boundary mask */
+.magic-mask {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Internal card interface wrapper natively concealing the 2000px rotation base */
+.magic-inner {
+  position: relative;
+  background: var(--surface);
+  border-radius: 18px; /* 20px - 2px padding differential */
+  height: 100%;
+  z-index: 2;
+}
+
 .hover-glow-spinner {
   position: absolute;
   top: 50%;
   left: 50%;
   width: 2000px;
   height: 2000px;
-  /* Royal Blue pristine trailing comet structurally backed by a brilliant glowing solid core endpoint */
-  background: var(--comet-gradient, conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(30, 58, 138, 0.4) 85%, #1e3a8a 99%, #ffffff 100%));
   animation: circular-track 2.5s linear infinite;
   opacity: 0;
   transition: opacity 0.4s ease;
-  z-index: 0;
   pointer-events: none;
 }
+.magic-card:hover .hover-glow-spinner { opacity: 1; }
 
-.magic-card:hover .hover-glow-spinner {
-  opacity: 1; /* Instantiates massive volumetric trace across both internal line mask and ambient bloom filter symmetrically */
+.spinner-tail {
+  /* Razor-sharp strictly tracked dark blue comet tail */
+  background: conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(30, 58, 138, 0.4) 85%, #1e3a8a 99.5%, #ffffff 100%);
+  z-index: 0; 
 }
 
-/* Sharp tracking boundary mask */
-.magic-mask {
-  position: absolute;
-  inset: 0;
-  border-radius: 24px;
-  overflow: hidden;
+.spinner-dot {
+  /* Perfectly synced identical orbital ring mapping solely the pure white volumetric core dot */
+  background: conic-gradient(from 0deg, transparent 0%, transparent 99.7%, #ffffff 100%);
+  filter: blur(4px); /* Expands the 2px geometric slice exponentially across the unmasked border threshold natively mimicking a massive soft glowing particle */
   z-index: 1;
-}
-
-/* Internal card interface wrapper natively concealing mathematical geometry anomalies from 2000px span */
-.magic-inner {
-  position: relative;
-  background: var(--surface);
-  border-radius: 20px; /* Synchronized padding differential layout constraint (24px - 4px thickness) */
-  height: 100%;
-  z-index: 2;
 }

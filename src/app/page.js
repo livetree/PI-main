@@ -121,15 +121,17 @@ export default function Home() {
                 className="magic-card"
                 style={{ boxShadow: '0 20px 40px rgba(0,0,0,0.3)' }}
               >
-                {/* BLURRED BLEED LAYER: Generates the "dot bigger than the border" ambient spill! */}
-                <div className="hover-glow-spinner" style={{ filter: 'blur(16px)', opacity: 0.85 }} />
-                
-                {/* SHARP TRACK LAYER: Generates the ultra-premium 4px strict line layout mask */}
-                <div className="magic-mask">
-                  <div className="hover-glow-spinner" />
+                {/* UNMASKED OVERLAY LAYER: Generates the 2.5x oversized blurred dot explicitly WITHOUT a tail */}
+                <div style={{ position: 'absolute', inset: 0, overflow: 'visible', zIndex: 0 }}>
+                    <div className="hover-glow-spinner spinner-dot" />
                 </div>
                 
-                {/* INTERNAL CARD: Blocks the center geometry of the 2000px spinning mathematically sound square core */}
+                {/* MASKED TRACK LAYER: Strictly governs the flawless 2px sharp dark blue trailing comet sequence */}
+                <div className="magic-mask">
+                  <div className="hover-glow-spinner spinner-tail" />
+                </div>
+                
+                {/* INTERNAL CARD: Mathematically isolates the 2000px geometric sphere base layer seamlessly */}
                 <div className="magic-inner" style={{ padding: '2.5rem', display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
                   <div style={{ background: 'rgba(212,175,55,0.1)', padding: '1rem', borderRadius: '50%', flexShrink: 0 }}>
                     <TrendingUp color="var(--brand-primary)" size={28} style={{ transform: 'rotate(180deg)' }} />
