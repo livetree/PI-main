@@ -100,7 +100,18 @@ export default function Home() {
           
           <motion.h2 
             initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ type: "spring", damping: 20, stiffness: 80 }}
-            style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', textTransform: 'uppercase', lineHeight: 1.1, marginBottom: '5rem', fontWeight: 900, letterSpacing: '-0.02em', color: '#0f172a' }}
+            style={{ 
+              display: 'inline-block',
+              fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', 
+              textTransform: 'uppercase', 
+              lineHeight: 1.1, 
+              marginBottom: '5rem', 
+              fontWeight: 900, 
+              letterSpacing: '-0.02em', 
+              color: '#0f172a',
+              border: '4px solid #dc2626',
+              padding: '1.5rem 3rem'
+            }}
           >
             THE REAL GAP
           </motion.h2>
