@@ -93,7 +93,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. THE CHALLENGE (Inverted Yellow with High-End Indestructible DOM Masking Orbs) */}
+      {/* 2. THE CHALLENGE (Inverted Yellow with Framer React Tracks) */}
       <section style={{ padding: '10rem 1.5rem', position: 'relative', zIndex: 10, background: 'var(--brand-primary)' }}>
         <div className="container" style={{ maxWidth: '1000px' }}>
           
@@ -114,29 +114,62 @@ export default function Home() {
             ].map((challenge, i) => (
               <motion.div 
                 key={i} 
-                initial={{ opacity: 0, x: -150, rotate: -5 }} 
-                whileInView={{ opacity: 1, x: 0, rotate: 0 }} 
-                viewport={{ once: true, margin: "-50px" }} 
-                transition={{ type: "spring", damping: 15, stiffness: 70, delay: i * 0.15 }} 
+                initial="idle"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                whileHover="hover"
+                variants={{
+                  idle: { opacity: 0, x: -150, rotate: -5 },
+                  visible: { opacity: 1, x: 0, rotate: 0, y: 0, scale: 1, boxShadow: '0 0px 0px rgba(0,0,0,0)', borderColor: 'rgba(255,255,255,0.05)', transition: { type: "spring", damping: 15, stiffness: 70, delay: i * 0.15 } },
+                  hover: { y: -8, scale: 1.02, boxShadow: '0 30px 60px rgba(0,0,0,0.5)', borderColor: 'transparent', zIndex: 50, transition: { duration: 0.3 } }
+                }}
                 className="magic-card"
+                style={{
+                  position: 'relative',
+                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                  borderRadius: '20px',
+                  border: '1px solid rgba(255,255,255,0.05)'
+                }}
               >
                 {/* LAYER 0: The DOT Outwards Overhang Track */}
-                {/* Overflows by exactly 4px radially, effectively generating a solid 6px tall pristine tracking dot constrained structurally natively without experimental CSS masking vulnerabilities */}
-                <div style={{ position: 'absolute', inset: '-4px', borderRadius: '24px', overflow: 'hidden', zIndex: 0 }}>
-                    <div className="hover-glow-spinner spinner-dot" />
+                <div style={{ position: 'absolute', top: '-4px', left: '-4px', right: '-4px', bottom: '-4px', borderRadius: '24px', overflow: 'hidden', zIndex: 0 }}>
+                    <motion.div 
+                      style={{
+                        position: 'absolute', top: '50%', left: '50%', width: 2000, height: 2000, margin: '-1000px 0 0 -1000px', pointerEvents: 'none',
+                        background: 'conic-gradient(from 0deg, transparent 0%, transparent 95%, #ffffff 100%)',
+                        filter: 'drop-shadow(0 0 6px #ffffff) drop-shadow(0 0 12px #3b82f6)'
+                      }}
+                      variants={{
+                        idle: { opacity: 0 },
+                        visible: { opacity: 0 },
+                        hover: { opacity: 1, transition: { duration: 0.4 } }
+                      }}
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 2.5, repeat: Infinity, ease: 'linear' }}
+                    />
                 </div>
                 
                 {/* LAYER 1: The TAIL Sharp Tracking Track */}
-                {/* Geometrically locked exactly flush to the 0px card border, rendering the ultra-premium 2px tracking boundary natively unconditionally */}
-                <div style={{ position: 'absolute', inset: '0', borderRadius: '20px', overflow: 'hidden', zIndex: 1 }}>
-                  <div className="hover-glow-spinner spinner-tail" />
+                <div style={{ position: 'absolute', top: '0', left: '0', right: '0', bottom: '0', borderRadius: '20px', overflow: 'hidden', zIndex: 1 }}>
+                  <motion.div 
+                    style={{
+                        position: 'absolute', top: '50%', left: '50%', width: 2000, height: 2000, margin: '-1000px 0 0 -1000px', pointerEvents: 'none',
+                        background: 'conic-gradient(from 0deg, transparent 0%, transparent 40%, rgba(30, 58, 138, 0.4) 75%, #1e3a8a 98%, #ffffff 100%)'
+                    }}
+                    variants={{
+                        idle: { opacity: 0 },
+                        visible: { opacity: 0 },
+                        hover: { opacity: 1, transition: { duration: 0.4 } }
+                    }}
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 2.5, repeat: Infinity, ease: 'linear' }}
+                  />
                 </div>
                 
                 {/* LAYER 2: The INTERNAL Navy Core Mask Block */}
-                {/* Positioned 2px inside the card bounds, inherently forming the inside solid occlusion boundary for BOTH geometric sequences simultaneously! */}
-                <div style={{ position: 'absolute', inset: '2px', borderRadius: '18px', background: 'var(--surface)', zIndex: 2 }} />
+                <div style={{ position: 'absolute', top: '2px', left: '2px', right: '2px', bottom: '2px', borderRadius: '18px', background: 'var(--surface)', zIndex: 2 }} />
                 
-                {/* CONTENT LAYER purely unperturbed by underlying overlapping physics layer boundaries */}
+                {/* CONTENT LAYER */}
                 <div style={{ position: 'relative', zIndex: 10, padding: '2.5rem', display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
                   <div style={{ background: 'rgba(212,175,55,0.1)', padding: '1rem', borderRadius: '50%', flexShrink: 0 }}>
                     <TrendingUp color="var(--brand-primary)" size={28} style={{ transform: 'rotate(180deg)' }} />
