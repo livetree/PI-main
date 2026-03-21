@@ -31,18 +31,18 @@ export default function Home() {
   };
 
   return (
-    <div style={{ position: 'relative', backgroundColor: '#0a0d14', overflowX: 'hidden', color: '#fff' }}>
+    <div style={{ position: 'relative', backgroundColor: 'var(--bg)', overflowX: 'hidden', color: '#fff' }}>
       
       {/* MASSIVE DEEP PARALLAX BACKGROUND GRID */}
       <motion.div style={{ position: 'fixed', top: '-10%', left: '-5%', width: '120vw', height: '120vh', backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(212,175,55,0.06) 0%, transparent 60%), linear-gradient(rgba(212,175,55,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.03) 1px, transparent 1px)', backgroundSize: '100% 100%, 50px 50px, 50px 50px', zIndex: 0, y: bgY, pointerEvents: 'none' }} />
 
-      {/* 1. HERO SECTION (Darknode Aesthetics + Official Text) */}
+      {/* 1. HERO SECTION */}
       <section style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 10, padding: '10rem 1.5rem 6rem' }}>
         <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '2px', height: '100%', background: 'linear-gradient(to bottom, rgba(212,175,55,0), rgba(212,175,55,0.5))', zIndex: -1 }} />
         
         <div className="container" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           
-          <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: "spring", stiffness: 100, delay: 0.2 }} className="pill-tag" style={{ marginBottom: '2rem', background: 'rgba(21, 27, 41, 0.9)', border: '1px solid var(--brand-primary)', backdropFilter: 'blur(20px)' }}>
+          <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: "spring", stiffness: 100, delay: 0.2 }} className="pill-tag" style={{ marginBottom: '2rem', background: 'var(--surface-elevated)', border: '1px solid var(--brand-primary)', backdropFilter: 'blur(20px)' }}>
             <Zap size={14} color="var(--brand-primary)" /> NEW LEADERSHIP PARADIGM
           </motion.div>
           
@@ -80,13 +80,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. THE CHALLENGE (Darknode Aesthetics + Official Text) */}
-      <section style={{ padding: '10rem 1.5rem', position: 'relative', zIndex: 10 }}>
+      {/* 2. THE CHALLENGE (Softened to Navy and Gold from Red) */}
+      <section style={{ padding: '10rem 1.5rem', position: 'relative', zIndex: 10, background: 'linear-gradient(to bottom, transparent, var(--surface) 20%)' }}>
         <div className="container" style={{ maxWidth: '1000px' }}>
           
           <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <h2 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', color: '#fff', textTransform: 'uppercase', lineHeight: 0.9, marginBottom: '4rem', textAlign: 'center' }}>
-              LEADERSHIP GAPS<br/><span style={{ color: '#ef4444', textShadow: '0 0 30px rgba(239, 68, 68, 0.3)' }}>LIMIT KINGDOM IMPACT</span>
+              LEADERSHIP GAPS<br/><span style={{ color: 'var(--brand-primary)', textShadow: '0 0 30px rgba(212, 175, 55, 0.3)' }}>LIMIT KINGDOM IMPACT</span>
             </h2>
           </motion.div>
           
@@ -97,8 +97,8 @@ export default function Home() {
               "Potential leaders remain undeveloped",
               "Vision stalls instead of multiplying"
             ].map((challenge, i) => (
-              <motion.div key={i} variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="glass-card" style={{ padding: '2.5rem', background: 'rgba(239, 68, 68, 0.05)', border: '1px solid rgba(239, 68, 68, 0.2)', borderLeft: '4px solid #ef4444', display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                <TrendingUp color="#ef4444" size={32} style={{ transform: 'rotate(180deg)', flexShrink: 0 }} />
+              <motion.div key={i} variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="glass-card" style={{ padding: '2.5rem', background: 'var(--surface-elevated)', border: '1px solid rgba(212, 175, 55, 0.2)', borderLeft: '4px solid var(--brand-primary)', display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                <TrendingUp color="var(--brand-primary)" size={32} style={{ transform: 'rotate(180deg)', flexShrink: 0 }} />
                 <p style={{ fontSize: '1.25rem', color: '#fff', fontWeight: 500, lineHeight: 1.5 }}>{challenge}</p>
               </motion.div>
             ))}
@@ -106,8 +106,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. THE 5 BOXES (Darknode Network Design - Flawless Mobile Constraints) */}
-      <section style={{ position: 'relative', zIndex: 15, padding: '10rem 1rem 6rem', overflowX: 'hidden' }}>
+      {/* 3. THE 5 BOXES (Deep Navy backgrounds) */}
+      <section style={{ position: 'relative', zIndex: 15, padding: '10rem 1rem 6rem', overflowX: 'hidden', background: 'var(--surface)' }}>
         {/* Connection Line */}
         <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '2px', height: '100%', background: 'linear-gradient(to bottom, rgba(212,175,55,0.5), rgba(212,175,55,0.5))', zIndex: 0 }} />
 
@@ -117,16 +117,16 @@ export default function Home() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8rem', alignItems: 'center' }}>
             <motion.div 
               variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
-              style={{ width: '100%', maxWidth: '800px', background: 'rgba(13, 17, 26, 0.9)', padding: '5rem 2rem', border: '1px solid var(--brand-primary)', boxShadow: '0 0 100px rgba(212,175,55,0.1)', textAlign: 'center', position: 'relative', backdropFilter: 'blur(20px)' }}
+              style={{ width: '100%', maxWidth: '800px', background: 'var(--bg)', padding: '5rem 2rem', border: '1px solid var(--brand-primary)', boxShadow: '0 0 100px rgba(212,175,55,0.1)', textAlign: 'center', position: 'relative', backdropFilter: 'blur(20px)' }}
             >
-              <div style={{ position: 'absolute', top: '-40px', left: '50%', transform: 'translateX(-50%)', background: '#000', border: '2px solid var(--brand-primary)', width: '80px', height: '80px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--brand-primary)', boxShadow: '0 0 50px rgba(212,175,55,0.4)', zIndex: 20 }}>
+              <div style={{ position: 'absolute', top: '-40px', left: '50%', transform: 'translateX(-50%)', background: 'var(--surface)', border: '2px solid var(--brand-primary)', width: '80px', height: '80px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--brand-primary)', boxShadow: '0 0 50px rgba(212,175,55,0.4)', zIndex: 20 }}>
                 <Crown size={40} />
               </div>
               <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', color: '#fff', textTransform: 'uppercase', letterSpacing: '0.1em', lineHeight: 1, marginTop: '2rem' }}>Jesus's Kingdom</h2>
             </motion.div>
 
             <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', maxWidth: '1000px' }}>
-              <motion.div variants={flyInLeft} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} style={{ width: '100%', maxWidth: '450px', background: 'rgba(21, 27, 41, 0.9)', padding: '3rem', borderLeft: '4px solid var(--brand-primary)', position: 'relative' }}>
+              <motion.div variants={flyInLeft} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} style={{ width: '100%', maxWidth: '450px', background: 'var(--bg)', padding: '3rem', borderLeft: '4px solid var(--brand-primary)', position: 'relative', boxShadow: '0 10px 40px rgba(0,0,0,0.5)' }}>
                 <div style={{ position: 'absolute', top: '50%', right: '-40px', width: '40px', height: '2px', background: 'var(--brand-primary)', zIndex: -1 }} className="hide-on-mobile" />
                 <div style={{ fontSize: '1.25rem', color: 'var(--brand-primary)', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.1em' }}>01 .</div>
                 <h3 style={{ fontSize: '2rem', color: '#fff', marginBottom: '0', textTransform: 'uppercase' }}>Leaders Equipped</h3>
@@ -134,7 +134,7 @@ export default function Home() {
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%', maxWidth: '1000px' }}>
-              <motion.div variants={flyInRight} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} style={{ width: '100%', maxWidth: '450px', background: 'rgba(21, 27, 41, 0.9)', padding: '3rem', borderRight: '4px solid var(--brand-primary)', position: 'relative' }}>
+              <motion.div variants={flyInRight} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} style={{ width: '100%', maxWidth: '450px', background: 'var(--bg)', padding: '3rem', borderRight: '4px solid var(--brand-primary)', position: 'relative', boxShadow: '0 10px 40px rgba(0,0,0,0.5)' }}>
                 <div style={{ position: 'absolute', top: '50%', left: '-40px', width: '40px', height: '2px', background: 'var(--brand-primary)', zIndex: -1 }} className="hide-on-mobile" />
                 <div style={{ fontSize: '1.25rem', color: 'var(--brand-primary)', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.1em' }}>02 .</div>
                 <h3 style={{ fontSize: '2rem', color: '#fff', marginBottom: '0', textTransform: 'uppercase' }}>Leaders Raising Leaders</h3>
@@ -142,7 +142,7 @@ export default function Home() {
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', maxWidth: '1000px' }}>
-              <motion.div variants={flyInLeft} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} style={{ width: '100%', maxWidth: '450px', background: 'rgba(21, 27, 41, 0.9)', padding: '3rem', borderLeft: '4px solid var(--brand-primary)', position: 'relative' }}>
+              <motion.div variants={flyInLeft} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} style={{ width: '100%', maxWidth: '450px', background: 'var(--bg)', padding: '3rem', borderLeft: '4px solid var(--brand-primary)', position: 'relative', boxShadow: '0 10px 40px rgba(0,0,0,0.5)' }}>
                 <div style={{ position: 'absolute', top: '50%', right: '-40px', width: '40px', height: '2px', background: 'var(--brand-primary)', zIndex: -1 }} className="hide-on-mobile" />
                 <div style={{ fontSize: '1.25rem', color: 'var(--brand-primary)', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.1em' }}>03 .</div>
                 <h3 style={{ fontSize: '2rem', color: '#fff', marginBottom: '0', textTransform: 'uppercase' }}>Limitations Minimized</h3>
@@ -150,7 +150,7 @@ export default function Home() {
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%', maxWidth: '1000px' }}>
-              <motion.div variants={flyInRight} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} style={{ width: '100%', maxWidth: '450px', background: 'rgba(21, 27, 41, 0.9)', padding: '3rem', borderRight: '4px solid var(--brand-primary)', borderBottom: '1px solid rgba(212,175,55,0.4)', position: 'relative', boxShadow: '0 0 50px rgba(212,175,55,0.1)' }}>
+              <motion.div variants={flyInRight} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} style={{ width: '100%', maxWidth: '450px', background: 'var(--bg)', padding: '3rem', borderRight: '4px solid var(--brand-primary)', borderBottom: '1px solid rgba(212,175,55,0.4)', position: 'relative', boxShadow: '0 0 50px rgba(212,175,55,0.1)' }}>
                 <div style={{ position: 'absolute', top: '50%', left: '-40px', width: '40px', height: '2px', background: 'var(--brand-primary)', zIndex: -1 }} className="hide-on-mobile" />
                 <div style={{ fontSize: '1.25rem', color: 'var(--brand-primary)', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.1em' }}>04 .</div>
                 <h3 style={{ fontSize: '2rem', color: '#fff', marginBottom: '0', textTransform: 'uppercase' }}>The Kingdom Advanced</h3>
@@ -161,8 +161,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. THE PATHWAY (Immersive 100vh Slides with Darknode Glitch Typography) */}
-      <section style={{ position: 'relative', zIndex: 10, background: '#05070a' }}>
+      {/* 4. THE PATHWAY (Immersive 100vh Slides with Deep Navy) */}
+      <section style={{ position: 'relative', zIndex: 10, background: 'var(--bg)' }}>
         
         {/* Pathway Header */}
         <div style={{ padding: '10rem 1.5rem', textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
@@ -177,7 +177,7 @@ export default function Home() {
         </div>
 
         {/* Phase 1: 100vh */}
-        <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '6rem 1.5rem', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '6rem 1.5rem', position: 'relative', overflow: 'hidden', background: 'var(--surface)' }}>
           <div style={{ position: 'absolute', top: '10%', right: '-10%', fontSize: '40vw', fontWeight: 900, color: 'rgba(255,255,255,0.02)', pointerEvents: 'none', lineHeight: 0.8 }}>01</div>
           <div className="container" style={{ maxWidth: '1000px', position: 'relative', zIndex: 1 }}>
             <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
@@ -191,7 +191,7 @@ export default function Home() {
         </div>
 
         {/* Phase 2: 100vh */}
-        <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '6rem 1.5rem', position: 'relative', overflow: 'hidden', background: 'radial-gradient(circle at 100% 50%, rgba(212,175,55,0.05) 0%, transparent 60%)' }}>
+        <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '6rem 1.5rem', position: 'relative', overflow: 'hidden', background: 'radial-gradient(circle at 100% 50%, rgba(212,175,55,0.05) 0%, var(--bg) 60%)' }}>
           <div style={{ position: 'absolute', top: '10%', left: '-10%', fontSize: '40vw', fontWeight: 900, color: 'rgba(255,255,255,0.02)', pointerEvents: 'none', lineHeight: 0.8 }}>02</div>
           <div className="container" style={{ maxWidth: '1000px', position: 'relative', zIndex: 1 }}>
             <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
@@ -205,7 +205,7 @@ export default function Home() {
         </div>
 
         {/* Phase 3: 100vh */}
-        <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '6rem 1.5rem', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '6rem 1.5rem', position: 'relative', overflow: 'hidden', background: 'var(--surface-elevated)' }}>
           <div style={{ position: 'absolute', top: '10%', right: '-10%', fontSize: '40vw', fontWeight: 900, color: 'rgba(255,255,255,0.02)', pointerEvents: 'none', lineHeight: 0.8 }}>03</div>
           <div className="container" style={{ maxWidth: '1000px', position: 'relative', zIndex: 1 }}>
             <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
@@ -226,8 +226,8 @@ export default function Home() {
 
       </section>
 
-      {/* 5. FINAL CTA (Strict Flexbox for Mobile Safety) */}
-      <section style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '8rem 1.5rem', background: '#0a0d14' }}>
+      {/* 5. FINAL CTA */}
+      <section style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '8rem 1.5rem', background: 'var(--bg)' }}>
         <motion.div 
           variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
           style={{ width: '100%', maxWidth: '1000px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
