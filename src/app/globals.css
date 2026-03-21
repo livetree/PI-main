@@ -225,57 +225,52 @@ main {
   letter-spacing: 0.1em;
 }
 
-/* Running Highlights for Hover Cards */
-@keyframes border-flow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Kinetic Plasma Orb - NextGen Offset Pathing */
+@keyframes trace-perimeter {
+  100% { offset-distance: 100%; }
 }
 
-.hover-glow-wrap {
+.kinetic-card {
   position: relative;
-  overflow: hidden;
-  border-radius: 24px;
-  padding: var(--glow-padding, 2px);
-  background: rgba(255, 255, 255, 0.05);
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, background 0.3s ease;
-  transform-style: preserve-3d;
+  overflow: visible; /* Defeating internal masking fully permits the immense 140px plasma bubble to naturally bleed cleanly onto the yellow layout exterior */
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
 }
 
-.hover-glow-wrap:hover {
+.kinetic-card:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 50px var(--glow-shadow, rgba(212,175,55,0.15));
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
   z-index: 50;
 }
 
-@keyframes glow-spin {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-.hover-glow-spinner {
+.kinetic-orb {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 2000px;
-  height: 2000px;
-  background: var(--comet-gradient, conic-gradient(from 0deg, transparent 0%, transparent 50%, rgba(30, 58, 138, 0.2) 70%, rgba(30, 58, 138, 0.9) 95%, #1e3a8a 100%));
-  animation: glow-spin 2.5s linear infinite;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 0;
+  top: 0; 
+  left: 0;
+  width: 140px; 
+  height: 140px;
+  margin: -70px 0 0 -70px; /* Absolutely locking rotational geometric origin strictly flush to the 0px offset-path wireframe array */
+  border-radius: 50%;
   pointer-events: none;
+  z-index: 1; /* Floating directly underneath the textual overlay tier, above the Navy core layer base */
+
+  /* The incredibly lush, brilliant massive volumetric glowing core and structural 8px blur distortion array */
+  background: radial-gradient(circle at center, rgba(147, 197, 253, 0.95) 0%, rgba(30,58,138,0.9) 25%, transparent 65%);
+  filter: blur(8px);
+  
+  /* Plasma exhaust tail orienting directionally rearwards identically against pathing trajectory mapping automatically (-X layout alignment) */
+  box-shadow: 
+    -40px 0 30px rgba(30, 58, 138, 0.9),
+    -80px 0 40px rgba(30, 58, 138, 0.6),
+    -120px 0 50px rgba(30, 58, 138, 0.3);
+
+  /* NATIVE NEXTGEN PERIMETER ANIMATION ROUTINE */
+  offset-path: inset(0 round 24px); 
+  animation: trace-perimeter 4s linear infinite; 
+  
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
-.hover-glow-wrap:hover .hover-glow-spinner {
+.kinetic-card:hover .kinetic-orb {
   opacity: 1;
-}
-
-.hover-glow-inner {
-  position: relative;
-  background: var(--surface);
-  border-radius: 22px;
-  height: 100%;
-  z-index: 1;
-  overflow: hidden;
 }

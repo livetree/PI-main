@@ -93,7 +93,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. THE CHALLENGE (Inverted Yellow with BOLD ELECTRIC GRADIENT Hovers) */}
+      {/* 2. THE CHALLENGE (Inverted Yellow with High-End CSS offset-path Kinetic Orbs) */}
       <section style={{ padding: '10rem 1.5rem', position: 'relative', zIndex: 10, background: 'var(--brand-primary)' }}>
         <div className="container" style={{ maxWidth: '1000px' }}>
           
@@ -118,21 +118,21 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0, rotate: 0 }} 
                 viewport={{ once: true, margin: "-50px" }} 
                 transition={{ type: "spring", damping: 15, stiffness: 70, delay: i * 0.15 }} 
-                className="hover-glow-wrap"
+                className="kinetic-card"
                 style={{ 
-                  '--glow-padding': '4px',
-                  '--glow-shadow': 'rgba(30, 58, 138, 0.4)'
+                  backgroundColor: 'var(--surface)',
+                  padding: '2.5rem',
+                  borderRadius: '24px',
+                  border: '1px solid rgba(255,255,255,0.05)',
                 }}
               >
                 {/* 
-                  Dense multi-stop conic slice to produce an incredibly aggressive, 
-                  perfectly shaped tracking white/cyan orb natively on rotation.
+                  The massive roaming glowing orb flawlessly locked to the margin boundary! 
+                  No masks, no radar clipping. Absolute pure mathematical perimeter tracking.
                 */}
-                <div className="hover-glow-spinner" style={{ 
-                  '--comet-gradient': 'conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(30,58,138,0.2) 75%, rgba(30,58,138,0.95) 95%, #3b82f6 98.5%, #93c5fd 99.5%, #ffffff 100%)' 
-                }} />
+                <div className="kinetic-orb" />
                 
-                <div className="hover-glow-inner" style={{ padding: '2.5rem', display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+                <div style={{ position: 'relative', zIndex: 10, display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
                   <div style={{ background: 'rgba(212,175,55,0.1)', padding: '1rem', borderRadius: '50%', flexShrink: 0 }}>
                     <TrendingUp color="var(--brand-primary)" size={28} style={{ transform: 'rotate(180deg)' }} />
                   </div>
