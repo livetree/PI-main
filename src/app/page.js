@@ -58,16 +58,15 @@ export default function Home() {
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.6 }}
             style={{ fontSize: 'clamp(1.125rem, 3vw, 1.5rem)', color: 'var(--text-secondary)', maxWidth: '800px', lineHeight: 1.6, marginBottom: '1.5rem' }}
           >
-            Growth creates opportunity—but also pressure.<br className="hide-on-mobile"/> Without developed leaders, vision stalls.
+            Growth brings opportunity—and pressure.<br className="hide-on-mobile"/> Without leaders, vision slows.
           </motion.p>
 
           <motion.p 
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.8 }}
             style={{ fontSize: 'clamp(1.125rem, 3vw, 1.5rem)', color: 'var(--text-secondary)', maxWidth: '800px', lineHeight: 1.6, marginBottom: '3.5rem' }}
           >
-            But when leaders are trained and released:<br/>
-            <strong style={{ color: '#fff', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Vision accelerates. Disciples multiply. Movements begin.</strong><br/><br/>
-            We help you equip leaders who can carry and multiply what God is building.
+            With trained leaders:<br/>
+            <strong style={{ color: '#fff', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Vision accelerates. Movements begin.</strong>
           </motion.p>
           
           <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring", stiffness: 100, delay: 1 }} style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
