@@ -96,36 +96,49 @@ export default function Home() {
 
       {/* 2. THE CHALLENGE (Inverted Yellow with Framer React Tracks) */}
       <section style={{ padding: '10rem 1.5rem', position: 'relative', zIndex: 10, background: 'var(--brand-primary)' }}>
-        <div className="container" style={{ maxWidth: '1000px' }}>
+        <div className="container" style={{ maxWidth: '1200px' }}>
           
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9, y: 50 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ type: "spring", damping: 20, stiffness: 80 }}
-          >
-            <h2 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', color: 'var(--bg)', textTransform: 'uppercase', lineHeight: 0.9, marginBottom: '5rem', textAlign: 'center', fontWeight: 900 }}>
-              LEADERSHIP GAPS<br/><span style={{ color: 'var(--bg)', opacity: 0.7 }}>LIMIT KINGDOM IMPACT</span>
-            </h2>
-          </motion.div>
-          
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
-            {[
-              "A few leaders carry most of the responsibility",
-              "People attend but aren't activated",
-              "Potential leaders remain undeveloped",
-              "Vision stalls instead of multiplying"
-            ].map((challenge, i) => (
-              <MagicCard 
-                key={i} 
-                delay={i * 0.15}
-                initialVariant={{ opacity: 0, x: -150, rotate: -5 }}
-                visibleVariant={{ opacity: 1, x: 0, rotate: 0 }}
-                innerStyle={{ padding: '2.5rem', display: 'flex', gap: '1.5rem', alignItems: 'center' }}
-              >
-                <div style={{ background: 'rgba(212,175,55,0.1)', padding: '1rem', borderRadius: '50%', flexShrink: 0 }}>
-                  <TrendingUp color="var(--brand-primary)" size={28} style={{ transform: 'rotate(180deg)' }} />
-                </div>
-                <p style={{ fontSize: '1.25rem', color: '#fff', fontWeight: 600, lineHeight: 1.5 }}>{challenge}</p>
-              </MagicCard>
-            ))}
+          <div className="layout-split">
+            
+            {/* LEFT COLUMN: TITLE AND CONCLUSION */}
+            <motion.div 
+              className="layout-left"
+              initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ type: "spring", damping: 20, stiffness: 80 }}
+            >
+              <h2 style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', color: 'var(--bg)', textTransform: 'uppercase', lineHeight: 0.9, marginBottom: '3rem', fontWeight: 900 }}>
+                The <br/>Leadership<br/>Gap
+              </h2>
+              
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '1rem', background: 'rgba(0,0,0,0.1)', padding: '1rem 2rem', borderRadius: '99px' }}>
+                <span style={{ width: '12px', height: '12px', background: '#dc2626', borderRadius: '50%', boxShadow: '0 0 15px #dc2626' }} />
+                <p style={{ fontSize: 'clamp(1rem, 2vw, 1.25rem)', color: 'var(--bg)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                  And vision slows.
+                </p>
+              </div>
+            </motion.div>
+            
+            {/* RIGHT COLUMN: MAGIC BOXES */}
+            <div className="layout-right" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              {[
+                "Too few leaders carry too much",
+                "People attend, but don’t grow",
+                "New leaders aren’t being developed"
+              ].map((challenge, i) => (
+                <MagicCard 
+                  key={i} 
+                  delay={i * 0.15}
+                  initialVariant={{ opacity: 0, x: 100 }}
+                  visibleVariant={{ opacity: 1, x: 0 }}
+                  innerStyle={{ padding: '2.5rem', display: 'flex', gap: '1.5rem', alignItems: 'center' }}
+                >
+                  <div style={{ background: 'rgba(212,175,55,0.1)', padding: '1rem', borderRadius: '50%', flexShrink: 0 }}>
+                    <TrendingUp color="var(--brand-primary)" size={28} style={{ transform: 'rotate(180deg)' }} />
+                  </div>
+                  <p style={{ fontSize: '1.5rem', color: '#fff', fontWeight: 600, lineHeight: 1.4 }}>{challenge}</p>
+                </MagicCard>
+              ))}
+            </div>
+            
           </div>
         </div>
       </section>

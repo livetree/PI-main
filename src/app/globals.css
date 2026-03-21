@@ -179,6 +179,20 @@ a:hover {
   .card { padding: 1.5rem; }
 }
 
+.layout-split {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+@media (min-width: 900px) {
+  .layout-split {
+    flex-direction: row;
+    align-items: center;
+  }
+  .layout-left { flex: 0.8; }
+  .layout-right { flex: 1.2; }
+}
+
 /* Base layouts for main app areas */
 main {
   min-height: 100vh;
