@@ -121,7 +121,7 @@ export default function Home() {
                 className="hover-glow-wrap"
                 style={{ borderLeft: '6px solid var(--bg)' }}
               >
-                <div className="hover-glow-spinner" style={{ background: 'conic-gradient(from 0deg, transparent 0%, transparent 70%, var(--bg) 100%)' }} />
+                <div className="hover-glow-spinner" style={{ '--comet-body': 'rgba(11, 17, 33, 0.8)', '--comet-head': '#000000' }} />
                 <div className="hover-glow-inner" style={{ padding: '2.5rem', display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
                   <div style={{ background: 'rgba(212,175,55,0.1)', padding: '1rem', borderRadius: '50%', flexShrink: 0 }}>
                     <TrendingUp color="var(--brand-primary)" size={28} style={{ transform: 'rotate(180deg)' }} />
@@ -222,7 +222,7 @@ export default function Home() {
               "Movements that multiply"
             ].map((item, i) => (
               <motion.div key={i} variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.1 }} className="hover-glow-wrap" style={{ borderTop: '4px solid var(--brand-secondary)' }}>
-                <div className="hover-glow-spinner" style={{ background: 'conic-gradient(from 0deg, transparent 0%, transparent 70%, var(--brand-secondary) 100%)' }} />
+                <div className="hover-glow-spinner" style={{ '--comet-body': 'rgba(252, 211, 77, 0.8)', '--comet-head': '#ffffff' }} />
                 <div className="hover-glow-inner" style={{ background: 'var(--surface-elevated)', padding: '4rem 2rem', textAlign: 'center' }}>
                   <Target color="var(--brand-secondary)" size={40} style={{ margin: '0 auto 1.5rem' }} />
                   <h3 style={{ fontSize: '1.75rem', color: '#fff', fontWeight: 600, lineHeight: 1.3 }}>{item}</h3>
