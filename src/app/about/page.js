@@ -12,6 +12,13 @@ export default function AboutPage() {
   return (
     <div style={{ position: 'relative', backgroundColor: 'var(--bg)', overflowX: 'hidden', color: '#fff', minHeight: '100vh', paddingBottom: '10rem' }}>
       
+      {/* 1. DARKNODE MANIFESTO HERO */}
+      <section style={{ position: 'relative', paddingTop: '15rem', paddingBottom: '8rem', paddingLeft: '1.5rem', paddingRight: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+        <WaveBackground quadrant={3} opacity={0.2} />
+        
+        <div className="container" style={{ position: 'relative', zIndex: 10, maxWidth: '1400px' }}>
+          <motion.div variants={flyInUp} initial="hidden" animate="visible" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'end' }}>
+             
              <div>
                <h1 style={{ fontSize: 'clamp(4rem, 8vw, 7rem)', fontWeight: 400, lineHeight: 0.9, letterSpacing: '-0.04em', textTransform: 'uppercase' }}>
                  ABOUT US
