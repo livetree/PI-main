@@ -65,15 +65,15 @@ export default function Home() {
             initial={{ opacity: 0, y: 100, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ type: "spring", damping: 20, stiffness: 100, delay: 0.4 }}
             style={{ fontSize: 'clamp(3rem, 10vw, 8rem)', fontWeight: 800, lineHeight: 0.9, letterSpacing: '-0.05em', margin: '0 0 2rem 0', textTransform: 'uppercase' }}
           >
-            A MOVEMENT OF <br/>
-            <span style={{ color: 'var(--brand-primary)', textShadow: '0 0 40px rgba(212,175,55,0.4)' }}>MULTIPLYING LEADERS.</span>
+            As Vision Expands, <br/>
+            <span style={{ color: 'var(--brand-primary)', textShadow: '0 0 40px rgba(212,175,55,0.4)' }}>Leaders Must Multiply.</span>
           </motion.h1>
           
           <motion.p 
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.6 }}
             style={{ fontSize: 'clamp(1.125rem, 3vw, 1.5rem)', color: 'var(--text-secondary)', maxWidth: '800px', marginInline: 'auto', lineHeight: 1.6, marginBottom: '1.5rem' }}
           >
-            Multiplying leaders who live from Jesus and lead in His Kingdom—across churches, businesses, and communities.
+            Growth brings opportunity—and pressure. <br/> Without leaders, vision slows.
           </motion.p>
 
           <motion.p 
