@@ -5,31 +5,10 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, TrendingUp, Zap, ChevronRight, Crown, Target, Zap as ZapIcon, User, Network, Users } from 'lucide-react';
 import MagicCard from '../components/MagicCard';
+import WaveBackground from '../components/WaveBackground';
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
-  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
-
-  // Parallax Geometric Crop matrix intelligently isolating 2x2 grid regions securely
-  const WaveBackground = ({ quadrant = 1, opacity = 0.4 }) => {
-    const transforms = {
-      1: 'translate(0%, 0%)',
-      2: 'translate(-50%, 0%)',
-      3: 'translate(0%, -50%)',
-      4: 'translate(-50%, -50%)'
-    };
-    return (
-      <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', zIndex: 0, pointerEvents: 'none' }}>
-        <motion.div 
-          style={{ 
-            position: 'absolute', top: 0, left: 0, width: '200%', height: '200%', 
-            backgroundImage: "url('/wave-grid.jpg')", backgroundSize: '100% 100%', 
-            transform: transforms[quadrant], opacity: opacity, y: bgY 
-          }} 
-        />
-      </div>
-    );
-  };
 
   // Aggressive Darknode Fly-In Physics
   const flyInUp = {
