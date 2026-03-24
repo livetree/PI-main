@@ -67,8 +67,8 @@ export default function Home() {
             initial={{ opacity: 0, y: 100, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ type: "spring", damping: 20, stiffness: 100, delay: 0.4 }}
             style={{ fontSize: 'clamp(3rem, 10vw, 8rem)', fontWeight: 800, lineHeight: 0.9, letterSpacing: '-0.05em', margin: '0 0 2rem 0', textTransform: 'uppercase' }}
           >
-            WE ADVANCE THE KINGDOM<br />
-            <span style={{ color: 'var(--brand-primary)', textShadow: '0 0 40px rgba(212,175,55,0.4)' }}>BY MULTIPLYING LEADERS.</span>
+            AS VISION EXPANDS,<br />
+            <span style={{ color: 'var(--brand-primary)', textShadow: '0 0 40px rgba(212,175,55,0.4)' }}>LEADERS MUST MULTIPLY.</span>
           </motion.h1>
           
           <motion.p 
@@ -259,10 +259,11 @@ export default function Home() {
           <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} style={{ textAlign: 'center', marginBottom: '5rem' }}>
             <div style={{ fontSize: '1.5rem', color: '#fff', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.3em' }}>THE SOLUTION</div>
             <h2 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', color: '#fff', textTransform: 'uppercase', lineHeight: 0.9, letterSpacing: '-0.03em', marginBottom: '2rem' }}>
-              We Help You Build <br/>Leaders Who Multiply
+              We advance the Kingdom <br/>
+              <span style={{ color: 'var(--brand-primary)' }}>by multiplying leaders.</span>
             </h2>
             <p style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', color: 'var(--text-secondary)', maxWidth: '700px', margin: '0 auto' }}>
-              Prepare International partners with leaders like you to:
+              WE partner with leaders like you to:
             </p>
           </motion.div>
 
