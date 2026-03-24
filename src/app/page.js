@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, TrendingUp, Zap, ChevronRight, Crown, Target, Zap as ZapIcon } from 'lucide-react';
+import { ArrowRight, TrendingUp, Zap, ChevronRight, Crown, Target, Zap as ZapIcon, User, Network, Users } from 'lucide-react';
 import MagicCard from '../components/MagicCard';
 
 export default function Home() {
@@ -239,7 +239,6 @@ export default function Home() {
         <div className="container" style={{ maxWidth: '1000px', position: 'relative', zIndex: 10 }}>
           
           <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} style={{ textAlign: 'center', marginBottom: '5rem' }}>
-            <div style={{ fontSize: '1.5rem', color: 'var(--brand-secondary)', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.3em' }}>KINGDOM MULTIPLICATION</div>
             <h2 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', color: '#fff', textTransform: 'uppercase', lineHeight: 0.9, letterSpacing: '-0.03em', marginBottom: '2rem' }}>
               The Goal Is Not Growth—<br/><span style={{ color: 'var(--brand-primary)', textShadow: '0 0 40px rgba(212,175,55,0.3)' }}>It's Multiplication</span>
             </h2>
