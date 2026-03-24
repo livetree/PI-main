@@ -10,6 +10,27 @@ export default function Home() {
   const { scrollYProgress } = useScroll();
   const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
 
+  // Parallax Geometric Crop matrix intelligently isolating 2x2 grid regions securely
+  const WaveBackground = ({ quadrant = 1, opacity = 0.4 }) => {
+    const transforms = {
+      1: 'translate(0%, 0%)',
+      2: 'translate(-50%, 0%)',
+      3: 'translate(0%, -50%)',
+      4: 'translate(-50%, -50%)'
+    };
+    return (
+      <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', zIndex: 0, pointerEvents: 'none' }}>
+        <motion.div 
+          style={{ 
+            position: 'absolute', top: 0, left: 0, width: '200%', height: '200%', 
+            backgroundImage: "url('/wave-grid.jpg')", backgroundSize: '100% 100%', 
+            transform: transforms[quadrant], opacity: opacity, y: bgY 
+          }} 
+        />
+      </div>
+    );
+  };
+
   // Aggressive Darknode Fly-In Physics
   const flyInUp = {
     hidden: { opacity: 0, y: 150, scale: 0.85, rotateX: 10 },
@@ -50,14 +71,12 @@ export default function Home() {
   return (
     <div style={{ position: 'relative', backgroundColor: 'var(--bg)', overflowX: 'hidden', color: '#fff' }}>
       
-      {/* MASSIVE DEEP PARALLAX BACKGROUND GRID */}
-      <motion.div style={{ position: 'fixed', top: '-10%', left: '-5%', width: '120vw', height: '120vh', backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(212,175,55,0.06) 0%, transparent 60%), linear-gradient(rgba(212,175,55,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.03) 1px, transparent 1px)', backgroundSize: '100% 100%, 50px 50px, 50px 50px', zIndex: 0, y: bgY, pointerEvents: 'none' }} />
-
       {/* 1. HERO SECTION */}
       <section style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 10, padding: '10rem 1.5rem 6rem' }}>
+        <WaveBackground quadrant={1} opacity={0.6} />
         <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '2px', height: '100%', background: 'linear-gradient(to bottom, rgba(212,175,55,0), rgba(212,175,55,0.5))', zIndex: -1 }} />
         
-        <div className="container" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div className="container" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', zIndex: 10 }}>
           
           <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: "spring", stiffness: 100, delay: 0.2 }} className="pill-tag" style={{ marginBottom: '2rem', background: 'var(--surface-elevated)', border: '1px solid var(--brand-primary)', backdropFilter: 'blur(20px)' }}>
             <Zap size={14} color="var(--brand-primary)" /> NEW LEADERSHIP PARADIGM
@@ -144,7 +163,7 @@ export default function Home() {
 
       {/* 3. JESUS FIRST (Immersive Full-Screen Scroll Sweep) */}
       <section ref={jesusFirstRef} style={{ position: 'relative', zIndex: 15, minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '10rem 1.5rem', background: 'var(--surface)', overflow: 'hidden' }}>
-        
+        <WaveBackground quadrant={2} opacity={0.3} />
         {/* Massive Background Typography */}
         <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: 'clamp(10rem, 30vw, 40rem)', fontWeight: 900, color: 'rgba(255,255,255,0.02)', pointerEvents: 'none', lineHeight: 0.8, whiteSpace: 'nowrap', zIndex: 0 }}>
           JESUS
@@ -216,6 +235,7 @@ export default function Home() {
 
       {/* 4. KINGDOM MULTIPLICATION (Restored standard 3D Hover physics) */}
       <section style={{ padding: '10rem 1.5rem', background: 'var(--bg)', position: 'relative' }}>
+        <WaveBackground quadrant={4} opacity={0.4} />
         <div className="container" style={{ maxWidth: '1000px', position: 'relative', zIndex: 10 }}>
           
           <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} style={{ textAlign: 'center', marginBottom: '5rem' }}>
