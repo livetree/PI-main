@@ -246,9 +246,9 @@ export default function Home() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', marginBottom: '5rem' }}>
             {[
-              "Disciples who make disciples",
-              "Leaders who raise leaders",
-              "Movements that multiply"
+              { text: "Disciples who make disciples", icon: <User color="var(--brand-secondary)" size={40} style={{ margin: '0 auto 1.5rem' }} /> },
+              { text: "Leaders who raise leaders", icon: <Users color="var(--brand-secondary)" size={40} style={{ margin: '0 auto 1.5rem' }} /> },
+              { text: "Movements that multiply", icon: <Network color="var(--brand-secondary)" size={40} style={{ margin: '0 auto 1.5rem' }} /> }
             ].map((item, i) => (
               <MagicCard 
                 key={i} 
@@ -258,8 +258,8 @@ export default function Home() {
                 highlightColor="var(--brand-secondary)"
                 innerStyle={{ padding: '4rem 2rem', textAlign: 'center', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
               >
-                  <Target color="var(--brand-secondary)" size={40} style={{ margin: '0 auto 1.5rem' }} />
-                  <h3 style={{ fontSize: '1.75rem', color: '#fff', fontWeight: 600, lineHeight: 1.3 }}>{item}</h3>
+                  {item.icon}
+                  <h3 style={{ fontSize: '1.75rem', color: '#fff', fontWeight: 600, lineHeight: 1.3 }}>{item.text}</h3>
               </MagicCard>
             ))}
           </div>
