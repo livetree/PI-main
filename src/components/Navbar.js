@@ -57,16 +57,16 @@ export default function Navbar() {
           transition: 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)'
         }}>
           {/* LOGO */}
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <motion.div 
-              whileHover={{ scale: 1.05, rotate: 5 }}
-              style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'var(--brand-gradient)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'black', fontWeight: 900, fontSize: '1.125rem' }}
-            >
-              PI
-            </motion.div>
-            <span style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.25rem', letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
-              PREPARE <span style={{ color: 'var(--brand-primary)' }}>INTL</span>
-            </span>
+          <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
+            <img 
+              src="/images/pi-logo.svg" 
+              alt="Prepare International" 
+              style={{ 
+                height: '32px', 
+                width: 'auto',
+                display: 'block'
+              }} 
+            />
           </Link>
 
           {/* DESKTOP NAV */}
