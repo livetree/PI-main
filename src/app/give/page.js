@@ -7,11 +7,14 @@ import Link from 'next/link';
 
 const STAFF = [
   { name: 'Randy & Callie Boyd', role: 'Founders' },
-  { name: 'Josiah & Brandi Boyd', role: 'International Directors' },
-  { name: 'Volkert Muijs', role: 'Europe Director' },
-  { name: 'Hannah Dockery', role: 'Global Support' },
-  { name: 'Patrick Kisia', role: 'Africa' },
-  { name: 'Daniel Caballero', role: 'Americas' }
+  { name: 'Josiah & Brandi Boyd', role: 'Executive Directors' },
+  { name: 'Volkert Muijs', role: 'Africa Director' },
+  { name: 'Hannah Dockery', role: 'Homebase Director & Prayground' },
+  { name: 'Patrick Kisia', role: 'East Africa Director' },
+  { name: 'Daniel Caballero', role: 'Latin America Director' },
+  { name: 'Anna Aleksieieva', role: 'European Coordinator' },
+  { name: 'Boone & Bethany Tyson', role: 'Costa Rica & South Texas Coordinators' },
+  { name: 'David Morgan', role: 'Director of Development' }
 ];
 
 const PROJECTS = [

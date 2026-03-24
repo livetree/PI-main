@@ -6,10 +6,10 @@ import { Globe, Calendar, MessageSquare, Mail, Phone, MapPin, ArrowRight, Extern
 import Link from 'next/link';
 
 const REGIONS = [
-  { name: 'Africa', leads: ['Patrick Kisia', 'Movement Equipping'], email: 'africa@prepareinternational.org' },
-  { name: 'Europe', leads: ['Volkert Muijs', 'Anna Aleksieieva'], email: 'europe@prepareinternational.org' },
-  { name: 'Americas', leads: ['Daniel Caballero', 'Strategic Initiatives'], email: 'latam@prepareinternational.org' },
-  { name: 'Global Support', leads: ['Hannah Dockery', 'Movement Support'], email: 'office@pinations.org' }
+  { name: 'Africa', leads: ['Patrick Kisia', 'East Africa Director'], email: 'africa@prepareinternational.org' },
+  { name: 'Europe', leads: ['Anna Aleksieieva', 'European Coordinator'], email: 'europe@prepareinternational.org' },
+  { name: 'Latin America', leads: ['Daniel Caballero', 'Latin America Director'], email: 'latam@prepareinternational.org' },
+  { name: 'Global Support', leads: ['Hannah Dockery', 'Homebase Director'], email: 'office@pinations.org' }
 ];
 
 const fadeIn = {
