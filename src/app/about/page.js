@@ -105,8 +105,8 @@ export default function AboutPage() {
                 <h3 style={{ fontSize: '2rem', color: 'var(--brand-secondary)', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>PI History</h3>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', maxWidth: '800px', fontSize: 'clamp(1.25rem, 2vw, 1.5rem)', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                <p>PI was formed in 2001 with Randy Boyd assuming the role of Director in 2003. He and Callie, his wife, quickly set a course of ministry to train and equip local leaders and workers for life and service within their nation.</p>
-                <p>Our first training schools were in the Czech Republic and Slovakia. Today, we operate across 5 continents with schools and relationships in Africa, Asia, Latin America, Europe, and the United States, as well as maintaining a global online learning platform.</p>
+                <p>PI was formed in 2001 with Randy Boyd assuming the role of Director in 2003. He and Callie, his wife, quickly set a course to train and equip leaders for life and mission within their nation.</p>
+                <p>Our first training schools were in the Czech Republic and Slovakia. Today, we operate across 5 continents with schools and relationships in Africa, Asia, Latin America, Europe, and the United States, empowering leaders across every sphere of society.</p>
               </div>
             </motion.div>
 
@@ -131,7 +131,7 @@ export default function AboutPage() {
             {[
               { id: '01', title: "Advance the Kingdom", desc: "We are unequivocally committed to the expansion of His kingdom structurally, relationally, and spiritually." },
               { id: '02', title: "Multiply Leaders", desc: "Jesus didn't mass-produce followers. He poured deeply into a few leaders who then changed the world. We protect this intensive model." },
-              { id: '03', title: "Disciple Nations", desc: "Equipping localized pastoral pipelines natively so churches can launch and sustain themselves autonomously." }
+              { id: '03', title: "Disciple Nations", desc: "Equipping localized leadership pipelines natively so movements can launch and sustain themselves autonomously in every sphere." }
             ].map((principle, i) => (
               <motion.div 
                 key={i} variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: i * 0.1 }}

@@ -12,24 +12,24 @@ const PATHWAYS = [
     title: 'Kingdom Foundations',
     subtitle: 'Jesus-Centered Leadership',
     icon: <Flame size={32} />,
-    description: 'Our most foundational pathway. Jesus lived, talked, and demonstrated the Kingdom of God. This pathway discusses the key teachings of Jesus that outline a new way of life.',
+    description: 'Our most foundational pathway. Jesus lived, talked, and demonstrated the Kingdom of God. This pathway discusses the key teachings of Jesus that outline a new way of life for leaders in any context.',
     color: 'var(--brand-primary)',
     courses: [
-      { name: 'Kingdom of God', desc: 'The framework Jesus used to communicate what life will look like for His followers.' },
-      { name: 'New Testament Themes', desc: 'Understanding justification, sanctification, and our identity as God’s children.' },
+      { name: 'Kingdom of God', desc: 'The framework Jesus used to communicate what life will look like for His followers across every sphere.' },
+      { name: 'New Testament Themes', desc: 'Understanding justification, sanctification, and our identity as God’s children in the marketplace and the community.' },
       { name: 'Power of a Transformed Mind', desc: 'A new way of thinking that is opposite of the world’s system—thinking with the mind of God.' },
       { name: 'The Holy Spirit', desc: 'Exploring the truths of what the Bible says about the Holy Spirit and His gifts.' },
-      { name: 'Divine Communication', desc: 'What it means to hear from God and how to share that hearing with others.' },
-      { name: 'Discipleship and Fathering', desc: 'The process of producing mature disciples that can go and make disciples.' },
+      { name: 'Divine Communication', desc: 'What it means to hear from God and how to share that hearing with others in your workplace and city.' },
+      { name: 'Discipleship and Fathering', desc: 'The process of producing mature leaders who can go and multiply others in any field.' },
       { name: 'Cultivating the Presence of God', desc: 'Developing our life around the presence of God as our greatest responsibility.' },
-      { name: 'Kingdom Influence', desc: 'Bringing the Kingdom’s impact into every area of society.' }
+      { name: 'Kingdom Influence', desc: 'Bringing the Kingdom’s impact into every area of society—churches, businesses, and schools.' }
     ]
   },
   {
     id: 'identity',
     stage: 'STAGE 01',
     title: 'Identity in Christ',
-    subtitle: 'Personal Transformation',
+    subtitle: 'Across Every Sphere',
     icon: <Shield size={32} />,
     description: 'A dedicated pathway for understanding who we are in the Kingdom. Throw off religious tradition and come alive under the grace of Christ.',
     color: 'var(--brand-primary)',
@@ -86,16 +86,16 @@ const PATHWAYS = [
   {
     id: 'movement',
     stage: 'STAGE 04',
-    title: 'Church Movement',
-    subtitle: 'Ecosystems of Growth',
+    title: 'Kingdom Movement',
+    subtitle: 'Every Sphere of Society',
     icon: <Network size={32} />,
-    description: 'Transforming a community into a movement. Establishing the multiplying culture and simple systems that sustain growth.',
+    description: 'Transforming a community into a movement. Establishing the multiplying culture and simple systems that sustain growth in churches, businesses, and organizations.',
     color: '#6366f1',
     courses: [
-      { name: 'Becoming a Church Movement', desc: 'Introducing the key components of the Antioch church for modern movements.' },
-      { name: 'A Church that Multiplies', desc: 'Key ingredients and factors that enable a viral church planting movement.' },
-      { name: 'The Multiplying Culture', desc: 'Elements of local church culture needed to become a church that multiplies.' },
-      { name: 'The Message of the Multiplying Church', desc: 'Understanding the primary message and motivations of a movement.' }
+      { name: 'Becoming a Kingdom Movement', desc: 'Introducing the key components of the Antioch church for modern movements in any sphere.' },
+      { name: 'A Community that Multiplies', desc: 'Key ingredients and factors that enable viral multiplication of leaders.' },
+      { name: 'The Multiplying Culture', desc: 'Elements of community culture needed to become a movement of multipliers.' },
+      { name: 'The Message of the Movement', desc: 'Understanding the primary message and motivations that fuel a movement across society.' }
     ]
   }
 ];

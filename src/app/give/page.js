@@ -15,9 +15,9 @@ const STAFF = [
 ];
 
 const PROJECTS = [
-  { name: 'Poland Deaf Ministry', desc: 'Equipping the deaf community in Eastern Europe.' },
-  { name: 'Macedonia Missions', desc: 'Catalyzing the next generation of Balkan leaders.' },
-  { name: 'Legacy Ministry', desc: 'Friede Taylor and the European legacy.' }
+  { name: 'Poland Deaf Mission', desc: 'Equipping the deaf community in Eastern Europe.' },
+  { name: 'Macedonia Mission', desc: 'Catalyzing the next generation of Balkan leaders.' },
+  { name: 'Legacy Mission', desc: 'Friede Taylor and the European legacy.' }
 ];
 
 const fadeIn = {
@@ -38,10 +38,10 @@ export default function GivePage() {
               GLOBAL PARTNERSHIP
             </div>
             <h1 style={{ fontSize: 'clamp(3.5rem, 8vw, 7rem)', fontWeight: 900, lineHeight: 0.85, textTransform: 'uppercase', letterSpacing: '-0.02em', marginBottom: '3rem' }}>
-              INVEST IN THE <br/> <span style={{ color: 'var(--brand-secondary)' }}>NATIONS</span>
+              FUEL THE <br/> <span style={{ color: 'var(--brand-secondary)' }}>MISSION</span>
             </h1>
             <p style={{ fontSize: '1.5rem', color: 'var(--text-secondary)', maxWidth: '800px', marginInline: 'auto', lineHeight: 1.6 }}>
-              We don't just send money; we send catalytic leaders. Your partnership fuels a global ecosystem designed to multiply for generations.
+              We don't just send money; we send catalytic leaders. Your partnership fuels a global ecosystem designed to multiply for generations across churches, businesses, and communities.
             </p>
           </motion.div>
         </div>
@@ -59,8 +59,8 @@ export default function GivePage() {
             >
               <div style={{ position: 'absolute', top: 0, right: 0, padding: '1rem', opacity: 0.1 }}><Globe size={100} /></div>
               <h2 style={{ fontSize: '2rem', fontWeight: 900, textTransform: 'uppercase', marginBottom: '1.5rem' }}>PI GLOBAL</h2>
-              <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem', fontSize: '1.125rem' }}>Invest in the general movement fund to enable catalytic schools, training tools, and regional expansion.</p>
-              <button className="btn btn-primary w-full" style={{ padding: '1.25rem' }}>Partner with PI Global</button>
+              <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem', fontSize: '1.125rem' }}>Invest in the general movement fund to enable catalytic schools, training tools, and regional expansion across every sphere of society.</p>
+              <button className="btn btn-primary w-full" style={{ padding: '1.25rem' }}>Fuel PI Global</button>
             </motion.div>
 
             {/* PILLAR 2: STAFF */}
@@ -69,9 +69,9 @@ export default function GivePage() {
               style={{ padding: '4rem 3rem', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '16px', position: 'relative', overflow: 'hidden' }}
             >
               <div style={{ position: 'absolute', top: 0, right: 0, padding: '1rem', opacity: 0.1 }}><Users size={100} /></div>
-              <h2 style={{ fontSize: '2rem', fontWeight: 900, textTransform: 'uppercase', marginBottom: '1.5rem' }}>PI STAFF</h2>
-              <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem', fontSize: '1.125rem' }}>Support the frontline leaders who drive the mission in specific regions across the globe.</p>
-              <button className="btn w-full" style={{ padding: '1.25rem', border: '1px solid rgba(255,255,255,0.1)', color: '#fff' }}>View Staff List</button>
+              <h2 style={{ fontSize: '2rem', fontWeight: 900, textTransform: 'uppercase', marginBottom: '1.5rem' }}>FIELD LEADERS</h2>
+              <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem', fontSize: '1.125rem' }}>Support the leaders on mission who drive movement expansion in specific regions across the globe.</p>
+              <button className="btn w-full" style={{ padding: '1.25rem', border: '1px solid rgba(255,255,255,0.1)', color: '#fff' }}>View Field Leaders</button>
             </motion.div>
 
             {/* PILLAR 3: PROJECTS */}
@@ -89,11 +89,11 @@ export default function GivePage() {
         </div>
       </section>
 
-      {/* STAFF DETAILS MINI-GRID */}
+      {/* FIELD LEADERS DETAILS MINI-GRID */}
       <section style={{ paddingBottom: '15rem' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
-            <h2 style={{ fontSize: '3rem', fontWeight: 900, textTransform: 'uppercase' }}>Partner with Staff</h2>
+            <h2 style={{ fontSize: '3rem', fontWeight: 900, textTransform: 'uppercase' }}>Partner with Field Leaders</h2>
             <div style={{ width: '80px', height: '4px', background: 'var(--brand-secondary)', margin: '2rem auto' }}></div>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>

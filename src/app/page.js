@@ -65,15 +65,15 @@ export default function Home() {
             initial={{ opacity: 0, y: 100, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ type: "spring", damping: 20, stiffness: 100, delay: 0.4 }}
             style={{ fontSize: 'clamp(3rem, 10vw, 8rem)', fontWeight: 800, lineHeight: 0.9, letterSpacing: '-0.05em', margin: '0 0 2rem 0', textTransform: 'uppercase' }}
           >
-            AS VISION EXPANDS,<br />
-            <span style={{ color: 'var(--brand-primary)', textShadow: '0 0 40px rgba(212,175,55,0.4)' }}>LEADERS MUST MULTIPLY.</span>
+            A MOVEMENT OF <br/>
+            <span style={{ color: 'var(--brand-primary)', textShadow: '0 0 40px rgba(212,175,55,0.4)' }}>MULTIPLYING LEADERS.</span>
           </motion.h1>
           
           <motion.p 
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.6 }}
-            style={{ fontSize: 'clamp(1.125rem, 3vw, 1.5rem)', color: 'var(--text-secondary)', maxWidth: '800px', lineHeight: 1.6, marginBottom: '1.5rem' }}
+            style={{ fontSize: 'clamp(1.125rem, 3vw, 1.5rem)', color: 'var(--text-secondary)', maxWidth: '800px', marginInline: 'auto', lineHeight: 1.6, marginBottom: '1.5rem' }}
           >
-            Growth brings opportunity—and pressure.<br className="hide-on-mobile"/> Without leaders, vision slows.
+            Multiplying leaders who live from Jesus and lead in His Kingdom—across churches, businesses, and communities.
           </motion.p>
 
           <motion.p 
@@ -133,7 +133,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4, type: 'spring', stiffness: 80 }}
           >
             <p style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#dc2626' }}>
-              AND VISION SLOWS.
+              ACROSS EVERY SPHERE.
             </p>
           </motion.div>
 
@@ -321,13 +321,13 @@ export default function Home() {
         <div className="container" style={{ maxWidth: '1000px' }}>
           
           <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} style={{ textAlign: 'center', marginBottom: '5rem' }}>
-            <div style={{ fontSize: '1.5rem', color: '#fff', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.3em' }}>THE SOLUTION</div>
+            <div style={{ fontSize: '1.5rem', color: '#fff', fontWeight: 800, marginBottom: '1rem', letterSpacing: '0.3em' }}>OUR MISSION</div>
             <h2 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', color: '#fff', textTransform: 'uppercase', lineHeight: 0.9, letterSpacing: '-0.03em', marginBottom: '2rem' }}>
-              We advance the Kingdom <br/>
-              <span style={{ color: 'var(--brand-primary)' }}>by multiplying leaders.</span>
+              Multiplying Leaders <br/>
+              <span style={{ color: 'var(--brand-primary)' }}>In Every Sphere.</span>
             </h2>
             <p style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', color: 'var(--text-secondary)', maxWidth: '700px', margin: '0 auto' }}>
-              WE partner with leaders like you to:
+              We partner with leaders across churches, businesses, schools, and communities to:
             </p>
           </motion.div>
 
