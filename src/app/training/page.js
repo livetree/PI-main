@@ -11,8 +11,8 @@ const TRAININGS = [
     title: 'FOUNDATIONS',
     subtitle: 'Jesus-Centered Leadership',
     icon: <Flame size={32} />,
-    description: 'Transform your starting point. Move from religious responsibility to a deep, conversational relationship with Jesus that fuels everything you do.',
-    features: ['Hearing God’s Voice', 'Identity in Christ', 'Rhythms of Grace', 'Modeling the Life'],
+    description: 'The starting point for every movement. Focus on the internal world of the leader, identity in Christ, and hearing God’s voice.',
+    features: ['Kingdom Foundations', 'Identity in Christ', 'Divine Communication', 'Holy Spirit Dynamics'],
     color: 'var(--brand-primary)'
   },
   {
@@ -20,8 +20,8 @@ const TRAININGS = [
     title: 'ACTIVATION',
     subtitle: 'Kingdom Obedience',
     icon: <Zap size={32} />,
-    description: 'Stop studying and start stepping out. Learn how to apply Kingdom principles in real-time, high-pressure environments where faith becomes action.',
-    features: ['Real-World Obedience', 'Power Evangelism', 'Breaking Fear', 'Action over Teaching'],
+    description: 'Moving from theory to power. Learn to live a supernatural life and apply Kingdom principles in families, finances, and relationships.',
+    features: ['Power Ministries', 'Kingdom Living', 'Living by Faith', 'Spiritual Warfare'],
     color: '#f59e0b'
   },
   {
@@ -29,8 +29,8 @@ const TRAININGS = [
     title: 'MULTIPLICATION',
     subtitle: 'Reproducing Life',
     icon: <Sprout size={32} />,
-    description: 'The shift from adding to multiplying. Master the art of discipling others who are equipped to disciple others, creating an exponential movement.',
-    features: ['Discipleship Pathways', 'Training Trainers', 'Empowering Others', 'Reproducible Tools'],
+    description: 'Shifting from adding to reproducing. Master the art of discipling and fathering the next generation of Kingdom leaders.',
+    features: ['Kingdom Leadership', 'Discipleship & Fathering', 'Pastoral Leadership', 'Strategic Principles'],
     color: '#10b981'
   },
   {
@@ -38,8 +38,8 @@ const TRAININGS = [
     title: 'CULTURE',
     subtitle: 'Ecosystems of Growth',
     icon: <Network size={32} />,
-    description: 'Building the environment where multiplication is the natural outcome. Design simple, scalable systems that sustain movement for generations.',
-    features: ['Simple Systems', 'Scalable Models', 'Regional Impact', 'Generational Legacy'],
+    description: 'Transforming a community into a movement. Establishing the multiplying culture and simple systems that sustain growth.',
+    features: ['Multiplying Church', 'Church Movement', 'Movement Ecosystems', 'Global Impact'],
     color: '#6366f1'
   }
 ];
@@ -88,7 +88,7 @@ export default function TrainingPage() {
                 style={{ 
                   background: 'rgba(255,255,255,0.02)', 
                   border: '1px solid rgba(255,255,255,0.05)', 
-                  padding: '3rem', 
+                  padding: 'clamp(1.5rem, 5vw, 3rem)', 
                   borderRadius: '12px',
                   position: 'relative',
                   overflow: 'hidden',
@@ -129,7 +129,7 @@ export default function TrainingPage() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            style={{ padding: '8rem 4rem', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '24px', position: 'relative', overflow: 'hidden' }}
+            style={{ padding: 'clamp(3rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem)', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '24px', position: 'relative', overflow: 'hidden' }}
           >
             <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '200px', height: '4px', background: 'var(--brand-secondary)' }}></div>
             <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 900, textTransform: 'uppercase', marginBottom: '2rem', lineHeight: 1 }}>
