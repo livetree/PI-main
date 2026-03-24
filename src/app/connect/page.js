@@ -8,8 +8,8 @@ import Link from 'next/link';
 const REGIONS = [
   { name: 'Africa', leads: ['Patrick Kisia', 'Movement Equipping'], email: 'africa@prepareinternational.org' },
   { name: 'Europe', leads: ['Volkert Muijs', 'Anna Aleksieieva'], email: 'europe@prepareinternational.org' },
-  { name: 'Americas', leads: ['Daniel Caballero', 'Church Planting'], email: 'latam@prepareinternational.org' },
-  { name: 'Global Support', leads: ['Hannah Dockery', 'Administration'], email: 'office@pinations.org' }
+  { name: 'Americas', leads: ['Daniel Caballero', 'Strategic Initiatives'], email: 'latam@prepareinternational.org' },
+  { name: 'Global Support', leads: ['Hannah Dockery', 'Movement Support'], email: 'office@pinations.org' }
 ];
 
 const fadeIn = {

@@ -2,8 +2,8 @@ import './globals.css';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Prepare International | Equipping for Global Impact',
-  description: 'Introducing Prepare International to the world. We build, equip, and empower leaders across the globe to bring lasting change.',
+  title: 'Prepare International | A Movement of Multiplying Leaders',
+  description: 'A movement of leaders who live from Jesus, lead in His Kingdom, and multiply others—across churches, businesses, and communities.',
 };
 
 export const viewport = {
@@ -55,7 +55,7 @@ export default function RootLayout({ children }) {
               PREPARE INTL
             </div>
             <p style={{ color: 'var(--text-secondary)', maxWidth: '400px' }}>
-              Equipping leaders to bring lasting change to their communities worldwide.
+              Equipping leaders to live from Jesus and lead in His Kingdom—across churches, businesses, and communities.
             </p>
             <div style={{ display: 'flex', gap: '1.5rem', marginTop: '1rem', fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
               <Link href="/">Home</Link>

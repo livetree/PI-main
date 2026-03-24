@@ -73,7 +73,7 @@ export default function AboutPage() {
                  fontWeight: 300,
                  margin: 0
                }}>
-                 Prepare International exists to equip and develop leaders who will <span style={{ color: 'var(--brand-secondary)', fontWeight: 500 }}>advance the Kingdom</span>, multiply their impact, and disciple their nation.
+                 A movement of leaders who <span style={{ color: 'var(--brand-secondary)', fontWeight: 500 }}>live from Jesus, lead in His Kingdom, and multiply others</span>—across churches, businesses, and communities.
                </p>
                {/* Decorative Geometric Element */}
                <motion.div 
