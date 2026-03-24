@@ -1,5 +1,6 @@
 import './globals.css';
 import Link from 'next/link';
+import Navbar from '@/components/Navbar';
 
 export const metadata = {
   title: 'Prepare International | A Movement of Multiplying Leaders',
@@ -12,41 +13,12 @@ export const viewport = {
   maximumScale: 1,
 };
 
-function MobileHeader() {
-  return (
-    <header className="header-glass">
-      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '72px' }}>
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'var(--brand-gradient)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 'bold' }}>
-            PI
-          </div>
-          <span style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.25rem', letterSpacing: '-0.02em' }}>
-            PREPARE <span style={{ color: 'var(--brand-primary)' }}>INTL</span>
-          </span>
-        </Link>
-        <nav style={{ display: 'flex', gap: '1.5rem', fontWeight: 500, fontSize: '0.9rem' }}>
-          <Link href="/about" className="hide-on-mobile">About</Link>
-          <Link href="/diagnostic" className="hide-on-mobile">Diagnostic</Link>
-          <Link href="/give" className="hide-on-mobile">Give</Link>
-          <Link href="/blog">Blog</Link>
-          <Link href="/connect" className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.875rem' }}>Get Involved</Link>
-        </nav>
-      </div>
-      <style>{`
-        @media (max-width: 600px) {
-          .hide-on-mobile { display: none; }
-        }
-      `}</style>
-    </header>
-  );
-}
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <MobileHeader />
-        <main style={{ paddingTop: '72px' }}>
+        <Navbar />
+        <main>
           {children}
         </main>
         <footer style={{ padding: '4rem 0', background: 'var(--surface)', borderTop: '1px solid var(--border)', marginTop: 'auto' }}>
