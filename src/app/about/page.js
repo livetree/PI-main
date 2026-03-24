@@ -12,26 +12,86 @@ export default function AboutPage() {
   return (
     <div style={{ position: 'relative', backgroundColor: 'var(--bg)', overflowX: 'hidden', color: '#fff', minHeight: '100vh', paddingBottom: '10rem' }}>
       
-      {/* 1. DARKNODE MANIFESTO HERO */}
-      <section style={{ position: 'relative', paddingTop: '15rem', paddingBottom: '8rem', paddingLeft: '1.5rem', paddingRight: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-        <WaveBackground quadrant={3} opacity={0.2} />
+      {/* 1. DARKNODE MANIFESTO HERO (Enhanced) */}
+      <section style={{ 
+        position: 'relative', 
+        paddingTop: '20rem', 
+        paddingBottom: '12rem', 
+        paddingLeft: '1.5rem', 
+        paddingRight: '1.5rem', 
+        borderBottom: '1px solid rgba(255,255,255,0.05)',
+        overflow: 'hidden'
+      }}>
+        {/* Subtle Gold Brand Flare to break the blue */}
+        <div style={{ 
+          position: 'absolute', 
+          top: '0%', 
+          right: '-10%', 
+          width: '800px', 
+          height: '800px', 
+          background: 'radial-gradient(circle, rgba(212,175,55,0.07) 0%, transparent 70%)', 
+          pointerEvents: 'none',
+          zIndex: 1
+        }} />
+        
+        <WaveBackground quadrant={3} opacity={0.3} />
         
         <div className="container" style={{ position: 'relative', zIndex: 10, maxWidth: '1400px' }}>
-          <motion.div variants={flyInUp} initial="hidden" animate="visible" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'end' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '6rem', alignItems: 'center' }}>
              
-             <div>
-               <h1 style={{ fontSize: 'clamp(4rem, 8vw, 7rem)', fontWeight: 400, lineHeight: 0.9, letterSpacing: '-0.04em', textTransform: 'uppercase' }}>
-                 ABOUT US
+             <motion.div variants={flyInUp} initial="hidden" animate="visible">
+               <h1 style={{ 
+                 fontSize: 'clamp(4.5rem, 12vw, 10rem)', 
+                 fontWeight: 700, 
+                 lineHeight: 0.8, 
+                 letterSpacing: '-0.05em', 
+                 textTransform: 'uppercase',
+                 color: 'transparent',
+                 WebkitTextStroke: '1px rgba(255,255,255,0.15)'
+               }}>
+                 ABOUT <br/> 
+                 <span style={{ color: 'var(--brand-secondary)', WebkitTextStroke: '0' }}>US.</span>
                </h1>
-             </div>
+             </motion.div>
 
-             <div style={{ maxWidth: '600px' }}>
-               <p style={{ fontSize: 'clamp(1.25rem, 2vw, 1.5rem)', color: 'var(--text-secondary)', lineHeight: 1.6, fontWeight: 300 }}>
-                 Prepare International exists to equip and develop leaders who will advance the Kingdom, multiply their impact, and disciple their nation.
+             <motion.div 
+               variants={flyInUp} 
+               initial="hidden" 
+               animate="visible" 
+               transition={{ delay: 0.2 }} 
+               style={{ 
+                 maxWidth: '600px', 
+                 borderLeft: '1px solid var(--brand-secondary)', 
+                 paddingLeft: '3rem',
+                 position: 'relative'
+               }}
+             >
+               <p style={{ 
+                 fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)', 
+                 color: '#fff', 
+                 lineHeight: 1.3, 
+                 fontWeight: 300,
+                 margin: 0
+               }}>
+                 Prepare International exists to equip and develop leaders who will <span style={{ color: 'var(--brand-secondary)', fontWeight: 500 }}>advance the Kingdom</span>, multiply their impact, and disciple their nation.
                </p>
-             </div>
+               {/* Decorative Geometric Element */}
+               <motion.div 
+                 animate={{ rotate: 45, y: [0, -10, 0] }}
+                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                 style={{ 
+                   position: 'absolute', 
+                   top: '-2rem', 
+                   right: '-1rem', 
+                   width: '30px', 
+                   height: '30px', 
+                   border: '1px solid var(--brand-secondary)',
+                   opacity: 0.4
+                 }}
+               />
+             </motion.div>
 
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -123,15 +183,68 @@ export default function AboutPage() {
             <h2 style={{ fontSize: '2rem', fontWeight: 300, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>Meet The Team</h2>
           </motion.div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '3rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '4rem 2rem' }}>
             {[
-              "Randy and Callie Boyd", "Josiah and Brandi Boyd", "Volkert Muijs", 
-              "Hannah Dockery", "Boone and Bethany Tyson", "Faith Arredondo", 
-              "Maci Dean", "Anna Aleksieieva", "Daniel Caballero", 
-              "Patrick Kisia", "David Morgan"
-            ].map((name, i) => (
-               <motion.div key={i} variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: i * 0.05 }} style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '1.5rem' }}>
-                 <h4 style={{ fontSize: '1.5rem', fontWeight: 400, color: '#fff', letterSpacing: '-0.02em' }}>{name}</h4>
+              { name: "Randy and Callie Boyd", title: "Founders", image: "https://prepareinternational.org/wp-content/uploads/2023/12/BD1A8624-scaled.jpg" },
+              { name: "Josiah and Brandi Boyd", title: "Executive Director", image: "https://prepareinternational.org/wp-content/uploads/2023/11/BD1A8661-scaled.jpg" },
+              { name: "Volkert Muijs", title: "Africa Director", image: "https://prepareinternational.org/wp-content/uploads/2023/11/BD1A8688-scaled.jpg" },
+              { name: "Hannah Dockery", title: "Homebase Director & Prayground", image: "https://prepareinternational.org/wp-content/uploads/2024/07/449445656_777107667942496_1489593464660978311_n.jpg" },
+              { name: "Boone and Bethany Tyson", title: "Costa Rica and South Texas Coordinator", image: "https://prepareinternational.org/wp-content/uploads/2023/12/tyson-staff-picture.jpeg" },
+              { name: "Faith Arredondo", title: "Administrative and Media Assistant", image: "https://prepareinternational.org/wp-content/uploads/2025/09/WhatsApp-Image-2025-09-11-at-18.11.01-1.jpeg" },
+              { name: "Maci Dean", title: "Financial Coordinator", image: "https://prepareinternational.org/wp-content/uploads/2025/10/WhatsApp-Image-2025-09-16-at-06.40.52-e1760046790269.jpeg" },
+              { name: "Anna Aleksieieva", title: "European Coordinator", image: null },
+              { name: "Daniel Caballero", title: "Latin America Director", image: "https://prepareinternational.org/wp-content/uploads/2025/10/WhatsApp-Image-2025-09-09-at-20.37.47.jpeg" },
+              { name: "Patrick Kisia", title: "East Africa Director", image: "https://prepareinternational.org/wp-content/uploads/2025/10/WhatsApp-Image-2025-09-11-at-18.11.01-2.jpeg" },
+              { name: "David Morgan", title: "Director of Development", image: "https://prepareinternational.org/wp-content/uploads/2025/10/IMG_2598.jpg" }
+            ].map((member, i) => (
+               <motion.div 
+                 key={i} 
+                 variants={flyInUp} 
+                 initial="hidden" 
+                 whileInView="visible" 
+                 viewport={{ once: true }} 
+                 transition={{ delay: i * 0.05 }}
+                 className="team-card"
+                 style={{ position: 'relative' }}
+               >
+                 <div style={{ 
+                   width: '100%', 
+                   aspectRatio: '3/4', 
+                   backgroundColor: 'rgba(255,255,255,0.03)', 
+                   marginBottom: '1.5rem',
+                   overflow: 'hidden',
+                   border: '1px solid rgba(255,255,255,0.05)',
+                   position: 'relative'
+                 }}>
+                   {member.image ? (
+                     <motion.img 
+                       src={member.image} 
+                       alt={member.name} 
+                       whileHover={{ scale: 1.05 }}
+                       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                       style={{ 
+                         width: '100%', 
+                         height: '100%', 
+                         objectFit: 'cover',
+                         filter: 'grayscale(100%) brightness(0.8)',
+                       }} 
+                       className="team-image"
+                     />
+                   ) : (
+                     <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '3rem', fontWeight: 200, color: 'rgba(255,255,255,0.1)' }}>
+                       {member.name.charAt(0)}
+                     </div>
+                   )}
+                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 60%, var(--bg) 100%)' }} />
+                 </div>
+                 <h4 style={{ fontSize: '1.25rem', fontWeight: 500, color: '#fff', marginBottom: '0.25rem', letterSpacing: '-0.02em' }}>{member.name}</h4>
+                 <p style={{ fontSize: '0.875rem', color: 'var(--brand-primary)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>{member.title}</p>
+                 
+                 <style jsx>{`
+                   .team-card:hover .team-image {
+                     filter: grayscale(0%) brightness(1) !important;
+                   }
+                 `}</style>
                </motion.div>
             ))}
           </div>
