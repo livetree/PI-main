@@ -141,7 +141,34 @@ export default function Home() {
       </section>
 
       {/* 3. JESUS FIRST (Immersive Full-Screen Scroll Sweep) */}
-      <section ref={jesusFirstRef} style={{ position: 'relative', zIndex: 15, minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '10rem 1.5rem', background: 'var(--surface)', overflow: 'hidden' }}>
+      <section ref={jesusFirstRef} style={{ position: 'relative', zIndex: 15, minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '10rem 1.5rem', background: 'var(--surface)', overflow: 'visible' }}>
+        
+        {/* OVERLAPPING CTA - Moved inside this section to ensure visibility on top of previous section's boundary */}
+        <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translate(-50%, -50%)', zIndex: 100, width: '100%', display: 'flex', justifyContent: 'center' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <Link href="/diagnostic" className="btn" style={{ 
+              padding: '2.5rem 6rem', 
+              fontSize: '1.75rem', 
+              background: '#dc2626',
+              color: '#fff',
+              fontWeight: 900,
+              textTransform: 'uppercase', 
+              letterSpacing: '0.15em', 
+              boxShadow: '0 40px 120px rgba(220, 38, 38, 0.5)',
+              clipPath: 'polygon(5% 0, 100% 0, 95% 100%, 0 100%)',
+              borderRadius: 0,
+              display: 'inline-block',
+              textAlign: 'center'
+            }}>
+              Identify Your Gaps
+            </Link>
+          </motion.div>
+        </div>
+
         <WaveBackground quadrant={2} opacity={0.3} />
         {/* Massive Background Typography */}
         <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: 'clamp(10rem, 30vw, 40rem)', fontWeight: 900, color: 'rgba(255,255,255,0.02)', pointerEvents: 'none', lineHeight: 0.8, whiteSpace: 'nowrap', zIndex: 0 }}>
@@ -250,7 +277,46 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. THE SOLUTION / FINAL CTA (Restored lateral list hover glides) */}
+      {/* 5. DIAGNOSTIC CTA (NEW) */}
+      <section style={{ padding: '8rem 1.5rem', background: 'var(--surface)', position: 'relative', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+        <div className="container" style={{ maxWidth: '1000px', position: 'relative', zIndex: 10 }}>
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+            gap: '4rem', 
+            alignItems: 'center',
+            padding: '4rem',
+            background: 'rgba(212,175,55,0.03)',
+            border: '1px solid rgba(212,175,55,0.1)',
+            borderRadius: '4px'
+          }}>
+            <div>
+              <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 800, textTransform: 'uppercase', lineHeight: 1, marginBottom: '2rem' }}>
+                Is Your Leadership <br/>
+                <span style={{ color: 'var(--brand-primary)' }}>Actually Multiplying?</span>
+              </h2>
+              <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '2rem' }}>
+                Identify the gaps in your leadership movement. Our 16-point diagnostic tool provides immediate feedback on your multiplication culture.
+              </p>
+              <Link href="/diagnostic" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 2rem', fontSize: '1rem' }}>
+                Start Diagnostic <Target size={18} />
+              </Link>
+            </div>
+            
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              style={{ padding: '2rem', border: '1px solid rgba(255,255,255,0.05)', background: 'rgba(255,255,255,0.02)', borderRadius: '4px', textAlign: 'center' }}
+            >
+              <div style={{ fontSize: '4rem', fontWeight: 900, color: 'var(--brand-primary)', marginBottom: '1rem' }}>16</div>
+              <div style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Points of Analysis</div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. THE SOLUTION / FINAL CTA (Restored lateral list hover glides) */}
       <section style={{ padding: '10rem 1.5rem', background: 'radial-gradient(ellipse at bottom, rgba(212,175,55,0.1) 0%, var(--surface) 60%)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
         <div className="container" style={{ maxWidth: '1000px' }}>
           
