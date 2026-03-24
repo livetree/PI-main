@@ -27,8 +27,9 @@ function MobileHeader() {
         <nav style={{ display: 'flex', gap: '1.5rem', fontWeight: 500, fontSize: '0.9rem' }}>
           <Link href="/about" className="hide-on-mobile">About</Link>
           <Link href="/diagnostic" className="hide-on-mobile">Diagnostic</Link>
+          <Link href="/give" className="hide-on-mobile">Give</Link>
           <Link href="/blog">Blog</Link>
-          <Link href="/contact" className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.875rem' }}>Get Involved</Link>
+          <Link href="/connect" className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.875rem' }}>Get Involved</Link>
         </nav>
       </div>
       <style>{`
@@ -60,6 +61,7 @@ export default function RootLayout({ children }) {
               <Link href="/">Home</Link>
               <Link href="/about">About</Link>
               <Link href="/diagnostic">Diagnostic</Link>
+              <Link href="/give">Give</Link>
               <Link href="/blog">Blog</Link>
               <Link href="/privacy">Privacy Policy</Link>
             </div>
