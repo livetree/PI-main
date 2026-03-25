@@ -191,10 +191,10 @@ export default function AboutPage() {
               { name: "Hannah Dockery", title: "Homebase Director & Prayground", image: "https://prepareinternational.org/wp-content/uploads/2024/07/449445656_777107667942496_1489593464660978311_n.jpg" },
               { name: "Boone and Bethany Tyson", title: "Costa Rica and South Texas Coordinator", image: "https://prepareinternational.org/wp-content/uploads/2023/12/tyson-staff-picture.jpeg" },
               { name: "Faith Arredondo", title: "Administrative and Media Assistant", image: "https://prepareinternational.org/wp-content/uploads/2025/09/WhatsApp-Image-2025-09-11-at-18.11.01-1.jpeg" },
-              { name: "Maci Dean", title: "Financial Coordinator", image: "https://prepareinternational.org/wp-content/uploads/2025/10/WhatsApp-Image-2025-09-16-at-06.40.52-e1760046790269.jpeg" },
+              { name: "Maci Dean", title: "Financial Coordinator", image: "https://prepareinternational.org/wp-content/uploads/2025/10/WhatsApp-Image-2025-09-11-at-18.11.01-2.jpeg" },
               { name: "Anna Aleksieieva", title: "European Coordinator", image: null },
-              { name: "Daniel Caballero", title: "Latin America Director", image: "https://prepareinternational.org/wp-content/uploads/2025/10/WhatsApp-Image-2025-09-09-at-20.37.47.jpeg" },
-              { name: "Patrick Kisia", title: "East Africa Director", image: "https://prepareinternational.org/wp-content/uploads/2025/10/WhatsApp-Image-2025-09-11-at-18.11.01-2.jpeg" },
+              { name: "Daniel Caballero", title: "Latin America Director", image: "https://prepareinternational.org/wp-content/uploads/2025/10/WhatsApp-Image-2025-09-16-at-06.40.52-e1760046790269.jpeg" },
+              { name: "Patrick Kisia", title: "East Africa Director", image: "https://prepareinternational.org/wp-content/uploads/2025/10/WhatsApp-Image-2025-09-09-at-20.37.47.jpeg" },
               { name: "David Morgan", title: "Director of Development", image: "https://prepareinternational.org/wp-content/uploads/2025/10/IMG_2598.jpg" }
             ].map((member, i) => (
                <motion.div 
