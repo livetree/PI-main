@@ -292,11 +292,11 @@ export default function Home() {
           }}>
             <div>
               <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 800, textTransform: 'uppercase', lineHeight: 1, marginBottom: '2rem' }}>
-                Is Your Leadership <br/>
-                <span style={{ color: 'var(--brand-primary)' }}>Actually Multiplying?</span>
+                Where Are Your Leaders <br/>
+                <span style={{ color: 'var(--brand-primary)' }}>Growing Next?</span>
               </h2>
               <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '2rem' }}>
-                Identify the gaps in your leadership movement. Our 16-point diagnostic tool provides immediate feedback on your multiplication culture.
+                Discover new opportunities for growing and multiplying leaders in your context. Our 16-point diagnostic tool helps you identify your next step.
               </p>
               <Link href="/diagnostic" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 2rem', fontSize: '1rem' }}>
                 Start Diagnostic <Target size={18} />

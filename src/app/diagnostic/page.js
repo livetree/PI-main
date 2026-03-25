@@ -63,46 +63,44 @@ const TIERS = {
   foundation: {
     range: [0, 12],
     color: '#ef4444',
-    label: 'Foundation Needed',
-    means: 'Your leadership is likely centralized, with a few people carrying most of the responsibility. There may be vision and activity—but not a clear, reproducible system for developing leaders.',
+    label: 'Establishing Foundations',
+    means: 'You have vision and people in place. The opportunity now is to strengthen the foundation so leaders can grow and develop consistently.',
     experiencing: [
-      'Leaders feel stretched or overwhelmed',
-      'People attend but aren’t being discipled',
-      'Few new leaders are emerging',
-      'Growth is difficult to sustain'
+      'Leadership is carried by a smaller group',
+      'People are engaged, but not yet stepping into leadership',
+      'Development happens, but without a clear pathway'
     ],
-    nextStepTitle: 'Transform your leadership culture from the ground up.',
-    nextStepDesc: 'Let Prepare International come alongside you to assess, design, and implement a leadership development strategy tailored to your context.',
-    focusArea: 'Establishing strong Jesus-centered foundations, Building a clear leadership pathway, Shifting culture toward multiplication'
+    nextStepTitle: 'Build a strong, reproducible foundation for leadership development.',
+    nextStepDesc: 'This creates clarity, consistency, and the ability to grow leaders over time.',
+    focusArea: 'Establishing strong Jesus-centered foundations, Building a clear leadership pathway'
   },
   momentum: {
     range: [13, 22],
     color: '#f59e0b',
-    label: 'Building Momentum',
-    means: 'You have some strong elements in place, but your leadership development is not yet consistent or multiplying. Growth is happening—but it depends on key people and isn’t fully scalable.',
+    label: 'Developing Leaders',
+    means: 'You are seeing leaders grow and take steps forward. The next stage is creating consistency so leaders can begin developing others.',
     experiencing: [
-      'Some leaders are growing, but not reproducing',
+      'Some leaders are actively growing',
       'Discipleship is happening, but unevenly',
-      'No clear or consistent pathway for development'
+      'Leadership development depends on key individuals'
     ],
-    nextStepTitle: 'Strengthen and structure your leadership pathway.',
-    nextStepDesc: 'We help you build on your existing foundation by developing clear pathways and implementing a strategic plan for leadership growth.',
-    focusArea: 'Clarifying your leadership pipeline, Strengthening activation and discipleship, Creating reproducible systems for growth'
+    nextStepTitle: 'Strengthen your pathway so leadership development becomes consistent and reproducible.',
+    nextStepDesc: 'This is where growth begins to turn into multiplication.',
+    focusArea: 'Clarifying your leadership pipeline, Strengthening activation and discipleship'
   },
   multiplication: {
     range: [23, 32],
     color: '#10b981',
-    label: 'Multiplication Ready',
-    means: 'You already have many key elements in place and are seeing signs of multiplication. Your opportunity now is to strengthen, refine, and accelerate what’s working.',
+    label: 'Multiplying Leaders',
+    means: 'You have strong leadership development already in place. Leaders are growing—and beginning to develop others.',
     experiencing: [
-      'Leaders are discipling others',
+      'Leaders are investing in others',
       'Responsibility is spreading',
-      'New leaders are emerging',
-      'Momentum is building'
+      'Momentum is building across your team'
     ],
-    nextStepTitle: 'Accelerate multiplication and sharpen your focus.',
-    nextStepDesc: 'We provide supplemental training and targeted input to help you strengthen and expand your existing strategy.',
-    focusArea: 'Advanced leadership training, Focused equipping in key areas, Strengthening multiplication systems'
+    nextStepTitle: 'Refine and accelerate multiplication.',
+    nextStepDesc: 'With focused input, you can expand what’s already working and increase long-term impact.',
+    focusArea: 'Advanced leadership training, Focused equipping in key areas'
   }
 };
 
@@ -173,7 +171,7 @@ export default function DiagnosticPage() {
                   Leader <br/> <span style={{ color: 'var(--brand-secondary)' }}>Diagnostic Tool</span>
                 </h1>
                 <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '4rem', maxWidth: '600px', marginInline: 'auto' }}>
-                  Is your leadership actually multiplying? Take this 5-minute assessment to identify where your movement stands.
+                  Where are your leaders growing next? Take this 5-minute assessment to focus on multiplying and growing your leaders.
                 </p>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem', marginBottom: '4rem', maxWidth: '600px', marginInline: 'auto' }}>
                   {SECTIONS.map(s => (
@@ -361,12 +359,13 @@ export default function DiagnosticPage() {
 
                 <div style={{ marginTop: '8rem', textAlign: 'center', paddingTop: '6rem', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
                   <Sparkles size={40} color="var(--brand-secondary)" style={{ marginBottom: '2rem' }} />
-                  <h2 style={{ fontSize: '2.5rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '1.5rem' }}>No matter where you are, <br/><span style={{ color: 'var(--brand-secondary)' }}>you don’t have to figure this out alone.</span></h2>
-                  <p style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto 3rem', fontSize: '1.125rem' }}>
-                    We’ll help you clarify your current stage, identify your biggest opportunity, and take the next step toward multiplying leaders.
+                  <h2 style={{ fontSize: '2.5rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '1.5rem' }}>No matter where you are, <br/><span style={{ color: 'var(--brand-secondary)' }}>the goal is the same.</span></h2>
+                  <p style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto 3rem', fontSize: '1.25rem' }}>
+                    <strong>Leaders who grow, develop others, and multiply.</strong><br/><br/>
+                    We’ll help you clarify your current stage, identify your next step, and build a pathway for multiplying leaders.
                   </p>
                   <Link href="/connect" className="btn btn-primary" style={{ display: 'inline-flex', padding: '1.5rem 4rem', fontSize: '1.25rem', clipPath: 'polygon(5% 0, 100% 0, 95% 100%, 0 100%)', borderRadius: 0 }}>
-                    REACH OUT TODAY
+                    START A CONVERSATION
                   </Link>
                 </div>
               </div>
