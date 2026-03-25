@@ -134,6 +134,12 @@ export default function DiagnosticPage() {
     }
   };
 
+  const reset = () => {
+    setStep('start');
+    setCurrentQuestionIndex(0);
+    setAnswers([]);
+  };
+
   const getResultsData = () => {
     const totalScore = answers.reduce((a, b) => a + b, 0);
     const sectionScores = SECTIONS.map((section, sIdx) => {
