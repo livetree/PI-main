@@ -133,7 +133,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4, type: 'spring', stiffness: 80 }}
           >
             <p style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#dc2626' }}>
-              ACROSS EVERY SPHERE.
+              AND VISION SLOWS.
             </p>
           </motion.div>
 
