@@ -187,8 +187,8 @@ export default function AboutPage() {
             {[
               { name: "Randy and Callie Boyd", title: "Founders", image: "https://prepareinternational.org/wp-content/uploads/2023/12/BD1A8624-scaled.jpg" },
               { name: "Josiah and Brandi Boyd", title: "Executive Director", image: "https://prepareinternational.org/wp-content/uploads/2023/11/BD1A8661-scaled.jpg" },
-              { name: "Volkert Muijs", title: "Africa Director", image: "https://prepareinternational.org/wp-content/uploads/2023/11/BD1A8688-scaled.jpg" },
-              { name: "Hannah Dockery", title: "Homebase Director & Prayground", image: "https://prepareinternational.org/wp-content/uploads/2024/07/449445656_777107667942496_1489593464660978311_n.jpg" },
+              { name: "Volkert Muijs", title: "Africa Director", image: "https://prepareinternational.org/wp-content/uploads/2024/07/449445656_777107667942496_1489593464660978311_n.jpg" },
+              { name: "Hannah Dockery", title: "Homebase Director & Prayground", image: "https://prepareinternational.org/wp-content/uploads/2023/11/BD1A8688-scaled.jpg" },
               { name: "Boone and Bethany Tyson", title: "Costa Rica and South Texas Coordinator", image: "https://prepareinternational.org/wp-content/uploads/2023/12/tyson-staff-picture.jpeg" },
               { name: "Faith Arredondo", title: "Administrative and Media Assistant", image: "https://prepareinternational.org/wp-content/uploads/2025/09/WhatsApp-Image-2025-09-11-at-18.11.01-1.jpeg" },
               { name: "Maci Dean", title: "Financial Coordinator", image: "https://prepareinternational.org/wp-content/uploads/2025/10/WhatsApp-Image-2025-09-11-at-18.11.01-2.jpeg" },
