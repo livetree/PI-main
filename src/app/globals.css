@@ -5,31 +5,25 @@
   --bg: #151b29;
   --text-primary: #ffffff;
   --text-secondary: #cbd5e1;
-  
+
   /* Glowing Gold Accents */
   --brand-primary: #d4af37;
   --brand-secondary: #fcd34d;
   --brand-gradient: linear-gradient(135deg, #d4af37, #fcd34d);
-  
+
   /* Surfaces */
   --surface: #1e2536;
   --surface-elevated: #283144;
   --border: rgba(212, 175, 55, 0.3); /* Subtle gold borders */
-  
-  --radius-sm: 8px;
+
   --radius-md: 16px;
-  --radius-lg: 24px;
-  
+
   --shadow-sm: 0 2px 4px rgba(0,0,0,0.15);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.25), 0 2px 4px -1px rgba(0, 0, 0, 0.15);
   --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
-  
+
   --transition-fast: 0.15s ease;
   --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@media (prefers-color-scheme: dark) {
-  /* We maintain the elegant dark theme universally */
 }
 
 * {
@@ -72,14 +66,6 @@ a:hover {
   padding: 0 1.5rem;
 }
 
-/* Premium Gradients and Text */
-.gradient-text {
-  background: var(--brand-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-}
-
 /* Buttons */
 .btn {
   display: inline-flex;
@@ -107,31 +93,6 @@ a:hover {
   filter: brightness(1.05);
 }
 
-.btn-outline {
-  background: transparent;
-  color: var(--text-primary);
-  border: 1px solid var(--border);
-}
-
-.btn-outline:hover {
-  background: var(--surface);
-  border-color: var(--text-secondary);
-}
-
-/* Glass Header targeting mobile primarily */
-.header-glass {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-  background: rgba(21, 27, 41, 0.8); /* Dark navy glass */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.15); /* Faint gold border */
-  transition: all var(--transition-smooth);
-}
-
 /* Cards & Surfaces */
 .card {
   background: var(--surface-elevated);
@@ -147,31 +108,6 @@ a:hover {
   box-shadow: var(--shadow-md);
 }
 
-/* Micro-animations */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-up {
-  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes pulse-slow {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
-}
-
-.animate-pulse-slow {
-  animation: pulse-slow 3s ease-in-out infinite;
-}
-
 /* Mobile Adjustments */
 @media (max-width: 768px) {
   h1 { font-size: 2.5rem; }
@@ -179,49 +115,11 @@ a:hover {
   .card { padding: 1.5rem; }
 }
 
-.layout-split {
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-}
-@media (min-width: 900px) {
-  .layout-split {
-    flex-direction: row;
-    align-items: center;
-  }
-  .layout-left { flex: 0.8; }
-  .layout-right { flex: 1.2; }
-}
-
 /* Base layouts for main app areas */
 main {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-/* Pinterest Vibe Glassmorphism */
-.glass-card {
-  background: rgba(30, 37, 54, 0.4);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(212, 175, 55, 0.15);
-  border-radius: 24px;
-  padding: 2.5rem;
-  transition: all var(--transition-smooth);
-}
-
-.glass-card:hover {
-  border-color: rgba(212, 175, 55, 0.35);
-  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
-}
-
-.glass-card-highlight {
-  background: rgba(30, 37, 54, 0.95);
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
-  transform: scale(1.02);
-  z-index: 10;
 }
 
 .pill-tag {
@@ -237,6 +135,47 @@ main {
   color: var(--brand-primary);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}
+
+/* Diagnostic answer buttons */
+.answer-btn {
+  text-align: left;
+  padding: 2rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 8px;
+  font-size: 1.25rem;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.answer-btn:hover,
+.answer-btn:focus-visible {
+  background: rgba(212,175,55,0.05);
+  border-color: var(--brand-secondary);
+  color: #fff;
+  transform: translateX(10px);
+}
+
+/* Training pathway cards — --c is the pathway colour, set inline */
+.pathway-card:not(.is-active):hover,
+.pathway-card:not(.is-active):focus-visible {
+  border-color: color-mix(in srgb, var(--c) 27%, transparent);
+}
+
+/* Icon links that fade up on hover */
+.icon-link {
+  opacity: 0.3;
+  transition: opacity var(--transition-smooth);
+}
+
+.icon-link:hover,
+.icon-link:focus-visible {
+  opacity: 1;
 }
 
 /* High-End Absolute Dual-Track Magic Border Physics */
@@ -269,28 +208,7 @@ main {
   z-index: 50;
 }
 
-/* Core spinner payload synchronized purely universally */
-.hover-glow-spinner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 2000px;
-  height: 2000px;
-  margin: -1000px 0 0 -1000px; /* Lock infinite geometric origin perfectly unconditionally */
-  animation: circular-track 2.5s linear infinite;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-.magic-card:hover .hover-glow-spinner { opacity: 1; }
-
-.spinner-tail {
-  /* Razor-sharp flawlessly tracked dark blue comet tail trajectory */
-  background: conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(30, 58, 138, 0.4) 85%, #1e3a8a 99.8%, #ffffff 100%);
-}
-
-.spinner-dot {
-  /* Solely identical volumetric tracking frame mapped exactly synchronizing the pure white dot constraint structure */
-  background: conic-gradient(from 0deg, transparent 0%, transparent 99.7%, #ffffff 100%);
-  filter: drop-shadow(0 0 6px #ffffff) drop-shadow(0 0 12px #3b82f6); /* Generates a deeply rich synthetic sphere geometric halo organically within the boundary mask intersections */
+/* Team portraits de-saturate until hovered (about page) */
+.team-card:hover .team-image {
+  filter: grayscale(0%) brightness(1) !important;
 }

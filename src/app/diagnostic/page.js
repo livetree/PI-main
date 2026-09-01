@@ -1,57 +1,11 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import WaveBackground from '@/components/WaveBackground';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, RefreshCcw, Target, AlertCircle, TrendingUp, Zap, Sparkles } from 'lucide-react';
-
-const SECTIONS = [
-  {
-    id: 'foundations',
-    title: 'FOUNDATIONS',
-    subtitle: 'Jesus-Centered Leadership',
-    questions: [
-      'Our leaders spend consistent time with Jesus and prioritize their relationship with Him',
-      'Our leaders recognize and respond to God’s voice in their daily lives',
-      'Our leaders are confident in their identity in Christ',
-      'Our leaders model the life they are calling others to live'
-    ]
-  },
-  {
-    id: 'activation',
-    title: 'ACTIVATION',
-    subtitle: 'Living the Kingdom',
-    questions: [
-      'Our leaders regularly apply what they learn in real-life situations',
-      'Our leaders step out in faith and obedience, even when it’s uncomfortable',
-      'Ministry happens beyond structured meetings and services',
-      'Our leaders grow through practice—not just teaching'
-    ]
-  },
-  {
-    id: 'multiplication',
-    title: 'MULTIPLICATION',
-    subtitle: 'Reproducing Leaders',
-    questions: [
-      'Our leaders are intentionally discipling others',
-      'Our leaders know how to develop and train new leaders',
-      'Leadership responsibility is spreading across many people',
-      'New leaders are consistently emerging'
-    ]
-  },
-  {
-    id: 'culture',
-    title: 'CULTURE',
-    subtitle: 'Environment for Growth',
-    questions: [
-      'Multiplication is expected, not optional',
-      'There is a clear pathway to develop leaders',
-      'People are moving from attendee → disciple → leader',
-      'The leadership culture is simple and reproducible'
-    ]
-  }
-];
+import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, RefreshCcw, AlertCircle, TrendingUp, Zap, Sparkles } from 'lucide-react';
+import { SECTIONS, TIERS, QUESTIONS, MAX_SCORE, scoreToTier, sectionScores } from '@/lib/diagnostic';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -59,61 +13,12 @@ const fadeIn = {
   exit: { opacity: 0, y: -20, transition: { duration: 0.4 } }
 };
 
-const TIERS = {
-  foundation: {
-    range: [0, 12],
-    color: '#ef4444',
-    label: 'Establishing Foundations',
-    means: 'You have vision and people in place. The opportunity now is to strengthen the foundation so leaders can grow and develop consistently.',
-    experiencing: [
-      'Leadership is carried by a smaller group',
-      'People are engaged, but not yet stepping into leadership',
-      'Development happens, but without a clear pathway'
-    ],
-    nextStepTitle: 'Build a strong, reproducible foundation for leadership development.',
-    nextStepDesc: 'This creates clarity, consistency, and the ability to grow leaders over time.',
-    focusArea: 'Establishing strong Jesus-centered foundations, Building a clear leadership pathway'
-  },
-  momentum: {
-    range: [13, 22],
-    color: '#f59e0b',
-    label: 'Developing Leaders',
-    means: 'You are seeing leaders grow and take steps forward. The next stage is creating consistency so leaders can begin developing others.',
-    experiencing: [
-      'Some leaders are actively growing',
-      'Discipleship is happening, but unevenly',
-      'Leadership development depends on key individuals'
-    ],
-    nextStepTitle: 'Strengthen your pathway so leadership development becomes consistent and reproducible.',
-    nextStepDesc: 'This is where growth begins to turn into multiplication.',
-    focusArea: 'Clarifying your leadership pipeline, Strengthening activation and discipleship'
-  },
-  multiplication: {
-    range: [23, 32],
-    color: '#10b981',
-    label: 'Multiplying Leaders',
-    means: 'You have strong leadership development already in place. Leaders are growing—and beginning to develop others.',
-    experiencing: [
-      'Leaders are investing in others',
-      'Responsibility is spreading',
-      'Momentum is building across your team'
-    ],
-    nextStepTitle: 'Refine and accelerate multiplication.',
-    nextStepDesc: 'With focused input, you can expand what’s already working and increase long-term impact.',
-    focusArea: 'Advanced leadership training, Focused equipping in key areas'
-  }
-};
-
 export default function DiagnosticPage() {
   const [step, setStep] = useState('start');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState([]);
 
-  const allQuestions = useMemo(() => SECTIONS.flatMap((s) => 
-    s.questions.map((q) => ({ text: q, sectionTitle: s.title, sectionSubtitle: s.subtitle, sectionId: s.id }))
-  ), []);
-
-  const totalQuestions = allQuestions.length;
+  const totalQuestions = QUESTIONS.length;
 
   const handleAnswer = (value) => {
     const newAnswers = [...answers, value];
@@ -140,28 +45,9 @@ export default function DiagnosticPage() {
     setAnswers([]);
   };
 
-  const getResultsData = () => {
-    const totalScore = answers.reduce((a, b) => a + b, 0);
-    const sectionScores = SECTIONS.map((section, sIdx) => {
-      const startIdx = sIdx * 4;
-      const scores = answers.slice(startIdx, startIdx + 4);
-      return {
-        id: section.id,
-        title: section.title,
-        score: scores.reduce((a, b) => a + b, 0),
-        max: 8
-      };
-    });
-
-    let tier;
-    if (totalScore <= 12) tier = TIERS.foundation;
-    else if (totalScore <= 22) tier = TIERS.momentum;
-    else tier = TIERS.multiplication;
-
-    return { totalScore, sectionScores, tier };
-  };
-
-  const { totalScore, sectionScores, tier } = step === 'results' ? getResultsData() : { totalScore: 0, sectionScores: [], tier: TIERS.foundation };
+  const totalScore = answers.reduce((a, b) => a + b, 0);
+  const tier = step === 'results' ? scoreToTier(totalScore) : TIERS.foundation;
+  const scores = step === 'results' ? sectionScores(answers) : [];
 
   return (
     <main style={{ position: 'relative', minHeight: '100vh', backgroundColor: 'var(--bg)', color: '#fff' }}>
@@ -208,7 +94,7 @@ export default function DiagnosticPage() {
                 </div>
                 
                 <div style={{ color: 'var(--brand-secondary)', letterSpacing: '0.3em', textTransform: 'uppercase', fontSize: '0.875rem', marginBottom: '1rem', fontWeight: 800 }}>
-                    {allQuestions[currentQuestionIndex].sectionTitle} // {allQuestions[currentQuestionIndex].sectionSubtitle}
+                    {QUESTIONS[currentQuestionIndex].sectionTitle}{' // '}{QUESTIONS[currentQuestionIndex].sectionSubtitle}
                 </div>
                 <div style={{ width: '100%', height: '4px', background: 'rgba(255,255,255,0.05)', borderRadius: '2px' }}>
                   <motion.div 
@@ -221,7 +107,7 @@ export default function DiagnosticPage() {
 
               <div style={{ padding: '2rem 0' }}>
                 <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', lineHeight: 1.1, fontWeight: 700, marginBottom: '5rem', letterSpacing: '-0.02em' }}>
-                  {allQuestions[currentQuestionIndex].text}
+                  {QUESTIONS[currentQuestionIndex].text}
                 </h2>
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.25rem' }}>
@@ -233,32 +119,7 @@ export default function DiagnosticPage() {
                     <button 
                       key={idx}
                       onClick={() => handleAnswer(option.value)}
-                      style={{ 
-                        textAlign: 'left',
-                        padding: '2rem',
-                        background: 'rgba(255,255,255,0.02)',
-                        border: '1px solid rgba(255,255,255,0.05)',
-                        borderRadius: '8px',
-                        fontSize: '1.25rem',
-                        color: 'rgba(255,255,255,0.7)',
-                        cursor: 'pointer',
-                        transition: 'all 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center'
-                      }}
-                      onMouseOver={(e) => {
-                        e.currentTarget.style.background = 'rgba(212,175,55,0.05)';
-                        e.currentTarget.style.borderColor = 'var(--brand-secondary)';
-                        e.currentTarget.style.color = '#fff';
-                        e.currentTarget.style.transform = 'translateX(10px)';
-                      }}
-                      onMouseOut={(e) => {
-                        e.currentTarget.style.background = 'rgba(255,255,255,0.02)';
-                        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)';
-                        e.currentTarget.style.color = 'rgba(255,255,255,0.7)';
-                        e.currentTarget.style.transform = 'translateX(0)';
-                      }}
+                      className="answer-btn"
                     >
                       <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
                         <span style={{ opacity: 0.3 }}>{option.icon}</span>
@@ -297,7 +158,7 @@ export default function DiagnosticPage() {
                     </h2>
                     
                     <div style={{ fontSize: '3.5rem', fontWeight: 900, color: '#fff', marginBottom: '1.5rem' }}>
-                      {totalScore}<span style={{ fontSize: '1.25rem', opacity: 0.3, fontWeight: 400 }}> / 32</span>
+                      {totalScore}<span style={{ fontSize: '1.25rem', opacity: 0.3, fontWeight: 400 }}> / {MAX_SCORE}</span>
                     </div>
 
                     <div style={{ padding: '2.5rem', borderLeft: `4px solid ${tier.color}`, background: 'rgba(255,255,255,0.02)', marginBottom: '4rem' }}>
@@ -306,7 +167,7 @@ export default function DiagnosticPage() {
                     </div>
 
                     <div style={{ marginBottom: '4rem' }}>
-                      <h3 style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '2rem' }}>What You're Experiencing</h3>
+                      <h3 style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '2rem' }}>What You’re Experiencing</h3>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                         {tier.experiencing.map((item, i) => (
                           <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: 'var(--text-secondary)', fontSize: '1.125rem' }}>
@@ -322,7 +183,7 @@ export default function DiagnosticPage() {
                     <div style={{ marginBottom: '6rem' }}>
                       <h3 style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '3rem' }}>Pathway Breakdown</h3>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
-                        {sectionScores.map(s => (
+                        {scores.map(s => (
                           <div key={s.id}>
                             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem', fontSize: '0.875rem' }}>
                               <span style={{ fontWeight: 700, letterSpacing: '0.05em' }}>{s.title}</span>

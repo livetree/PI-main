@@ -2,15 +2,8 @@
 
 import { motion } from 'framer-motion';
 import WaveBackground from '@/components/WaveBackground';
-import { Globe, Calendar, MessageSquare, Mail, Phone, MapPin, ArrowRight, ExternalLink } from 'lucide-react';
-import Link from 'next/link';
-
-const REGIONS = [
-  { name: 'Africa', leads: ['Patrick Kisia', 'East Africa Director'], email: 'africa@prepareinternational.org' },
-  { name: 'Europe', leads: ['Anna Aleksieieva', 'European Coordinator'], email: 'europe@prepareinternational.org' },
-  { name: 'Latin America', leads: ['Daniel Caballero', 'Latin America Director'], email: 'latam@prepareinternational.org' },
-  { name: 'Global Support', leads: ['Hannah Dockery', 'Homebase Director'], email: 'office@pinations.org' }
-];
+import { Globe, Calendar, Mail, Phone, MapPin, ArrowRight, ExternalLink } from 'lucide-react';
+import { REGIONS, titleOf } from '@/lib/people';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 30 },
@@ -33,7 +26,7 @@ export default function ConnectPage() {
               LAUNCH A <br/> <span style={{ color: 'var(--brand-secondary)' }}>MOVEMENT</span>
             </h1>
             <p style={{ fontSize: '1.5rem', color: 'var(--text-secondary)', maxWidth: '800px', marginInline: 'auto', lineHeight: 1.6 }}>
-              Ready to multiply? We’re for the leaders who aren't satisfied with the status quo. Let’s start a conversation that changes everything.
+              Ready to multiply? We’re for the leaders who aren’t satisfied with the status quo. Let’s start a conversation that changes everything.
             </p>
           </motion.div>
         </div>
@@ -63,7 +56,7 @@ export default function ConnectPage() {
               <div style={{ color: 'var(--brand-secondary)', textTransform: 'uppercase', fontWeight: 800, letterSpacing: '0.2em', fontSize: '0.875rem', marginBottom: '1.5rem' }}>Free Resource</div>
               <h2 style={{ fontSize: '2.5rem', fontWeight: 900, textTransform: 'uppercase', marginBottom: '1.5rem', lineHeight: 1.1 }}>The Father/Son Paradigm</h2>
               <p style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', lineHeight: 1.6, marginBottom: '2.5rem' }}>
-                Discover the biblical foundation for healthy, multiplying movements. Download Randy Boyd's seminal eBook for free and start repatterning your leadership today.
+                Discover the biblical foundation for healthy, multiplying movements. Download Randy Boyd’s seminal eBook for free and start repatterning your leadership today.
               </p>
               <button className="btn btn-primary" style={{ padding: '1rem 2.5rem' }}>Download Free eBook <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} /></button>
             </div>
@@ -122,12 +115,12 @@ export default function ConnectPage() {
                     <div>
                       <h3 style={{ fontSize: '1.25rem', fontWeight: 800, textTransform: 'uppercase', color: 'var(--brand-secondary)', marginBottom: '0.5rem' }}>{region.name}</h3>
                       <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-                        {region.leads.map(lead => (
-                          <span key={lead} style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', background: 'rgba(255,255,255,0.03)', padding: '0.25rem 0.5rem', borderRadius: '4px' }}>{lead}</span>
+                        {[region.lead, titleOf(region.lead)].map(chip => (
+                          <span key={chip} style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', background: 'rgba(255,255,255,0.03)', padding: '0.25rem 0.5rem', borderRadius: '4px' }}>{chip}</span>
                         ))}
                       </div>
                     </div>
-                    <a href={`mailto:${region.email}`} style={{ color: '#fff', opacity: 0.3, transition: 'all 0.3s' }} onMouseEnter={e => e.currentTarget.style.opacity = '1'} onMouseLeave={e => e.currentTarget.style.opacity = '0.3'}>
+                    <a href={`mailto:${region.email}`} className="icon-link" aria-label={`Email ${region.name}`} style={{ color: '#fff' }}>
                       <Mail size={24} />
                     </a>
                   </motion.div>

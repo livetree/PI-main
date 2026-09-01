@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 export default function BlogIndex() {
-  const posts = getAllPosts(['title', 'date', 'slug', 'excerpt', 'author']);
+  const posts = getAllPosts();
 
   return (
     <div className="container" style={{ padding: '4rem 1.5rem', minHeight: '80vh' }}>

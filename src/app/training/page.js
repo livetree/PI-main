@@ -1,8 +1,8 @@
 'use client';
-import React, { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import WaveBackground from '@/components/WaveBackground';
-import { Target, Zap, Users, Globe, ArrowRight, Shield, Flame, Sprout, Network } from 'lucide-react';
+import { Zap, Users, ArrowRight, Shield, Flame, Sprout, Network } from 'lucide-react';
 import Link from 'next/link';
 
 const PATHWAYS = [
@@ -107,7 +107,7 @@ const fadeIn = {
 
 export default function TrainingPage() {
   const [activePathway, setActivePathway] = useState(PATHWAYS[0]);
-  const secondaryRef = React.useRef(null);
+  const secondaryRef = useRef(null);
 
   const handlePathwayClick = (pathway) => {
     setActivePathway(pathway);
@@ -131,7 +131,7 @@ export default function TrainingPage() {
               TRAINING <br/> <span style={{ color: 'var(--brand-secondary)' }}>PATHWAYS</span>
             </h1>
             <p style={{ fontSize: '1.5rem', color: 'var(--text-secondary)', maxWidth: '800px', marginInline: 'auto', lineHeight: 1.6 }}>
-              We don't just teach principles; we activate pathways. Choose a legacy training pathway to explore its curriculum and activate your movement calling.
+              We don’t just teach principles; we activate pathways. Choose a legacy training pathway to explore its curriculum and activate your movement calling.
             </p>
           </motion.div>
         </div>
@@ -152,7 +152,12 @@ export default function TrainingPage() {
                   visible: { opacity: 1, y: 0, transition: { delay: idx * 0.05, duration: 0.8 } }
                 }}
                 onClick={() => handlePathwayClick(item)}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handlePathwayClick(item); } }}
+                role="button"
+                tabIndex={0}
+                className={`pathway-card${activePathway?.id === item.id ? ' is-active' : ''}`}
                 style={{ 
+                  '--c': item.color,
                   background: activePathway?.id === item.id ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.02)', 
                   border: activePathway?.id === item.id ? `1px solid ${item.color}` : '1px solid rgba(255,255,255,0.05)', 
                   padding: 'clamp(1.5rem, 5vw, 3rem)', 
@@ -163,16 +168,6 @@ export default function TrainingPage() {
                   flexDirection: 'column',
                   cursor: 'pointer',
                   transition: 'all 0.3s ease'
-                }}
-                onMouseOver={(e) => {
-                  if (activePathway?.id !== item.id) {
-                    e.currentTarget.style.borderColor = item.color + '44';
-                  }
-                }}
-                onMouseOut={(e) => {
-                  if (activePathway?.id !== item.id) {
-                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)';
-                  }
                 }}
               >
                 <div style={{ color: item.color, marginBottom: '2rem' }}>{item.icon}</div>

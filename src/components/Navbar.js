@@ -25,9 +25,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
-  useEffect(() => setIsOpen(false), [pathname]);
-
   return (
     <>
       <header 
@@ -151,6 +148,7 @@ export default function Navbar() {
                 >
                   <Link 
                     href={link.href}
+                    onClick={() => setIsOpen(false)}
                     style={{ 
                       fontSize: '3rem', 
                       fontWeight: 800, 
@@ -168,7 +166,7 @@ export default function Navbar() {
                 transition={{ delay: NAV_LINKS.length * 0.1 }}
                 style={{ marginTop: '2rem' }}
               >
-                <Link href="/connect" className="btn btn-primary" style={{ fontSize: '1.25rem', padding: '1.5rem', width: '100%' }}>
+                <Link href="/connect" onClick={() => setIsOpen(false)} className="btn btn-primary" style={{ fontSize: '1.25rem', padding: '1.5rem', width: '100%' }}>
                   Start a Conversation <Zap size={20} />
                 </Link>
               </motion.div>

@@ -35,7 +35,6 @@ export default function RootLayout({ children }) {
               <Link href="/diagnostic">Diagnostic</Link>
               <Link href="/give">Give</Link>
               <Link href="/blog">Blog</Link>
-              <Link href="/privacy">Privacy Policy</Link>
             </div>
             <p style={{ marginTop: '2rem', fontSize: '0.75rem', color: 'var(--border)' }}>
               &copy; {new Date().getFullYear()} Prepare International. All rights reserved.

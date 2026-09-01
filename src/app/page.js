@@ -3,13 +3,11 @@
 import Link from 'next/link';
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, TrendingUp, Zap, ChevronRight, Crown, Target, Zap as ZapIcon, User, Network, Users } from 'lucide-react';
+import { Zap, ChevronRight, Crown, Target, Zap as ZapIcon, User, Network, Users } from 'lucide-react';
 import MagicCard from '../components/MagicCard';
 import WaveBackground from '../components/WaveBackground';
 
 export default function Home() {
-  const { scrollYProgress } = useScroll();
-
   // Aggressive Darknode Fly-In Physics
   const flyInUp = {
     hidden: { opacity: 0, y: 150, scale: 0.85, rotateX: 10 },
@@ -246,7 +244,7 @@ export default function Home() {
           
           <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} style={{ textAlign: 'center', marginBottom: '5rem' }}>
             <h2 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', color: '#fff', textTransform: 'uppercase', lineHeight: 0.9, letterSpacing: '-0.03em', marginBottom: '2rem' }}>
-              The Goal Is Not Growth—<br/><span style={{ color: 'var(--brand-primary)', textShadow: '0 0 40px rgba(212,175,55,0.3)' }}>It's Multiplication</span>
+              The Goal Is Not Growth—<br/><span style={{ color: 'var(--brand-primary)', textShadow: '0 0 40px rgba(212,175,55,0.3)' }}>It’s Multiplication</span>
             </h2>
           </motion.div>
 
@@ -271,7 +269,7 @@ export default function Home() {
           </div>
 
           <motion.p variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'var(--text-secondary)', textAlign: 'center', maxWidth: '800px', margin: '0 auto', fontStyle: 'italic' }}>
-            "This is the model Jesus established—and it still works today."
+            “This is the model Jesus established—and it still works today.”
           </motion.p>
           
         </div>
@@ -358,12 +356,6 @@ export default function Home() {
           
         </div>
       </section>
-
-      <style jsx>{`
-        @media (max-width: 900px) {
-          .hide-on-mobile { display: none !important; }
-        }
-      `}</style>
     </div>
   );
 }

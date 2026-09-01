@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 
 export async function generateMetadata(props) {
   const params = await props.params;
-  const post = getPostBySlug(params.slug, ['title', 'excerpt']);
+  const post = getPostBySlug(params.slug);
   if (!post) return { title: 'Post Not Found' };
 
   return {
@@ -15,7 +15,7 @@ export async function generateMetadata(props) {
 }
 
 export async function generateStaticParams() {
-  const posts = getAllPosts(['slug']);
+  const posts = getAllPosts();
   return posts.map((post) => ({
     slug: post.slug,
   }));
@@ -23,7 +23,7 @@ export async function generateStaticParams() {
 
 export default async function BlogPost(props) {
   const params = await props.params;
-  const post = getPostBySlug(params.slug, ['title', 'date', 'author', 'content']);
+  const post = getPostBySlug(params.slug);
 
   if (!post) {
     return notFound();

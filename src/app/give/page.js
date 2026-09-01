@@ -2,26 +2,8 @@
 
 import { motion } from 'framer-motion';
 import WaveBackground from '@/components/WaveBackground';
-import { Heart, Users, Globe, ArrowRight, ExternalLink, Download } from 'lucide-react';
-import Link from 'next/link';
-
-const STAFF = [
-  { name: 'Randy & Callie Boyd', role: 'Founders' },
-  { name: 'Josiah & Brandi Boyd', role: 'Executive Directors' },
-  { name: 'Volkert Muijs', role: 'Africa Director' },
-  { name: 'Hannah Dockery', role: 'Homebase Director & Prayground' },
-  { name: 'Patrick Kisia', role: 'East Africa Director' },
-  { name: 'Daniel Caballero', role: 'Latin America Director' },
-  { name: 'Anna Aleksieieva', role: 'European Coordinator' },
-  { name: 'Boone & Bethany Tyson', role: 'Costa Rica & South Texas Coordinators' },
-  { name: 'David Morgan', role: 'Director of Development' }
-];
-
-const PROJECTS = [
-  { name: 'Poland Deaf Mission', desc: 'Equipping the deaf community in Eastern Europe.' },
-  { name: 'Macedonia Mission', desc: 'Catalyzing the next generation of Balkan leaders.' },
-  { name: 'Legacy Mission', desc: 'Friede Taylor and the European legacy.' }
-];
+import { Heart, Users, Globe, ArrowRight, Download } from 'lucide-react';
+import { TEAM } from '@/lib/people';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 30 },
@@ -44,7 +26,7 @@ export default function GivePage() {
               FUEL THE <br/> <span style={{ color: 'var(--brand-secondary)' }}>MISSION</span>
             </h1>
             <p style={{ fontSize: '1.5rem', color: 'var(--text-secondary)', maxWidth: '800px', marginInline: 'auto', lineHeight: 1.6 }}>
-              We don't just send money; we send catalytic leaders. Your partnership fuels a global ecosystem designed to multiply for generations across churches, businesses, and communities.
+              We don’t just send money; we send catalytic leaders. Your partnership fuels a global ecosystem designed to multiply for generations across churches, businesses, and communities.
             </p>
           </motion.div>
         </div>
@@ -63,7 +45,7 @@ export default function GivePage() {
               <div style={{ position: 'absolute', top: 0, right: 0, padding: '1rem', opacity: 0.1 }}><Globe size={100} /></div>
               <h2 style={{ fontSize: '2rem', fontWeight: 900, textTransform: 'uppercase', marginBottom: '1.5rem' }}>PI GLOBAL</h2>
               <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem', fontSize: '1.125rem' }}>Invest in the general movement fund to enable catalytic schools, training tools, and regional expansion across every sphere of society.</p>
-              <button className="btn btn-primary w-full" style={{ padding: '1.25rem' }}>Fuel PI Global</button>
+              <button className="btn btn-primary" style={{ padding: '1.25rem' }}>Fuel PI Global</button>
             </motion.div>
 
             {/* PILLAR 2: STAFF */}
@@ -74,7 +56,7 @@ export default function GivePage() {
               <div style={{ position: 'absolute', top: 0, right: 0, padding: '1rem', opacity: 0.1 }}><Users size={100} /></div>
               <h2 style={{ fontSize: '2rem', fontWeight: 900, textTransform: 'uppercase', marginBottom: '1.5rem' }}>FIELD LEADERS</h2>
               <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem', fontSize: '1.125rem' }}>Support the leaders on mission who drive movement expansion in specific regions across the globe.</p>
-              <button className="btn w-full" style={{ padding: '1.25rem', border: '1px solid rgba(255,255,255,0.1)', color: '#fff' }}>View Field Leaders</button>
+              <button className="btn" style={{ padding: '1.25rem', border: '1px solid rgba(255,255,255,0.1)', color: '#fff' }}>View Field Leaders</button>
             </motion.div>
 
             {/* PILLAR 3: PROJECTS */}
@@ -85,7 +67,7 @@ export default function GivePage() {
               <div style={{ position: 'absolute', top: 0, right: 0, padding: '1rem', opacity: 0.1 }}><Heart size={100} /></div>
               <h2 style={{ fontSize: '2rem', fontWeight: 900, textTransform: 'uppercase', marginBottom: '1.5rem' }}>PROJECTS</h2>
               <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem', fontSize: '1.125rem' }}>Give to specific local initiatives, ranging from the Deaf in Poland to the villages of Macedonia.</p>
-              <button className="btn w-full" style={{ padding: '1.25rem', border: '1px solid rgba(255,255,255,0.1)', color: '#fff' }}>Explore Projects</button>
+              <button className="btn" style={{ padding: '1.25rem', border: '1px solid rgba(255,255,255,0.1)', color: '#fff' }}>Explore Projects</button>
             </motion.div>
 
           </div>
@@ -100,7 +82,7 @@ export default function GivePage() {
             <div style={{ width: '80px', height: '4px', background: 'var(--brand-secondary)', margin: '2rem auto' }}></div>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
-            {STAFF.map((member) => (
+            {TEAM.map((member) => (
               <motion.div 
                 key={member.name}
                 initial={{ opacity: 0, y: 20 }}
@@ -110,7 +92,7 @@ export default function GivePage() {
               >
                 <div>
                   <div style={{ fontWeight: 800, textTransform: 'uppercase', color: 'var(--brand-secondary)', fontSize: '1.125rem' }}>{member.name}</div>
-                  <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{member.role}</div>
+                  <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{member.title}</div>
                 </div>
                 <ArrowRight size={20} style={{ color: 'rgba(255,255,255,0.2)' }} />
               </motion.div>
