@@ -8,7 +8,7 @@ const tithely = (fund) =>
 
 export const SITE = {
   hero: {
-    photo: { src: '/photos/hero-room.jpg', alt: 'A full hall of students at a PI training, two teachers on stage' },
+    photo: { src: '/photos/hero-graduation.jpg', alt: 'A PI trainer facing a hall of graduates in caps and gowns' },
     eyebrow: '25 years · 5 continents',
     title: 'What will it take to train *1 million* people?',
     text: 'Leaders who multiply leaders. Your gift trains them.',
