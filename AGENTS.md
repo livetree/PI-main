@@ -37,16 +37,19 @@ npm run build   # must succeed before any claim that something works
 
 ## Autonomy — do not check in
 
-Standing permission from Josiah (2026-11-12): run the work end to end without
-asking. Decide, record the decision, keep going. Only two things come back to
-him:
+Standing permission from Josiah (2026-11-12, tightened the same day after he
+said "I have a lot of needs your input"): run the work end to end. Decide,
+record the decision, keep going.
 
-1. **Look and design** — show the built result (preview + screenshots) for a
-   design check. Show it finished, not as a question beforehand.
-2. **Going live** — never `git push` to `main` or deploy to production until he
-   has signed off on that design check. Local commits are always fine.
+- **Never end a turn with a question, an approval request or a "which do you
+  prefer".** Pick, build it, say what was picked and how to change it.
+- **Push to `main` when checks, lint and build pass.** That deploys to
+  https://pi-main.vercel.app, which is where he reviews the look. He reacts to
+  what he sees there; that is the design check.
+- **The one hard stop:** pointing the real domain (prepareinternational.org) at
+  this site, or anything else that replaces the live WordPress site. That needs
+  his explicit go-ahead.
+- Things only he can do (sign-ins, keys, DNS) go in one ONE CLICK list at the
+  end of the report, never as a blocking question.
 
-Everything else (copy drafts, structure, routes, naming, which checks to add)
-is not a question. App-forge's ONE CLICK list still applies for things only he
-can do (accounts, keys, DNS).
 <!-- END:loop -->

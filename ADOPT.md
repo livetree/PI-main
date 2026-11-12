@@ -226,3 +226,16 @@ Josiah approved the look (graduation hall as the top photo) and asked for the ed
 1. Try the editor: open `localhost:3000/?edit`, sign in, change a line, save.
 2. When the site goes to Vercel, its address must be added to Firebase → Authentication → Authorized domains, or Google sign-in will refuse to open there.
 3. "AR Support" is still off the give page.
+
+---
+
+## Revision 4 — 2026-11-12
+
+- **"Where we are today" replaced.** Josiah found the dot grid vague. The section is
+  now "What we are doing right now": four activity cards (running schools, walking
+  with movements, equipping churches, reaching homes), each with its number. The
+  homes line reads "from leaders trained", as he asked.
+- **Pushing is allowed.** He asked for this to go to the existing
+  https://pi-main.vercel.app and to finish the editor (CMS) afterwards. The hard
+  stop is now the real domain only; see `AGENTS.md` § Autonomy.
+- **No closing questions.** He was getting too many requests for input.

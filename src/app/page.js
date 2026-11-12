@@ -55,19 +55,17 @@ export default async function Home() {
         <div className="container center">
           <p className="eyebrow reveal" data-k="today.eyebrow">{today.eyebrow}</p>
           <h2 className="display reveal" data-k="today.title"><Accent>{today.title}</Accent></h2>
-          <div className="dots reveal" role="img" aria-label={today.movements.caption}>
-            {Array.from({ length: today.movements.goal }, (_, i) => (
-              <i key={i} className={i < today.movements.now ? 'on' : undefined} />
-            ))}
-          </div>
-          <p className="caption reveal" data-k="today.movements.caption">{today.movements.caption}</p>
-          <div className="cells">
-            {today.stats.map((s, i) => (
-              <div key={i} className="reveal">
-                {s.text
-                  ? <b data-k={`today.stats.${i}.text`}>{s.text}</b>
-                  : <b data-k={`today.stats.${i}.n`}><CountUp n={s.n} suffix={s.suffix} /></b>}
-                <span data-k={`today.stats.${i}.label`}>{s.label}</span>
+          <div className="cards">
+            {today.items.map((item, i) => (
+              <div key={i} className="panel activity reveal">
+                <h3 data-k={`today.items.${i}.title`}>{item.title}</h3>
+                <p className="figure">
+                  {item.figure
+                    ? <b data-k={`today.items.${i}.figure`}>{item.figure}</b>
+                    : <b data-k={`today.items.${i}.n`}><CountUp n={item.n} suffix={item.suffix} /></b>}
+                  {' '}<span data-k={`today.items.${i}.label`}>{item.label}</span>
+                </p>
+                <p data-k={`today.items.${i}.text`}>{item.text}</p>
               </div>
             ))}
           </div>

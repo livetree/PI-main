@@ -96,14 +96,12 @@ JSON.stringify(SITE, (k, v) => {
   if (k === 'src') assert.ok(existsSync(`public${v}`), `content names ${v}, which is not in public/`);
   return v;
 });
-// The dot grid lights `now` of `goal`; lighting more than the goal overstates the work.
-assert.ok(SITE.today.movements.now <= SITE.today.movements.goal, 'more movements lit than the goal has dots');
 
 // --- On-page edits: allow what an editor does, refuse everything else --------
 {
   const edited = applyOverrides(SITE, {
     'hero.title': 'Train *one million* people',
-    'today.stats.0.n': '2,600',
+    'today.items.0.n': '2,600',
     'hero.photo.src': '/img/abc123def456',
     'hero.photo.alt': 'https://evil.example/x.jpg',   // alt is words; any words are fine
     'family.photo.src': 'https://evil.example/x.jpg', // a photo off this site
@@ -113,7 +111,7 @@ assert.ok(SITE.today.movements.now <= SITE.today.movements.goal, 'more movements
     'closing.title': '   ',
   });
   assert.equal(edited.hero.title, 'Train *one million* people', 'a saved headline edit did not reach the page');
-  assert.equal(edited.today.stats[0].n, 2600, 'a number typed as "2,600" must be stored as 2600, or the count-up breaks');
+  assert.equal(edited.today.items[0].n, 2600, 'a number typed as "2,600" must be stored as 2600, or the count-up breaks');
   assert.equal(edited.hero.photo.src, '/img/abc123def456', 'an uploaded photo did not replace the old one');
   assert.equal(edited.family.photo.src, SITE.family.photo.src, 'an edit pointed a photo at another website');
   assert.equal(edited.ways.items[2].href, SITE.ways.items[2].href, 'an edit changed where a gift goes');
@@ -121,7 +119,7 @@ assert.ok(SITE.today.movements.now <= SITE.today.movements.goal, 'more movements
   assert.ok(Array.isArray(edited.vision.steps), 'an edit replaced a list with text');
   assert.equal(edited.closing.title, SITE.closing.title, 'an empty edit blanked a heading');
   assert.equal(SITE.hero.title, 'What will it take to train *1 million* people?', 'applying edits changed the committed copy itself');
-  assert.equal(accept('today.stats.0.n', 'lots'), undefined, 'words were accepted where a number is counted up');
+  assert.equal(accept('today.items.0.n', 'lots'), undefined, 'words were accepted where a number is counted up');
 }
 
 // Every element the editor can change must name a real entry, or the edit

@@ -217,10 +217,9 @@ h3.display { font-size: clamp(1.4rem, 2.6vw, 2.2rem); }
 .cells b { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: clamp(1.9rem, 3.4vw, 2.75rem); line-height: 1; white-space: nowrap; color: var(--brand-primary); font-variant-numeric: tabular-nums; }
 .cells div > span { color: var(--text-secondary); }
 
-/* 1,000 movements, the ones growing today lit (Lead40's seats) */
-.dots { display: grid; grid-template-columns: repeat(50, 1fr); gap: clamp(2px, 0.5vw, 6px); max-width: 900px; margin: 3rem auto 1rem; }
-.dots i { aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(255,255,255,0.22); }
-.dots i.on { background: var(--brand-primary); border-color: var(--brand-primary); }
+.activity h3 { color: var(--brand-primary); font-size: 1.15rem; letter-spacing: 0.04em; }
+.activity .figure { color: #fff; font-size: 1rem; line-height: 1.2; }
+.activity .figure b { display: block; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: clamp(2.2rem, 4vw, 3rem); line-height: 1; font-variant-numeric: tabular-nums; }
 
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 3rem; text-align: left; }
 .panel { padding: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
@@ -252,7 +251,6 @@ blockquote { border-left: 3px solid var(--brand-primary); padding-left: 1rem; fo
 @media (max-width: 760px) {
   .story, .split { grid-template-columns: 1fr; }
   .story:nth-of-type(even) img { order: 0; }
-  .dots { grid-template-columns: repeat(40, 1fr); }
 }
 
 /* One calm reveal, native. Browsers without scroll timelines just show the content. */

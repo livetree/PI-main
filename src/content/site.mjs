@@ -29,14 +29,13 @@ export const SITE = {
 
   today: {
     eyebrow: 'PI today',
-    title: 'Where we are *today.*',
-    // The dot grid: `now` of `goal` movements lit.
-    movements: { now: 50, goal: 1000, caption: 'About 50 of 1,000 movements are growing today.' },
-    stats: [
-      { n: 2500, label: 'students in PI schools' },
-      { n: 400, suffix: '+', label: 'churches and organisations' },
-      { text: '50–60,000', label: 'homes hearing about Jesus each week' },
-      { n: 5, label: 'continents' },
+    title: 'What we are doing *right now.*',
+    // One card per activity. A card shows `n` (counted up) or `text`, then its label.
+    items: [
+      { title: 'Running schools', n: 2500, label: 'students', text: 'Leaders are in class at PI schools from Warsaw and Poltava to Matambú, Costa Rica.' },
+      { title: 'Walking with movements', n: 50, label: 'growing movements', text: 'Trainers teach for one or two intensive days, then keep coaching as local leaders disciple their own students.' },
+      { title: 'Equipping churches', n: 400, suffix: '+', label: 'churches and organisations', text: 'Churches, ministries, schools and businesses are training their own people with PI.' },
+      { title: 'Reaching homes', figure: '50–60,000', label: 'homes', text: 'Homes hearing about Jesus each week from leaders trained.' },
     ],
   },
 
