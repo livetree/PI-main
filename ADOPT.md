@@ -20,7 +20,7 @@ ENTRY    src/app/layout.js → Navbar + page + footer
 ROUTES   /  /about  /training  /diagnostic  /give  /connect  /blog  /blog/[slug]
 DATA     none. Static content in src/lib/people.mjs, src/lib/diagnostic.mjs, src/posts/*.md
 AUTH     none
-DEPLOY   git remote github.com/livetree/PI-main. Host not recorded in the repo — FINDING (assume a push to main deploys; treat it as going live)
+DEPLOY   git remote github.com/livetree/PI-main → Vercel project `pi-nations` (team Livetree's projects). A push to main deploys to https://pi-nations.vercel.app. Note: pi-main.vercel.app is NOT ours; it is a stranger's site.
 TESTS    npm run check (assert-based, passes). eslint: 0 errors, the 2 known <img> warnings.
 ```
 
@@ -236,6 +236,11 @@ Josiah approved the look (graduation hall as the top photo) and asked for the ed
   with movements, equipping churches, reaching homes), each with its number. The
   homes line reads "from leaders trained", as he asked.
 - **Pushing is allowed.** He asked for this to go to the existing
-  https://pi-main.vercel.app and to finish the editor (CMS) afterwards. The hard
+  https://pi-nations.vercel.app and to finish the editor (CMS) afterwards. The hard
   stop is now the real domain only; see `AGENTS.md` § Autonomy.
 - **No closing questions.** He was getting too many requests for input.
+- **Deployed.** Commit 6c3f971 is live at https://pi-nations.vercel.app (Vercel project
+  `pi-nations`). Checked on the live address: home and give serve the new content,
+  the hero photo optimises, `/diagnostic` still loads by URL.
+- **ONE CLICK for the editor on the live site:** add `pi-nations.vercel.app` to
+  Firebase → Authentication → Settings → Authorized domains (project `pi-momentum-site`).

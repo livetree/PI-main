@@ -44,7 +44,7 @@ record the decision, keep going.
 - **Never end a turn with a question, an approval request or a "which do you
   prefer".** Pick, build it, say what was picked and how to change it.
 - **Push to `main` when checks, lint and build pass.** That deploys to
-  https://pi-main.vercel.app, which is where he reviews the look. He reacts to
+  https://pi-nations.vercel.app, which is where he reviews the look. He reacts to
   what he sees there; that is the design check.
 - **The one hard stop:** pointing the real domain (prepareinternational.org) at
   this site, or anything else that replaces the live WordPress site. That needs
