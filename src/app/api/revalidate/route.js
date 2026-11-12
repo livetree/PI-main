@@ -5,5 +5,6 @@ import { revalidatePath } from 'next/cache';
 export async function POST() {
   revalidatePath('/');
   revalidatePath('/give');
+  revalidatePath('/about');
   return new Response(null, { status: 204 });
 }

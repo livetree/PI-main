@@ -178,11 +178,6 @@ main {
   opacity: 1;
 }
 
-/* Team portraits de-saturate until hovered (about page) */
-.team-card:hover .team-image {
-  filter: grayscale(0%) brightness(1) !important;
-}
-
 /* ---- Donor pages (home, give). Frames come from pi-momentum and Lead40. ---- */
 :focus-visible { outline: 3px solid var(--brand-primary); outline-offset: 3px; }
 /* a:hover outranks .btn-primary and turned the label yellow on yellow */
@@ -260,6 +255,25 @@ blockquote { border-left: 3px solid var(--brand-primary); padding-left: 1rem; fo
     .reveal { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
   }
 }
+
+/* ---- About ---- */
+.timeline { display: grid; gap: 2.25rem; padding-left: 2rem; border-left: 2px solid rgba(255,255,255,0.14); list-style: none; }
+.timeline li { position: relative; display: grid; gap: 0.35rem; }
+.timeline li::before { content: ''; position: absolute; left: calc(-2rem - 8px); top: 0.45rem; width: 14px; height: 14px; border-radius: 50%; background: var(--brand-primary); box-shadow: 0 0 0 5px var(--bg); }
+.timeline b { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.5rem; line-height: 1; color: var(--brand-primary); text-transform: uppercase; }
+.timeline h3 { font-size: 1.25rem; text-transform: uppercase; }
+.timeline p { color: var(--text-secondary); font-size: 1.05rem; }
+.split.top { align-items: start; margin-top: 3rem; }
+.split.top img { position: sticky; top: 7rem; }
+.marks { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 1.5rem; list-style: none; }
+.marks li { padding: 0.7rem 1.2rem; border: 1px solid var(--brand-primary); border-radius: 999px; font-weight: 600; }
+.marks-title { margin-top: 3rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.85rem; font-weight: 600; }
+.team { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 2rem 1.25rem; margin-top: 3rem; text-align: left; }
+.team img, .team .blank { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 16px; background: rgba(255,255,255,0.05); display: grid; place-items: center; font-family: 'Outfit', sans-serif; font-size: 3rem; color: rgba(255,255,255,0.2); transition: transform 0.4s ease; }
+.team div:hover img { transform: scale(1.03); }
+.team h3 { font-size: 1.05rem; margin-top: 0.9rem; }
+.team p { font-size: 0.8rem; color: var(--brand-primary); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+@media (max-width: 760px) { .split.top img { position: static; } }
 
 /* ---- On-page editor (only present with ?edit in the address) ---- */
 .editable { outline: 1px dashed rgba(255, 230, 59, 0.7); outline-offset: 4px; cursor: text; animation: none !important; opacity: 1 !important; transform: none !important; }

@@ -98,6 +98,57 @@ export const SITE = {
     primary: { label: 'Give now', href: '/give' },
   },
 
+  about: {
+    eyebrow: 'About',
+    title: '25 years of multiplying *leaders.*',
+    text: 'We exist to raise leaders who reflect the character of Jesus, equip others, multiply movements and transform communities through the power of the Gospel.',
+    history: {
+      eyebrow: 'Our history',
+      title: 'From a handful of pastors to *five continents.*',
+      photo: { src: '/photos/trainer.jpg', alt: 'A PI trainer in conversation with church leaders in Africa' },
+      steps: [
+        { when: '2001', title: 'A beginning in Central Europe', text: 'PI is formed to train church planters in Central Europe after the fall of communism.' },
+        { when: '2003', title: 'Randy and Callie Boyd', text: 'Randy Boyd becomes Director. He and his wife Callie set a course to train and equip leaders for life and mission within their own nation.' },
+        { when: 'The first schools', title: 'Czech Republic and Slovakia', text: 'Small efforts serving a handful of pastors.' },
+        { when: 'The dream', title: '10,000 leaders trained', text: 'A goal once thought impossible. It turned out to be the tip of the iceberg.' },
+        { when: 'Today', title: 'A family on five continents', text: 'Schools and relationships in Africa, Asia, Latin America, Europe and the United States, with leaders in every sphere of society.' },
+      ],
+    },
+    how: {
+      eyebrow: 'How we train',
+      title: 'More than *information.*',
+      text: 'True transformation requires more than information transfer. It requires impartation: the passing on of vision, wisdom, character and spiritual leadership.',
+      marksTitle: 'We build Kingdom men and women, marked by',
+      marks: [
+        'Devotion to Jesus and His mission',
+        'Identity in Christ, lived out',
+        'A sacrificial and generous life',
+        'A supernatural life',
+        'A love for the global body of Christ',
+      ],
+    },
+    principles: {
+      eyebrow: 'Guiding principles',
+      title: 'What we *hold to.*',
+      items: [
+        { title: 'Advance the Kingdom', text: 'We carry the message of Jesus and His Kingdom to leaders across the world.' },
+        { title: 'Multiply leaders', text: 'Jesus poured deeply into a few leaders who then changed the world. We train the same way.' },
+        { title: 'Disciple nations', text: 'We help local leaders reach the vision God has given them, so movements grow from within their own nation.' },
+      ],
+    },
+    vision: {
+      eyebrow: 'The vision',
+      title: 'Where this is *going.*',
+      items: [
+        { n: 1000, label: 'movements' },
+        { n: 10000, label: 'trainers' },
+        { n: 1000000, label: 'people trained' },
+        { n: 1000000, label: 'souls saved' },
+      ],
+    },
+    team: { eyebrow: 'The team', title: 'The people behind *the work.*' },
+  },
+
   give: {
     eyebrow: 'Give',
     title: 'One leader at a time. *Then nations.*',
