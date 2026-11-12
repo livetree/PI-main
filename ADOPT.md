@@ -304,3 +304,23 @@ the Teaching tab is long enough that people ask for it.
 1. If any of the 141 posts should not come across, name them; otherwise all do.
 2. "Join PI's Epistle" (July 2025) looks like a newsletter. If it is still
    running, send the sign-up link and it goes at the foot of every story.
+
+---
+
+## Revision 6 — 2026-11-12: leaders page rebuilt around customization
+
+Josiah liked the look but wanted the stages gone and the message to be: highly
+customizable training, 6 to 8 hours of teaching, follow-up sessions in between
+that guide local leaders through practical conversations, all built on one
+topic (the Kingdom of God) and shaped to the vision and requirements of the
+leaders in their nation.
+
+- `/training` now runs: the promise → one topic → how it works (listen, teach,
+  follow up, next course) → what is shaped around you (courses, language,
+  teachers, setting) → the course list → start a conversation.
+- Wording for "how it works" and "built to fit" is taken from
+  prepareinternational.org/global/training, except the teaching hours, which are
+  his (the live page says 8–12; he said 6 to 8).
+- The 26 courses are kept, grouped under six plain headings in native
+  `<details>`. "Stage 01–04", "pathway" and the click-to-spotlight widget are gone.
+- The page reads from `site.mjs`, so the on-page editor covers it.

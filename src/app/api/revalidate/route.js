@@ -6,5 +6,6 @@ export async function POST() {
   revalidatePath('/');
   revalidatePath('/give');
   revalidatePath('/about');
+  revalidatePath('/training');
   return new Response(null, { status: 204 });
 }
