@@ -202,7 +202,7 @@ export default function DiagnosticPage() {
                       </div>
                     </div>
 
-                    <div style={{ padding: '3rem', border: '1px solid var(--brand-secondary)', background: 'rgba(212,175,55,0.03)', borderRadius: '8px', position: 'relative' }}>
+                    <div style={{ padding: '3rem', border: '1px solid var(--brand-secondary)', background: 'rgba(255, 230, 59,0.03)', borderRadius: '8px', position: 'relative' }}>
                       <div style={{ position: 'absolute', top: '-12px', left: '2rem', background: 'var(--bg)', padding: '0 1rem', fontSize: '0.75rem', color: 'var(--brand-secondary)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.2em' }}>Your Next Step</div>
                       <h3 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#fff', marginBottom: '1.5rem', lineHeight: 1.2 }}>{tier.nextStepTitle}</h3>
                       <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem', lineHeight: 1.6 }}>{tier.nextStepDesc}</p>

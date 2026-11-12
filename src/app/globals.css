@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 :root {
-  /* Elegant Navy & Gold Color Palette */
+  /* Navy and the PI Momentum yellow — shared with pi-momentum */
   --bg: #151b29;
   --text-primary: #ffffff;
   --text-secondary: #cbd5e1;
 
-  /* Glowing Gold Accents */
-  --brand-primary: #d4af37;
-  --brand-secondary: #fcd34d;
-  --brand-gradient: linear-gradient(135deg, #d4af37, #fcd34d);
+  /* Accent */
+  --brand-primary: #ffe63b;
+  --brand-secondary: #fff27a;
+  --brand-gradient: linear-gradient(135deg, #ffe63b, #fff27a);
 
   /* Surfaces */
   --surface: #1e2536;
   --surface-elevated: #283144;
-  --border: rgba(212, 175, 55, 0.3); /* Subtle gold borders */
+  --border: rgba(255, 230, 59, 0.3); /* Subtle gold borders */
 
   --radius-md: 16px;
 
@@ -127,8 +127,8 @@ main {
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background: rgba(212, 175, 55, 0.1);
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  background: rgba(255, 230, 59, 0.1);
+  border: 1px solid rgba(255, 230, 59, 0.3);
   border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 700;
@@ -155,7 +155,7 @@ main {
 
 .answer-btn:hover,
 .answer-btn:focus-visible {
-  background: rgba(212,175,55,0.05);
+  background: rgba(255, 230, 59,0.05);
   border-color: var(--brand-secondary);
   color: #fff;
   transform: translateX(10px);
@@ -178,37 +178,84 @@ main {
   opacity: 1;
 }
 
-/* High-End Absolute Dual-Track Magic Border Physics */
-@keyframes circular-track {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.spinner-anim {
-  animation: circular-track 2.5s linear infinite;
-  animation-play-state: paused; /* Instantly freezes geometric rotation exactly on mouseleave */
-}
-
-.magic-card:hover .spinner-anim {
-  animation-play-state: running; /* Seamlessly resumes trace identically from frozen state */
-}
-
-.magic-card {
-  position: relative;
-  background: rgba(255, 255, 255, 0.05); /* Idle 1px border */
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.05);
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
-}
-
-.magic-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-  border-color: transparent; /* Smoothly yields structural visibility to the glowing nested tracks natively */
-  z-index: 50;
-}
-
 /* Team portraits de-saturate until hovered (about page) */
 .team-card:hover .team-image {
   filter: grayscale(0%) brightness(1) !important;
+}
+
+/* ---- Donor pages (home, give). Frames come from pi-momentum and Lead40. ---- */
+:focus-visible { outline: 3px solid var(--brand-primary); outline-offset: 3px; }
+/* a:hover outranks .btn-primary and turned the label yellow on yellow */
+.btn-primary:hover { color: #000; }
+.btn-ghost { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff; }
+.btn-ghost:hover { border-color: var(--brand-primary); }
+
+mark { background: none; color: var(--brand-primary); }
+.eyebrow { font-weight: 600; font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brand-primary); margin-bottom: 1rem; }
+.display { font-weight: 800; text-transform: uppercase; line-height: 1.02; letter-spacing: -0.03em; text-wrap: balance; }
+h1.display { font-size: clamp(2.6rem, 7.5vw, 6.5rem); }
+h2.display { font-size: clamp(2rem, 5vw, 4rem); }
+h3.display { font-size: clamp(1.4rem, 2.6vw, 2.2rem); }
+.lede { font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--text-secondary); max-width: 42rem; margin-top: 1.5rem; }
+.center { text-align: center; }
+.center .lede { margin-inline: auto; }
+.caption { color: var(--text-secondary); }
+
+.band { padding: clamp(4.5rem, 10vw, 8rem) 0; }
+.band.alt { background: var(--surface); }
+.page-top { padding-top: clamp(9rem, 16vw, 12rem); }
+.actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; }
+
+.hero { position: relative; isolation: isolate; min-height: 100svh; display: flex; align-items: flex-end; padding: 9rem 0 clamp(3rem, 8vw, 6rem); }
+.hero > img { object-fit: cover; z-index: -2; }
+.hero::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(21,27,41,0.6), rgba(21,27,41,0.45) 40%, var(--bg)); }
+.hero h1 { max-width: 16ch; }
+
+.cells { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 3rem; }
+.cells div, .panel { border: 1px solid rgba(255,255,255,0.14); border-radius: 16px; background: rgba(255,255,255,0.04); }
+.cells div { padding: 2rem 1rem; display: grid; gap: 0.4rem; }
+.cells b { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: clamp(1.9rem, 3.4vw, 2.75rem); line-height: 1; white-space: nowrap; color: var(--brand-primary); font-variant-numeric: tabular-nums; }
+.cells div > span { color: var(--text-secondary); }
+
+/* 1,000 movements, the ones growing today lit (Lead40's seats) */
+.dots { display: grid; grid-template-columns: repeat(50, 1fr); gap: clamp(2px, 0.5vw, 6px); max-width: 900px; margin: 3rem auto 1rem; }
+.dots i { aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(255,255,255,0.22); }
+.dots i.on { background: var(--brand-primary); border-color: var(--brand-primary); }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 3rem; text-align: left; }
+.panel { padding: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.panel h3 { font-size: 1.5rem; text-transform: uppercase; }
+.panel p { color: var(--text-secondary); }
+.panel .eyebrow { margin: 0; }
+.panel .num { font-family: 'Outfit', sans-serif; color: var(--brand-primary); letter-spacing: 0.1em; }
+.way .btn { margin-top: auto; align-self: flex-start; }
+
+.story { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(1.5rem, 5vw, 4rem); align-items: center; margin-top: clamp(3rem, 7vw, 6rem); }
+.story:nth-of-type(even) img { order: 2; }
+.story img, .split img { width: 100%; height: auto; border-radius: 16px; box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+.story > div, .split > div { display: grid; gap: 1rem; justify-items: start; }
+.story p, .split p { color: var(--text-secondary); font-size: 1.1rem; }
+.story .eyebrow { margin: 0; color: var(--brand-primary); font-size: 0.8rem; }
+blockquote { border-left: 3px solid var(--brand-primary); padding-left: 1rem; font-size: 1.15rem; font-weight: 500; }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 5vw, 4rem); align-items: center; }
+
+.closing { text-align: center; }
+.closing .btn { margin-top: 2rem; padding: 1.1rem 2.5rem; font-size: 1.1rem; }
+
+.funds { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.75rem; margin-top: 2.5rem; }
+.fund { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.25rem 1.5rem; border: 1px solid rgba(255,255,255,0.14); border-radius: 12px; font-weight: 600; }
+.fund:hover { border-color: var(--brand-primary); }
+
+@media (max-width: 760px) {
+  .story, .split { grid-template-columns: 1fr; }
+  .story:nth-of-type(even) img { order: 0; }
+  .dots { grid-template-columns: repeat(40, 1fr); }
+}
+
+/* One calm reveal, native. Browsers without scroll timelines just show the content. */
+@keyframes rise { from { opacity: 0; transform: translateY(40px); } }
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
+  }
 }

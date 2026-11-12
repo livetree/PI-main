@@ -152,3 +152,46 @@ payment. Add them when a donor asks for something the home page cannot show.
 1. Confirm the Tithe.ly link above is the right general-fund destination for the main site.
 2. Confirm the headline numbers (50 movements, 2,400 students, 400+ churches, 50–60k homes) are current.
 3. Say where PI-main is hosted, so "going live" is a known step.
+
+---
+
+## Revision 2 — 2026-11-12, after Josiah's answers
+
+**Changed by him**
+- **The driving question is "What will it take to train 1 million people?"** It is
+  now the hero, and the page answers it: 1,000 movements → 10,000 trainers →
+  1,000,000 trained, then where PI is today (about 50 of 1,000 movements lit on a dot grid).
+- **Diagnostic is on the back burner.** Unlinked from nav, footer, home and
+  `/training`. The route and its code are untouched and still load by URL.
+- **Students: 2,500.** Other numbers confirmed current.
+- **Giving links come from prepareinternational.org/give-now**, not pi-momentum.
+  General fund, eight team members and three projects are wired. One fund on the
+  live page ("AR Support") has no name beside it, so it is left out.
+- **Hosting: Vercel.** No project exists for this repo yet.
+
+**Built (stages 02–03, local only)**
+- `src/content/site.mjs` holds every word, number, photo and link on `/` and `/give`.
+- `/` and `/give` rebuilt from it; palette moved from gold to Momentum yellow site-wide.
+- Found and fixed on the way: `.btn-primary` labels turned yellow-on-yellow on
+  hover (`a:hover` outranked the button); phone menu button had no name; pinch-zoom was blocked.
+- Story photos are the Lead40 cards cropped to the photograph, so each photo
+  still matches its country.
+- Guards added to `check.mjs`: no `<button>` on `/give`, every fund has a unique
+  https link, every named photo exists, old gold cannot return, nothing links to `/diagnostic`.
+
+**Editing text and graphics — the decision**
+Step 1 (done): all content in one file, so there is exactly one place to change.
+Step 2 (after the design is approved): edit on the page itself. Sign in with
+Google, click any text to change it, click any photo to replace it, press Save.
+It reuses what pi-momentum already runs — the same Firebase project for sign-in
+and saved text, Vercel Blob for photos — so there is no new account and no new
+bill. Not built yet on purpose: an editor built against a design that may still
+change gets built twice.
+
+Rejected: a hosted CMS (another login, another bill), and editing through
+GitHub (not simple for photos).
+
+**ONE CLICK, updated**
+1. Tell me who "AR Support" is, or confirm it stays off the page.
+2. When the look is approved: create the Vercel project for `livetree/PI-main`
+   (or say go and I will, through the Vercel connection).

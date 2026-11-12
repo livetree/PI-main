@@ -2,7 +2,8 @@
 // Each assertion holds a decision that is expensive to get wrong, and its
 // message says what broke rather than what was expected. See LOOP_SYSTEM.md §5.
 import assert from 'node:assert/strict';
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { SITE } from './src/content/site.mjs';
 import { SECTIONS, TIERS, QUESTIONS, MAX_SCORE, POINTS_PER_ANSWER, scoreToTier, sectionScores } from './src/lib/diagnostic.mjs';
 import { TEAM, REGIONS, titleOf } from './src/lib/people.mjs';
 
@@ -74,6 +75,35 @@ for (const file of readdirSync('src/posts')) {
   for (const field of ['title', 'date', 'excerpt']) {
     assert.ok(new RegExp(`^${field}:`, 'm').test(src), `${file} has no ${field}; the blog index renders it`);
   }
+}
+
+// --- Giving: a donor must always land somewhere real ------------------------
+// /give once shipped as four <button>s with no action; nobody could give.
+const read = (dir) => readdirSync(dir, { withFileTypes: true, recursive: true })
+  .filter((f) => f.isFile() && /\.(js|mjs|css)$/.test(f.name))
+  .map((f) => [`${f.parentPath}/${f.name}`, readFileSync(`${f.parentPath}/${f.name}`, 'utf8')]);
+const SRC = read('src');
+
+assert.ok(!/<button/.test(readFileSync('src/app/give/page.js', 'utf8')), '/give has a <button>; every way to give must be a link to a giving page');
+const funds = [...SITE.ways.items, ...SITE.give.team.funds, ...SITE.give.projects.funds];
+for (const f of funds) {
+  assert.ok(f.name && /^https:\/\/\S+$/.test(f.href), `"${f.name}" on /give has no https giving link (got ${f.href})`);
+}
+assert.equal(new Set(funds.map((f) => f.href)).size, funds.length, 'two giving options share one link; a gift would land in the wrong fund');
+
+// Every photo the content names must be in public/, or the page ships a hole.
+JSON.stringify(SITE, (k, v) => {
+  if (k === 'src') assert.ok(existsSync(`public${v}`), `content names ${v}, which is not in public/`);
+  return v;
+});
+// The dot grid lights `now` of `goal`; lighting more than the goal overstates the work.
+assert.ok(SITE.today.movements.now <= SITE.today.movements.goal, 'more movements lit than the goal has dots');
+
+// --- One palette: the old gold must not come back ---------------------------
+for (const [file, text] of SRC) {
+  assert.ok(!/d4af37|212,\s?175,\s?55/i.test(text), `${file} still uses the old gold; the accent is var(--brand-primary)`);
+  // The diagnostic is on the back burner: reachable by URL, linked from nowhere.
+  if (!file.includes('diagnostic')) assert.ok(!/href=["'{]+\/diagnostic/.test(text), `${file} links to /diagnostic, which is parked`);
 }
 
 console.log('checks passed');

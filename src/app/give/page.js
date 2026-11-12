@@ -1,118 +1,47 @@
-'use client';
+import { ArrowRight } from 'lucide-react';
+import { SITE } from '@/content/site.mjs';
+import { Accent } from '@/components/ui';
 
-import { motion } from 'framer-motion';
-import WaveBackground from '@/components/WaveBackground';
-import { Heart, Users, Globe, ArrowRight, Download } from 'lucide-react';
-import { TEAM } from '@/lib/people';
+export const metadata = { title: 'Give | Prepare International' };
 
-const fadeIn = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
-};
+const FundList = ({ title, funds, alt }) => (
+  <section className={alt ? 'band alt' : 'band'}>
+    <div className="container">
+      <h2 className="display center"><Accent>{title}</Accent></h2>
+      <div className="funds">
+        {funds.map((f) => (
+          <a key={f.name} className="fund" href={f.href}>
+            {f.name} <ArrowRight size={18} aria-hidden="true" />
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 export default function GivePage() {
+  const { give, ways } = SITE;
   return (
-    <main style={{ position: 'relative', minHeight: '100vh', backgroundColor: 'var(--bg)', color: '#fff' }}>
-      <WaveBackground quadrant={3} opacity={0.1} />
-
-      {/* HERO SECTION */}
-      <section style={{ position: 'relative', paddingTop: '15rem', paddingBottom: '10rem', overflow: 'hidden' }}>
-        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
-          <motion.div initial="hidden" animate="visible" variants={fadeIn} style={{ textAlign: 'center' }}>
-            <div style={{ color: 'var(--brand-secondary)', letterSpacing: '0.4em', textTransform: 'uppercase', fontSize: '1rem', fontWeight: 800, marginBottom: '2rem' }}>
-              GLOBAL PARTNERSHIP
-            </div>
-            <h1 style={{ fontSize: 'clamp(3.5rem, 8vw, 7rem)', fontWeight: 900, lineHeight: 0.85, textTransform: 'uppercase', letterSpacing: '-0.02em', marginBottom: '3rem' }}>
-              FUEL THE <br/> <span style={{ color: 'var(--brand-secondary)' }}>MISSION</span>
-            </h1>
-            <p style={{ fontSize: '1.5rem', color: 'var(--text-secondary)', maxWidth: '800px', marginInline: 'auto', lineHeight: 1.6 }}>
-              We don’t just send money; we send catalytic leaders. Your partnership fuels a global ecosystem designed to multiply for generations across churches, businesses, and communities.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* SUPPORT PILLARS */}
-      <section style={{ paddingBottom: '15rem' }}>
-        <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2.5rem' }}>
-            
-            {/* PILLAR 1: GLOBAL */}
-            <motion.div 
-              whileHover={{ y: -10 }}
-              style={{ padding: '4rem 3rem', background: 'rgba(255,255,255,0.02)', border: '1px solid var(--brand-secondary)', borderRadius: '16px', position: 'relative', overflow: 'hidden' }}
-            >
-              <div style={{ position: 'absolute', top: 0, right: 0, padding: '1rem', opacity: 0.1 }}><Globe size={100} /></div>
-              <h2 style={{ fontSize: '2rem', fontWeight: 900, textTransform: 'uppercase', marginBottom: '1.5rem' }}>PI GLOBAL</h2>
-              <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem', fontSize: '1.125rem' }}>Invest in the general movement fund to enable catalytic schools, training tools, and regional expansion across every sphere of society.</p>
-              <button className="btn btn-primary" style={{ padding: '1.25rem' }}>Fuel PI Global</button>
-            </motion.div>
-
-            {/* PILLAR 2: STAFF */}
-            <motion.div 
-              whileHover={{ y: -10 }}
-              style={{ padding: '4rem 3rem', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '16px', position: 'relative', overflow: 'hidden' }}
-            >
-              <div style={{ position: 'absolute', top: 0, right: 0, padding: '1rem', opacity: 0.1 }}><Users size={100} /></div>
-              <h2 style={{ fontSize: '2rem', fontWeight: 900, textTransform: 'uppercase', marginBottom: '1.5rem' }}>FIELD LEADERS</h2>
-              <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem', fontSize: '1.125rem' }}>Support the leaders on mission who drive movement expansion in specific regions across the globe.</p>
-              <button className="btn" style={{ padding: '1.25rem', border: '1px solid rgba(255,255,255,0.1)', color: '#fff' }}>View Field Leaders</button>
-            </motion.div>
-
-            {/* PILLAR 3: PROJECTS */}
-            <motion.div 
-              whileHover={{ y: -10 }}
-              style={{ padding: '4rem 3rem', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '16px', position: 'relative', overflow: 'hidden' }}
-            >
-              <div style={{ position: 'absolute', top: 0, right: 0, padding: '1rem', opacity: 0.1 }}><Heart size={100} /></div>
-              <h2 style={{ fontSize: '2rem', fontWeight: 900, textTransform: 'uppercase', marginBottom: '1.5rem' }}>PROJECTS</h2>
-              <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem', fontSize: '1.125rem' }}>Give to specific local initiatives, ranging from the Deaf in Poland to the villages of Macedonia.</p>
-              <button className="btn" style={{ padding: '1.25rem', border: '1px solid rgba(255,255,255,0.1)', color: '#fff' }}>Explore Projects</button>
-            </motion.div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* FIELD LEADERS DETAILS MINI-GRID */}
-      <section style={{ paddingBottom: '15rem' }}>
-        <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
-            <h2 style={{ fontSize: '3rem', fontWeight: 900, textTransform: 'uppercase' }}>Partner with Field Leaders</h2>
-            <div style={{ width: '80px', height: '4px', background: 'var(--brand-secondary)', margin: '2rem auto' }}></div>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
-            {TEAM.map((member) => (
-              <motion.div 
-                key={member.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                style={{ padding: '2rem', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
-              >
-                <div>
-                  <div style={{ fontWeight: 800, textTransform: 'uppercase', color: 'var(--brand-secondary)', fontSize: '1.125rem' }}>{member.name}</div>
-                  <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{member.title}</div>
-                </div>
-                <ArrowRight size={20} style={{ color: 'rgba(255,255,255,0.2)' }} />
-              </motion.div>
+    <>
+      <section className="band page-top">
+        <div className="container center">
+          <p className="eyebrow">{give.eyebrow}</p>
+          <h1 className="display"><Accent>{give.title}</Accent></h1>
+          <p className="lede">{give.text}</p>
+          <div className="cards">
+            {ways.items.map((w) => (
+              <div key={w.name} className="panel way">
+                <p className="eyebrow">{w.when}</p>
+                <h3>{w.name}</h3>
+                <p>{w.text}</p>
+                <a className="btn btn-primary" href={w.href}>{w.label}</a>
+              </div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* LEAD MAGNET / VALUE REMINDER */}
-      <section style={{ paddingBottom: '15rem' }}>
-        <div className="container">
-          <div style={{ padding: '6rem 4rem', background: 'linear-gradient(45deg, #0f172a 0%, #1e293b 100%)', borderRadius: '32px', border: '1px solid rgba(255,215,0,0.1)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
-            <div style={{ position: 'relative', zIndex: 10 }}>
-              <h2 style={{ fontSize: '3rem', fontWeight: 900, textTransform: 'uppercase', marginBottom: '1.5rem' }}>Understand the Paradigm</h2>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '1.25rem', maxWidth: '700px', marginInline: 'auto', marginBottom: '3rem' }}>Before you invest, discover why we do what we do. Read Randy Boyd’s foundational eBook on Father/Son leadership for free.</p>
-              <button className="btn btn-primary" style={{ padding: '1.25rem 3rem' }}>Get the Free eBook <Download size={18} style={{ marginLeft: '1rem' }} /></button>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+      <FundList {...give.team} alt />
+      <FundList {...give.projects} />
+    </>
   );
 }

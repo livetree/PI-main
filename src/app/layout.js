@@ -3,14 +3,13 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 
 export const metadata = {
-  title: 'Prepare International | A Movement of Multiplying Leaders',
-  description: 'A movement of leaders who live from Jesus, lead in His Kingdom, and multiply others—across churches, businesses, and communities.',
+  title: 'Prepare International | Training 1 million people',
+  description: 'What will it take to train 1 million people? Leaders who multiply leaders. Give to Prepare International.',
 };
 
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
 };
 
 export default function RootLayout({ children }) {
@@ -32,7 +31,7 @@ export default function RootLayout({ children }) {
             <div style={{ display: 'flex', gap: '1.5rem', marginTop: '1rem', fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
               <Link href="/">Home</Link>
               <Link href="/about">About</Link>
-              <Link href="/diagnostic">Diagnostic</Link>
+              <Link href="/training">Looking for training?</Link>
               <Link href="/give">Give</Link>
               <Link href="/blog">Blog</Link>
             </div>

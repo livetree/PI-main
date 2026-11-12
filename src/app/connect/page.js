@@ -40,8 +40,8 @@ export default function ConnectPage() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             style={{ 
-              background: 'linear-gradient(135deg, rgba(255,215,0,0.05) 0%, rgba(0,0,0,0) 100%)', 
-              border: '1px solid rgba(255,215,0,0.1)', 
+              background: 'linear-gradient(135deg, rgba(255, 230, 59,0.05) 0%, rgba(0,0,0,0) 100%)', 
+              border: '1px solid rgba(255, 230, 59,0.1)', 
               padding: 'clamp(2rem, 5vw, 4rem)',
               borderRadius: '24px',
               display: 'flex',

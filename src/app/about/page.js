@@ -30,7 +30,7 @@ export default function AboutPage() {
           right: '-10%', 
           width: '800px', 
           height: '800px', 
-          background: 'radial-gradient(circle, rgba(212,175,55,0.07) 0%, transparent 70%)', 
+          background: 'radial-gradient(circle, rgba(255, 230, 59,0.07) 0%, transparent 70%)', 
           pointerEvents: 'none',
           zIndex: 1
         }} />
@@ -102,7 +102,7 @@ export default function AboutPage() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6rem', alignItems: 'center' }}>
             
             <motion.div variants={flyInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <div style={{ display: 'inline-block', padding: '1rem 2rem', borderLeft: '4px solid var(--brand-secondary)', background: 'rgba(212,175,55,0.05)', marginBottom: '3rem' }}>
+              <div style={{ display: 'inline-block', padding: '1rem 2rem', borderLeft: '4px solid var(--brand-secondary)', background: 'rgba(255, 230, 59,0.05)', marginBottom: '3rem' }}>
                 <h3 style={{ fontSize: '2rem', color: 'var(--brand-secondary)', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>PI History</h3>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', maxWidth: '800px', fontSize: 'clamp(1.25rem, 2vw, 1.5rem)', color: 'var(--text-secondary)', lineHeight: 1.6 }}>

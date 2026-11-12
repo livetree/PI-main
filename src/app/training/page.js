@@ -279,13 +279,10 @@ export default function TrainingPage() {
               Ready to START <br/><span style={{ color: 'var(--brand-secondary)' }}>YOUR Pathway?</span>
             </h2>
             <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', marginBottom: '3.5rem', maxWidth: '600px', marginInline: 'auto' }}>
-              Take the diagnostic to see where you currently stand on the Multiplier Pathway, or reach out to launch a conversation.
+              Reach out to launch a conversation about where you are on the Multiplier Pathway.
             </p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
-              <Link href="/diagnostic" className="btn btn-primary" style={{ padding: '1.5rem 3rem', fontSize: '1.25rem' }}>
-                Start Diagnostic
-              </Link>
-              <Link href="/connect" className="btn" style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.2)', padding: '1.5rem 3rem', fontSize: '1.25rem', color: '#fff' }}>
+              <Link href="/connect" className="btn btn-primary" style={{ padding: '1.5rem 3rem', fontSize: '1.25rem' }}>
                 Book a Conversation
               </Link>
             </div>

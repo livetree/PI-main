@@ -4,13 +4,11 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight, Zap } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
 const NAV_LINKS = [
   { name: 'About', href: '/about' },
-  { name: 'Training', href: '/training' },
-  { name: 'Diagnostic', href: '/diagnostic' },
-  { name: 'Give', href: '/give' },
+  { name: 'For leaders', href: '/training' },
   { name: 'Blog', href: '/blog' },
 ];
 
@@ -47,7 +45,7 @@ export default function Navbar() {
           backdropFilter: scrolled ? 'blur(20px)' : 'none',
           padding: '0.75rem 1.5rem',
           borderRadius: scrolled ? '999px' : '0px',
-          border: scrolled ? '1px solid rgba(212, 175, 55, 0.2)' : '1px solid transparent',
+          border: scrolled ? '1px solid rgba(255, 230, 59, 0.2)' : '1px solid transparent',
           boxShadow: scrolled ? '0 20px 40px rgba(0,0,0,0.3)' : 'none',
           pointerEvents: 'auto',
           maxWidth: scrolled ? '1000px' : '1200px',
@@ -93,13 +91,15 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            <Link href="/connect" className="btn btn-primary" style={{ padding: '0.6rem 1.5rem', fontSize: '0.875rem', borderRadius: '999px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-              Connect <ArrowRight size={14} />
+            <Link href="/give" className="btn btn-primary" style={{ padding: '0.6rem 1.5rem', fontSize: '0.875rem', borderRadius: '999px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              Give <ArrowRight size={14} />
             </Link>
           </nav>
 
           {/* MOBILE TOGGLE */}
           <button 
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
             onClick={() => setIsOpen(!isOpen)}
             style={{ 
               display: 'none', 
@@ -166,8 +166,8 @@ export default function Navbar() {
                 transition={{ delay: NAV_LINKS.length * 0.1 }}
                 style={{ marginTop: '2rem' }}
               >
-                <Link href="/connect" onClick={() => setIsOpen(false)} className="btn btn-primary" style={{ fontSize: '1.25rem', padding: '1.5rem', width: '100%' }}>
-                  Start a Conversation <Zap size={20} />
+                <Link href="/give" onClick={() => setIsOpen(false)} className="btn btn-primary" style={{ fontSize: '1.25rem', padding: '1.5rem', width: '100%' }}>
+                  Give <ArrowRight size={20} />
                 </Link>
               </motion.div>
             </div>
