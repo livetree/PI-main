@@ -34,4 +34,19 @@ npm run build   # must succeed before any claim that something works
   portraits, the navbar logo). Moving to `next/image` needs a `next.config.mjs`
   with `remotePatterns` for `prepareinternational.org`; that is a deliberate
   deferral, not an oversight.
+
+## Autonomy — do not check in
+
+Standing permission from Josiah (2026-11-12): run the work end to end without
+asking. Decide, record the decision, keep going. Only two things come back to
+him:
+
+1. **Look and design** — show the built result (preview + screenshots) for a
+   design check. Show it finished, not as a question beforehand.
+2. **Going live** — never `git push` to `main` or deploy to production until he
+   has signed off on that design check. Local commits are always fine.
+
+Everything else (copy drafts, structure, routes, naming, which checks to add)
+is not a question. App-forge's ONE CLICK list still applies for things only he
+can do (accounts, keys, DNS).
 <!-- END:loop -->
