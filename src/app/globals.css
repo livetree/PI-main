@@ -259,7 +259,7 @@ blockquote { border-left: 3px solid var(--brand-primary); padding-left: 1rem; fo
 /* ---- About ---- */
 .timeline { display: grid; gap: 2.25rem; padding-left: 2rem; border-left: 2px solid rgba(255,255,255,0.14); list-style: none; }
 .timeline li { position: relative; display: grid; gap: 0.35rem; }
-.timeline li::before { content: ''; position: absolute; left: calc(-2rem - 8px); top: 0.45rem; width: 14px; height: 14px; border-radius: 50%; background: var(--brand-primary); box-shadow: 0 0 0 5px var(--bg); }
+.timeline li::before { content: ''; position: absolute; left: calc(-2rem - 8px); top: 0.45rem; width: 14px; height: 14px; border-radius: 50%; background: var(--brand-primary); box-shadow: 0 0 0 5px var(--surface); }
 .timeline b { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.5rem; line-height: 1; color: var(--brand-primary); text-transform: uppercase; }
 .timeline h3 { font-size: 1.25rem; text-transform: uppercase; }
 .timeline p { color: var(--text-secondary); font-size: 1.05rem; }

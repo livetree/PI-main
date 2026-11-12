@@ -244,3 +244,63 @@ Josiah approved the look (graduation hall as the top photo) and asked for the ed
   the hero photo optimises, `/diagnostic` still loads by URL.
 - **ONE CLICK for the editor on the live site:** add `pi-nations.vercel.app` to
   Firebase → Authentication → Settings → Authorized domains (project `pi-momentum-site`).
+
+---
+
+## Revision 5 — 2026-11-12: about page rebuilt, blog plan
+
+**About page (live).** Rebuilt in the donor look from `site.mjs`: history as a
+timeline using PI Momentum's wording, "How we train" (impartation, five marks),
+plain-language guiding principles, "The Mission Vector" renamed "The vision",
+colour team portraits. Faith Arredondo removed from the roster. AR Support stays
+off `/give` by Josiah's decision. The on-page editor covers the page.
+
+### Blog plan
+
+**What exists**
+- This repo: one placeholder post, written by a machine, with claims nobody
+  made ("over 60% of our global network interacts with us on phones"). Old styling.
+- prepareinternational.org: **141 published posts** (WordPress), mostly teaching
+  and devotional pieces — "The Dance of the Crab", "Learning the Ways of
+  Barnabas", "Cross-Cultural Ministry" — roughly one or two a month through July 2025.
+- pi-momentum: six field stories with photos and quotes (Zimbabwe, Guatemala,
+  Poltava, Mozambique, Warsaw, Matambú). Three are already on the home page.
+
+**The decision: one section, two kinds of writing**
+| Kind | For | Shape | Source |
+|---|---|---|---|
+| Field stories | donors | short, photo first, place, one quote, ends with Give | the six Lead40 stories, then new ones |
+| Teaching | leaders | long read, no photo required | the 141 WordPress posts |
+
+The nav says **Stories**; the address stays `/blog` so nothing breaks. The index
+opens on field stories, because that is what a donor came for, with a second
+tab for Teaching.
+
+**Pages**
+- Index: the newest field story large across the top, then photo cards
+  (place, title, date). Tabs: Field stories · Teaching. 12 to a page.
+- Post: photo across the top, one readable column, pull quote, author and date,
+  a Give band at the end, previous / next.
+- Home: each of the three stories links to its full story.
+
+**Build order**
+1. Restyle index and post pages; add `kind`, `place`, `photo` to a post; write
+   the six field stories from the Lead40 material; delete the placeholder.
+2. Migrate the 141 posts: one script reads the WordPress API, writes markdown
+   with the same slugs, and copies each featured image. Same slugs means old
+   links can be redirected when the domain moves.
+3. Posting from the browser: a "New story" form in the editor (title, place,
+   photo, text). After the editor's sign-in and save have been proven.
+
+Until step 3, a new story is: send the words and a photo, it is added as a file.
+
+**Guards**: every post has title, date, excerpt, kind; a field story has a photo
+that exists; slugs are unique; a migrated post keeps its WordPress slug.
+
+**Skipped on purpose**: comments, tags, search, related posts. Add search when
+the Teaching tab is long enough that people ask for it.
+
+**ONE CLICK**
+1. If any of the 141 posts should not come across, name them; otherwise all do.
+2. "Join PI's Epistle" (July 2025) looks like a newsletter. If it is still
+   running, send the sign-up link and it goes at the foot of every story.
