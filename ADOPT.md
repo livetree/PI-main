@@ -195,3 +195,34 @@ GitHub (not simple for photos).
 1. Tell me who "AR Support" is, or confirm it stays off the page.
 2. When the look is approved: create the Vercel project for `livetree/PI-main`
    (or say go and I will, through the Vercel connection).
+
+---
+
+## Revision 3 — 2026-11-12, look approved, editor built
+
+Josiah approved the look (graduation hall as the top photo) and asked for the editor.
+
+**How editing works**
+1. Open the home or give page with `?edit` on the end of the address (the footer has an "Edit" link).
+2. Sign in with Google.
+3. Click any text and type. `*Stars*` around a word make it yellow. Click a photo to replace it; "Change top photo" handles the one behind the headline.
+4. Press Save. The page reloads as visitors see it.
+
+**How it is built**
+- `site.mjs` stays the committed copy. Saved edits are a small map laid over it, kept in the Firebase project pi-momentum already uses (`content/main`).
+- Only an entry that already exists in `site.mjs` can be changed, and only to the same kind of value. Giving links cannot be edited on the page. A photo can only point at this site.
+- Who may save is decided by pi-momentum's existing `firestore.rules` (the two admin emails there). Anonymous writes were tested and are refused (403).
+- Uploaded photos are shrunk in the browser and stored in Firestore, served from `/img/<id>`. `ponytail:` 1 MB a photo; move to Vercel Blob if full-size originals are ever needed.
+- Visitors do not download Firebase. It loads only with `?edit`.
+- If the store cannot be reached, pages show the committed copy and log why.
+
+**Verified**: guards pass (edits allowed, eight kinds of bad edit refused), build passes, the edit bar appears only with `?edit`, nothing is editable before sign-in, `/img/<unknown>` is 404, refresh route answers 204.
+
+**Not verified — needs Josiah's Google account**: signing in, saving a text edit, replacing a photo. These have never been run.
+
+**Not editable on the page (edit `site.mjs`)**: giving links, the number of lit dots, adding or removing a story, fund or stat. The about, training, connect and blog pages.
+
+**ONE CLICK, updated**
+1. Try the editor: open `localhost:3000/?edit`, sign in, change a line, save.
+2. When the site goes to Vercel, its address must be added to Firebase → Authentication → Authorized domains, or Google sign-in will refuse to open there.
+3. "AR Support" is still off the give page.

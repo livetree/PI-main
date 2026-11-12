@@ -1,6 +1,8 @@
 import './globals.css';
 import Link from 'next/link';
+import { Suspense } from 'react';
 import Navbar from '@/components/Navbar';
+import Editor from '@/components/Editor';
 
 export const metadata = {
   title: 'Prepare International | Training 1 million people',
@@ -34,12 +36,15 @@ export default function RootLayout({ children }) {
               <Link href="/training">Looking for training?</Link>
               <Link href="/give">Give</Link>
               <Link href="/blog">Blog</Link>
+              <Link href="/?edit" rel="nofollow">Edit</Link>
             </div>
             <p style={{ marginTop: '2rem', fontSize: '0.75rem', color: 'var(--border)' }}>
               &copy; {new Date().getFullYear()} Prepare International. All rights reserved.
             </p>
           </div>
         </footer>
+        {/* Reads ?edit from the address, which needs a Suspense boundary on static pages. */}
+        <Suspense><Editor /></Suspense>
       </body>
     </html>
   );

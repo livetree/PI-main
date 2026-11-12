@@ -127,3 +127,38 @@ export const SITE = {
     },
   },
 };
+
+// ---- Edits made on the page -------------------------------------------------
+// The editor saves a flat map of { 'hero.title': 'New words' } over this file.
+// Only a path that already exists here can be changed, and only to the same
+// kind of value, so a stray or malicious entry cannot add anything to a page.
+
+export const at = (obj, path) => path.split('.').reduce((o, key) => o?.[key], obj);
+
+// The value to store for `path`, or undefined when it must be refused.
+export function accept(path, value) {
+  const was = at(SITE, path);
+  if (typeof was === 'number') {
+    const digits = String(value).replace(/[^0-9.]/g, '');
+    return digits && Number.isFinite(Number(digits)) ? Number(digits) : undefined;
+  }
+  if (typeof was !== 'string' || typeof value !== 'string') return undefined;
+  const text = value.trim();
+  if (!text || text.length > 2000) return undefined;
+  // A photo may only point at this site's own files or an uploaded image.
+  if (path.endsWith('.src') && !/^\/(photos|img)\/[\w.-]+$/.test(text)) return undefined;
+  // Links are not editable on the page: a typo there sends a gift nowhere.
+  if (path.endsWith('.href')) return undefined;
+  return text;
+}
+
+export function applyOverrides(site, map) {
+  const out = structuredClone(site);
+  for (const [path, value] of Object.entries(map ?? {})) {
+    const ok = accept(path, value);
+    if (ok === undefined) continue;
+    const keys = path.split('.');
+    at(out, keys.slice(0, -1).join('.'))[keys.at(-1)] = ok;
+  }
+  return out;
+}

@@ -237,6 +237,9 @@ h3.display { font-size: clamp(1.4rem, 2.6vw, 2.2rem); }
 .story p, .split p { color: var(--text-secondary); font-size: 1.1rem; }
 .story .eyebrow { margin: 0; color: var(--brand-primary); font-size: 0.8rem; }
 blockquote { border-left: 3px solid var(--brand-primary); padding-left: 1rem; font-size: 1.15rem; font-weight: 500; }
+.story blockquote::before { content: '“'; }
+.story blockquote::after { content: '”'; }
+.story img { aspect-ratio: 720 / 520; object-fit: cover; }
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 5vw, 4rem); align-items: center; }
 
 .closing { text-align: center; }
@@ -259,3 +262,11 @@ blockquote { border-left: 3px solid var(--brand-primary); padding-left: 1rem; fo
     .reveal { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
   }
 }
+
+/* ---- On-page editor (only present with ?edit in the address) ---- */
+.editable { outline: 1px dashed rgba(255, 230, 59, 0.7); outline-offset: 4px; cursor: text; animation: none !important; opacity: 1 !important; transform: none !important; }
+.editable:focus { outline: 2px solid var(--brand-primary); }
+img.editable { cursor: pointer; }
+.edit-bar { position: fixed; inset: auto 0 0 0; z-index: 2000; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 0.75rem; padding: 0.75rem 1rem; background: #0c101a; border-top: 1px solid var(--brand-primary); }
+.edit-bar span { margin-right: auto; color: var(--text-secondary); font-size: 0.95rem; }
+.edit-bar .btn { padding: 0.5rem 1.1rem; font-size: 0.9rem; }

@@ -3,7 +3,7 @@
 // message says what broke rather than what was expected. See LOOP_SYSTEM.md §5.
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
-import { SITE } from './src/content/site.mjs';
+import { SITE, accept, applyOverrides, at } from './src/content/site.mjs';
 import { SECTIONS, TIERS, QUESTIONS, MAX_SCORE, POINTS_PER_ANSWER, scoreToTier, sectionScores } from './src/lib/diagnostic.mjs';
 import { TEAM, REGIONS, titleOf } from './src/lib/people.mjs';
 
@@ -98,6 +98,45 @@ JSON.stringify(SITE, (k, v) => {
 });
 // The dot grid lights `now` of `goal`; lighting more than the goal overstates the work.
 assert.ok(SITE.today.movements.now <= SITE.today.movements.goal, 'more movements lit than the goal has dots');
+
+// --- On-page edits: allow what an editor does, refuse everything else --------
+{
+  const edited = applyOverrides(SITE, {
+    'hero.title': 'Train *one million* people',
+    'today.stats.0.n': '2,600',
+    'hero.photo.src': '/img/abc123def456',
+    'hero.photo.alt': 'https://evil.example/x.jpg',   // alt is words; any words are fine
+    'family.photo.src': 'https://evil.example/x.jpg', // a photo off this site
+    'ways.items.2.href': 'https://evil.example/give', // a giving link
+    'hero.nope': 'new key',
+    'vision.steps': 'not a list any more',
+    'closing.title': '   ',
+  });
+  assert.equal(edited.hero.title, 'Train *one million* people', 'a saved headline edit did not reach the page');
+  assert.equal(edited.today.stats[0].n, 2600, 'a number typed as "2,600" must be stored as 2600, or the count-up breaks');
+  assert.equal(edited.hero.photo.src, '/img/abc123def456', 'an uploaded photo did not replace the old one');
+  assert.equal(edited.family.photo.src, SITE.family.photo.src, 'an edit pointed a photo at another website');
+  assert.equal(edited.ways.items[2].href, SITE.ways.items[2].href, 'an edit changed where a gift goes');
+  assert.equal(edited.hero.nope, undefined, 'an edit added a key that is not in site.mjs');
+  assert.ok(Array.isArray(edited.vision.steps), 'an edit replaced a list with text');
+  assert.equal(edited.closing.title, SITE.closing.title, 'an empty edit blanked a heading');
+  assert.equal(SITE.hero.title, 'What will it take to train *1 million* people?', 'applying edits changed the committed copy itself');
+  assert.equal(accept('today.stats.0.n', 'lots'), undefined, 'words were accepted where a number is counted up');
+}
+
+// Every element the editor can change must name a real entry, or the edit
+// saves to nowhere and silently never appears.
+for (const [file, text] of SRC) {
+  for (const [, raw] of text.matchAll(/data-k(?:-img)?=(?:"([^"]+)"|\{`([^`]+)`\})/g).map((m) => [0, m[1] ?? m[2]])) {
+    if (raw.includes('${k}')) continue; // FundList: the two lists are checked by name below
+    // A list item may hold the entry at any position (a stat has `n` or `text`).
+    const found = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].some((i) => at(SITE, raw.replaceAll(/\$\{\w+\}/g, i)) !== undefined);
+    assert.ok(found, `${file} marks "${raw}" as editable, but site.mjs has no such entry`);
+  }
+}
+for (const k of ['give.team', 'give.projects']) {
+  assert.ok(at(SITE, `${k}.title`) && at(SITE, `${k}.funds.0.name`), `/give lists ${k}, which site.mjs does not hold`);
+}
 
 // --- One palette: the old gold must not come back ---------------------------
 for (const [file, text] of SRC) {
