@@ -161,6 +161,12 @@ main {
   transform: translateX(10px);
 }
 
+/* Leaders page focus cards — --c is the card's colour, set inline */
+.pathway-card:not(.is-active):hover,
+.pathway-card:not(.is-active):focus-visible {
+  border-color: color-mix(in srgb, var(--c) 27%, transparent);
+}
+
 /* Icon links that fade up on hover */
 .icon-link {
   opacity: 0.3;
@@ -268,22 +274,6 @@ blockquote { border-left: 3px solid var(--brand-primary); padding-left: 1rem; fo
 .team h3 { font-size: 1.05rem; margin-top: 0.9rem; }
 .team p { font-size: 0.8rem; color: var(--brand-primary); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
 @media (max-width: 760px) { .split.top img { position: static; } }
-
-/* ---- Leaders ---- */
-.cards.four { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
-.lede + .lede { margin-top: 1rem; color: #fff; }
-.note-line { max-width: 44rem; margin: 3rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.14); font-size: 1.15rem; font-weight: 500; }
-.topics { display: grid; gap: 0.75rem; max-width: 52rem; margin: 3rem auto 0; text-align: left; }
-.topics details { border: 1px solid rgba(255,255,255,0.14); border-radius: 12px; background: rgba(255,255,255,0.04); padding: 0 1.5rem; }
-.topics details[open] { border-color: var(--brand-primary); }
-.topics summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.25rem 0; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.15rem; text-transform: uppercase; }
-.topics summary::-webkit-details-marker { display: none; }
-.topics summary::after { content: '+'; color: var(--brand-primary); font-size: 1.5rem; line-height: 1; }
-.topics details[open] summary::after { content: '–'; }
-.topics details > p { color: var(--text-secondary); padding-bottom: 1rem; }
-.topics ul { list-style: none; display: grid; gap: 0.9rem; padding-bottom: 1.5rem; }
-.topics li b { display: block; }
-.topics li span { color: var(--text-secondary); }
 
 /* ---- On-page editor (only present with ?edit in the address) ---- */
 .editable { outline: 1px dashed rgba(255, 230, 59, 0.7); outline-offset: 4px; cursor: text; animation: none !important; opacity: 1 !important; transform: none !important; }

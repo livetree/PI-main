@@ -324,3 +324,23 @@ leaders in their nation.
 - The 26 courses are kept, grouped under six plain headings in native
   `<details>`. "Stage 01–04", "pathway" and the click-to-spotlight widget are gone.
 - The page reads from `site.mjs`, so the on-page editor covers it.
+
+---
+
+## Revision 7 — 2026-11-13: leaders page back to the original design
+
+Revision 6 replaced the stage cards with blocks. Josiah preferred the original:
+six cards that open their courses when chosen. Restored from history, with:
+
+- **Stages renamed to what each one is about**, so they read as choices rather
+  than a sequence: Foundation, Identity, Power, Everyday life, Leadership, Multiplication.
+- **His message in the opening**: highly customizable, 6 to 8 hours of teaching,
+  follow-up sessions in between, one topic (the Kingdom of God), shaped to the
+  leaders in their nation.
+- "Pathway" wording and the filler in the course descriptions stay removed.
+
+Lesson: "get away from the stages" meant the naming, not the layout. He had said
+he liked how the page looked. When a brief says it likes the look, change words
+before structure.
+
+The page is a client component again, so the on-page editor does not cover it.
